@@ -20,9 +20,17 @@ String gameData;
 gameData = DriverStation.getInstance().getGameSpecificMessage(); // 20
 if(gameData.charAt(0) == "L" && SmartDashboard.getNumber("Position") == 1) { // 10 and 30
 	// Cross autonomous line and do left side of switch.
+
+
 } else if(gameData.charAt(0) == "R" && SmartDashboard.getNumber("Position") == 3) { // 10 and 30
 	// Cross autonomous line and do right side of switch.
+
+
 } else { // 10 and 30
 	// Only attempt to cross autonomous line.
+	for (int; number equivilent to power needed to cross line < x; int++){
+	//move forward past the autonomous line
+	}
+
 }
 ```
