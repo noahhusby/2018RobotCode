@@ -40,16 +40,21 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.usfirst.frc.team1701.robot.commands.ExtendLiftArm;
+import org.usfirst.frc.team1701.robot.commands.RetractLiftArm;
+import org.usfirst.frc.team1701.robot.commands.StopLiftArm;
 
 public class OI {
 
-    public Joystick drive_FB;
-    public Joystick drive_T;
-    public Joystick operation;
-    public JoystickButton gearMode;
-    public JoystickButton resetGyro;
-    public JoystickButton preciseMode;
-    public JoystickButton turboMode;
+    public static Joystick drive_FB;
+    public static Joystick drive_T;
+    public static Joystick operation;
+    public static JoystickButton gearMode;
+    public static JoystickButton resetGyro;
+    public static JoystickButton preciseMode;
+    public static JoystickButton turboMode;
+    public static JoystickButton extendArm;
+    public static JoystickButton retractArm;
     private static final Logger logger = LogManager.getLogger();
 
     public OI() {
@@ -64,7 +69,12 @@ public class OI {
         resetGyro = new JoystickButton(operation, 2);
         preciseMode = new JoystickButton(operation, 3);
         turboMode = new JoystickButton(operation, 4);
-
+        extendArm = new JoystickButton(operation,5); //Placeholder Value... To Be Changed
+        extendArm.whenPressed(new ExtendLiftArm());
+        extendArm.whenReleased(new StopLiftArm());
+        retractArm = new JoystickButton(operation,6); //Placeholder Value... To Be Changed
+        retractArm.whenPressed(new RetractLiftArm());
+        retractArm.whenReleased(new StopLiftArm());
 
     }
 
