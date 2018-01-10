@@ -1,7 +1,8 @@
 package org.usfirst.frc.team1701.robot;
 import com.ctre.phoenix.motorcontrol.can.*;
 import com.kauailabs.navx.frc.AHRS;
-import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 public class RobotMap {
@@ -11,14 +12,25 @@ public class RobotMap {
     public static WPI_TalonSRX _leftBackMotor;
     public static WPI_TalonSRX _rightFrontMotor;
     public static WPI_TalonSRX _rightBackMotor;
+    public static SpeedControllerGroup _leftMotors;
+    public static SpeedControllerGroup _rightMotors;
+    public static DifferentialDrive driveTrain;
+    public static DoubleSolenoid liftArm;
+
     // NavX initializer.
     public static AHRS _navx;
     public static void init() {
         logger.info("RobotMap initializing DriveTrain values.");
         _leftFrontMotor = new WPI_TalonSRX(1);
-        _rightFrontMotor = new WPI_TalonSRX(2);
-        _leftBackMotor = new WPI_TalonSRX(3);
+        _rightFrontMotor = new WPI_TalonSRX(3);
+        _leftBackMotor = new WPI_TalonSRX(2);
         _rightBackMotor = new WPI_TalonSRX(4);
+        liftArm = new DoubleSolenoid(0,1);
+
+        _leftMotors = new SpeedControllerGroup(_leftFrontMotor, _leftBackMotor);
+        _rightMotors = new SpeedControllerGroup(_rightFrontMotor, _rightBackMotor);
+        driveTrain = new DifferentialDrive(_leftMotors, _rightMotors);
+
         logger.info("RobotMap initializing NavX.");
         _navx = new AHRS(SerialPort.Port.kUSB);
     }

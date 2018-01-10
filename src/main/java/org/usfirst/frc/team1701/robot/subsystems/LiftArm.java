@@ -1,7 +1,7 @@
 /**
- * subsystems/DriveTrain.java
+ * subsystems/LiftArm.java
  *
- * Created by Noah Husby on 1/7/2018.
+ * Created by Noah Husby on 1/10/2018.
  *
  * Copyright (c) 2018 Team 1701 (Robocubs)
  * All rights reserved.
@@ -35,40 +35,22 @@
  */
 package org.usfirst.frc.team1701.robot.subsystems;
 import org.usfirst.frc.team1701.robot.RobotMap;
-import org.usfirst.frc.team1701.robot.commands.TeleopDrive;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-public class DriveTrain extends Subsystem {
-
-    private boolean reversed = true;
-    private boolean precise = false;
-
-    public void setPrecise(boolean precise) {
-        this.precise = precise;
+public class LiftArm extends Subsystem {
+    private final DoubleSolenoid liftArm = RobotMap.liftArm;
+    public void extendArm() {
+        liftArm.set(DoubleSolenoid.Value.kForward);
+    }
+    public void retractArm()
+    {
+        liftArm.set(DoubleSolenoid.Value.kReverse);
+    }
+    public void stopArm()
+    {
+        liftArm.set(DoubleSolenoid.Value.kOff);
     }
 
 
-    public void toggleReversed() {
-        if (reversed) {
-            reversed = false;
-        } else {
-            reversed = true;
-        }
-    }
-
-    public void teleopControl(double forwardsBackwardsAxis, double turningAxis) {
-        if (reversed) {
-            forwardsBackwardsAxis *= -1;
-        }
-
-        if (precise) {
-            forwardsBackwardsAxis *= .5;
-            turningAxis *= .75;
-        }
-        RobotMap.driveTrain.arcadeDrive(forwardsBackwardsAxis, turningAxis);
-    }
-    public void initDefaultCommand() {
-        setDefaultCommand(new TeleopDrive());
-    }
-
-
+    public void initDefaultCommand() {}
 }
