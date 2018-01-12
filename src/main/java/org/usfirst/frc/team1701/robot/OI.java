@@ -40,9 +40,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.usfirst.frc.team1701.robot.commands.ExtendLiftArm;
-import org.usfirst.frc.team1701.robot.commands.RetractLiftArm;
-import org.usfirst.frc.team1701.robot.commands.StopLiftArm;
+import org.usfirst.frc.team1701.robot.commands.*;
 
 public class OI {
 
@@ -55,6 +53,7 @@ public class OI {
     public static JoystickButton turboMode;
     public static JoystickButton extendArm;
     public static JoystickButton retractArm;
+    public static JoystickButton climber;
     private static final Logger logger = LogManager.getLogger();
 
     public OI() {
@@ -75,6 +74,10 @@ public class OI {
         retractArm = new JoystickButton(operation,6); //Placeholder Value... To Be Changed
         retractArm.whenPressed(new RetractLiftArm());
         retractArm.whenReleased(new StopLiftArm());
+        climber = new JoystickButton(operation, 7);
+        climber.whenPressed(new StartClimb());
+        climber.whenReleased(new EndClimb());
+
 
     }
 

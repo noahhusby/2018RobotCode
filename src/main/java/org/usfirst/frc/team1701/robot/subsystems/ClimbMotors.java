@@ -9,9 +9,13 @@ public class ClimbMotors extends Subsystem {
 
 
     public void climbStart() {
-        RobotMap.climbMotor.set(-50);
+        RobotMap.climbMotor.set(50);
     }
 
+    public void climbEnd()
+    {
+        RobotMap.climbMotor.set(0);
+    }
 
 
     public void initDefaultCommand() {}

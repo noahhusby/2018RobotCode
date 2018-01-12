@@ -6,11 +6,22 @@ import edu.wpi.first.wpilibj.command.Command;
 
 
 public class StartClimb extends Command {
-    public StartClimb() {}
-    protected void initalize() {}
-    protected void execute() {}
-    protected boolean isFinished() {
-        return false;
+    private boolean isFinished = true;
+
+    public StartClimb() {
+        requires(Robot.climbMotors);
+    }
+    protected void initalize()
+    {
+
+    }
+    protected void execute()
+    {
+        Robot.climbMotors.climbStart();
+    }
+    protected boolean isFinished()
+    {
+        return isFinished;
     }
     protected void end() {}
     protected void interrupted() {}

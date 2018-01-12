@@ -37,6 +37,7 @@ package org.usfirst.frc.team1701.robot.subsystems;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+
 public class LiftArm extends Subsystem {
     private final DoubleSolenoid liftArm = RobotMap.liftArm;
     public void extendArm() {
