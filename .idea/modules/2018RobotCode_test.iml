@@ -19,6 +19,14 @@
     <orderEntry type="library" name="Gradle: openrio.mirror.third.kauailabs:navx-java:3.0.342" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-core:2.10.0" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-api:2.10.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.testng:testng:6.8.21" level="project" />
+    <orderEntry type="library" name="Gradle: org.easytesting:fest-assert-core:2.0M10" level="project" />
+    <orderEntry type="library" name="Gradle: org.uncommons:reportng:1.1.4" level="project" />
+    <orderEntry type="library" name="Gradle: org.beanshell:bsh:2.0b4" level="project" />
+    <orderEntry type="library" name="Gradle: com.beust:jcommander:1.27" level="project" />
+    <orderEntry type="library" name="Gradle: org.easytesting:fest-util:1.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: velocity:velocity:1.4" level="project" />
+    <orderEntry type="library" name="Gradle: velocity:velocity-dep:1.4" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="2018RobotCode_main" />
 </module>

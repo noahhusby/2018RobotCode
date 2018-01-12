@@ -43,7 +43,9 @@ import org.apache.logging.log4j.Logger;
 public class AutonomousCommand extends Command {
     private static final Logger logger = LogManager.getLogger();
     private static final String gameCode = DriverStation.getInstance().getGameSpecificMessage();
-    private static
+    private static final String switchPosition = gameCode.substring(0, 1);
+    private static final Double defaultPosition = 2.0;
+    private static final double robotPosition = SmartDashboard.getNumber("Position", defaultPosition);
     public AutonomousCommand() {
         requires(Robot.driveTrain);
     }
@@ -57,10 +59,14 @@ public class AutonomousCommand extends Command {
     protected void execute() {
         logger.warn("Autonomous command started! May the force be with you.");
         // This is how we figure out what to do. It's a bit rough at best.
-        if(gameCode.charAt(0) = "L" && SmartDashboard.getNumber("Position") == 1) {
-            // Take control of left side of switch.
-        } else if(gameCode.charAt(0) = "R" && SmartDashboard.getNumber("Position") == 1) {
-            // Take control of right side of switch.
+        if(switchPosition == "L") {
+        	if(robotPosition == 1) {
+	            // Take control of left side of switch.
+        	}
+        } else if(switchPosition == "R") {
+        	if(robotPosition == 3) {
+        		// Take control of right side of switch.
+        	}
         } else {
             // Attempt to cross autonomous line.
         }
@@ -76,14 +82,14 @@ public class AutonomousCommand extends Command {
      * End the command.
      */
     protected void end() {
-        logger.info("Halt! We are the Knights Who Say Ni! Bring us some shrubbery to continue.")
+        logger.info("Halt! We are the Knights Who Say Ni! Bring us some shrubbery to continue.");
         logger.warn("Just kidding; returning control to user.");
     }
     /**
      * End the command, the hard way.
      */
     protected void interrupted() {
-        logger.info("Halt! We are the Knights Who Say Ni! Bring us some shrubbery to continue.")
+        logger.info("Halt! We are the Knights Who Say Ni! Bring us some shrubbery to continue.");
         logger.warn("Just kidding; returning control to user.");
     }
 }

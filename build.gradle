@@ -35,6 +35,9 @@ dependencies {
     compile navx()
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.10.0'
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.10.0'
+    testCompile group: 'org.testng', name: 'testng', version: '6.8+'
+    testCompile 'org.easytesting:fest-assert-core:2.0M10'
+    testCompile 'org.uncommons:reportng:1.1.4'
 }
 
 // Setting up my Jar File. In this case, adding all libraries into the main jar ('fat jar')
@@ -43,6 +46,10 @@ dependencies {
 jar {
     from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     manifest jaci.openrio.gradle.GradleRIOPlugin.javaManifest(ROBOT_CLASS)
+}
+
+test {
+    useTestNG() {}
 }
 
 task wrapper(type: Wrapper) {
