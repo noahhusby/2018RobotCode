@@ -38,6 +38,7 @@ package org.usfirst.frc.team1701.robot;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import org.usfirst.frc.team1701.robot.subsystems.Hook;
 import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
 import org.usfirst.frc.team1701.robot.subsystems.Winch;
 
@@ -52,6 +53,7 @@ public class Robot extends IterativeRobot {
     public static DriveTrain driveTrain;
     public static LiftArm liftArm;
     public static Winch winch;
+    public static Hook hook;
 
     /**
      * This function is run when the robot is first started up.
