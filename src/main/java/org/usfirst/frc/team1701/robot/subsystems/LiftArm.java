@@ -40,6 +40,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class LiftArm extends Subsystem {
     private final DoubleSolenoid liftArm = RobotMap.liftArm;
+    private final DoubleSolenoid armClamp = RobotMap.armClamp;
     public void extendArm() {
         liftArm.set(DoubleSolenoid.Value.kForward);
     }
@@ -51,6 +52,16 @@ public class LiftArm extends Subsystem {
     public void stopArm()
     {
         liftArm.set(DoubleSolenoid.Value.kOff);
+    }
+
+    
+    public void grabArmClamp(){
+        armClamp.set(DoubleSolenoid.Value.kForward);
+
+    }
+
+    public void releaseArmClamp(){
+        armClamp.set(DoubleSolenoid.Value.kReverse);
     }
 
 

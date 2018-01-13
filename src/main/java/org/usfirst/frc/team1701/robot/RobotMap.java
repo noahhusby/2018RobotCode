@@ -18,6 +18,7 @@ public class RobotMap {
     public static SpeedControllerGroup _rightMotors;
     public static DifferentialDrive driveTrain;
     public static DoubleSolenoid liftArm;
+    public static DoubleSolenoid armClamp;
     public static DigitalOutput hook;
 
 
@@ -31,7 +32,8 @@ public class RobotMap {
         _rightBackMotor = new WPI_TalonSRX(4);
         climbMotor = new WPI_TalonSRX(5);
         winch = new WPI_TalonSRX(6);
-        liftArm = new DoubleSolenoid(0,1);
+        liftArm = new DoubleSolenoid(0,0,1);
+        armClamp = new DoubleSolenoid(0,2,3);
         hook = new DigitalOutput(0);
 
         _leftMotors = new SpeedControllerGroup(_leftFrontMotor, _leftBackMotor);
