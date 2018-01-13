@@ -35,6 +35,8 @@
  */
 package org.usfirst.frc.team1701.robot;
 
+import org.usfirst.frc.team1701.robot.commands.GrabArmClamp;
+import org.usfirst.frc.team1701.robot.commands.ReleaseArmClamp;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -54,6 +56,8 @@ public class Robot extends IterativeRobot {
     public static LiftArm liftArm;
     public static Winch winch;
     public static Hook hook;
+    public static GrabArmClamp grabArmClamp;
+    public static ReleaseArmClamp releaseArmClamp;
 
     /**
      * This function is run when the robot is first started up.
