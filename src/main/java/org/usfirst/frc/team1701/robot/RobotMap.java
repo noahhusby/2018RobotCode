@@ -18,6 +18,7 @@ public class RobotMap {
     public static SpeedControllerGroup _rightMotors;
     public static DifferentialDrive driveTrain;
     public static DoubleSolenoid liftArm;
+    public static DigitalOutput hook;
 
 
     // NavX initializer.
@@ -31,6 +32,7 @@ public class RobotMap {
         climbMotor = new WPI_TalonSRX(5);
         winch = new WPI_TalonSRX(6);
         liftArm = new DoubleSolenoid(0,1);
+        hook = new DigitalOutput(0);
 
         _leftMotors = new SpeedControllerGroup(_leftFrontMotor, _leftBackMotor);
         _rightMotors = new SpeedControllerGroup(_rightFrontMotor, _rightBackMotor);

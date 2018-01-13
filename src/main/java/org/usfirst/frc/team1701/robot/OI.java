@@ -54,6 +54,7 @@ public class OI {
     public static JoystickButton extendArm;
     public static JoystickButton retractArm;
     public static JoystickButton climber;
+    public static JoystickButton hook;
     private static final Logger logger = LogManager.getLogger();
 
     public OI() {
@@ -77,6 +78,8 @@ public class OI {
         climber = new JoystickButton(operation, 7);
         climber.whenPressed(new StartClimb());
         climber.whenReleased(new EndClimb());
+        hook = new JoystickButton(operation,8);
+
 
 
     }
