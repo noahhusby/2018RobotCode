@@ -35,11 +35,11 @@
  */
 package org.usfirst.frc.team1701.robot;
 
-import org.usfirst.frc.team1701.robot.subsystems.ClimbMotors;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
+import org.usfirst.frc.team1701.robot.subsystems.Winch;
 
 /**
  * The VM on the RoboRIO is automatically configured to run this class.
@@ -51,7 +51,7 @@ public class Robot extends IterativeRobot {
     public static OI oi;
     public static DriveTrain driveTrain;
     public static LiftArm liftArm;
-    public static ClimbMotors climbMotors;
+    public static Winch winch;
 
     /**
      * This function is run when the robot is first started up.

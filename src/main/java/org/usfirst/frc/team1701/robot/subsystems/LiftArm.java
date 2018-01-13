@@ -43,10 +43,11 @@ public class LiftArm extends Subsystem {
     public void extendArm() {
         liftArm.set(DoubleSolenoid.Value.kForward);
     }
-    public void retractArm()
+    /*public void retractArm()
     {
         liftArm.set(DoubleSolenoid.Value.kReverse);
     }
+    */
     public void stopArm()
     {
         liftArm.set(DoubleSolenoid.Value.kOff);

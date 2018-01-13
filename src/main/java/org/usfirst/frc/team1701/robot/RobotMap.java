@@ -13,10 +13,12 @@ public class RobotMap {
     public static WPI_TalonSRX _rightFrontMotor;
     public static WPI_TalonSRX _rightBackMotor;
     public static WPI_TalonSRX climbMotor;
+    public static WPI_TalonSRX winch;
     public static SpeedControllerGroup _leftMotors;
     public static SpeedControllerGroup _rightMotors;
     public static DifferentialDrive driveTrain;
     public static DoubleSolenoid liftArm;
+
 
     // NavX initializer.
     public static AHRS _navx;
@@ -27,6 +29,7 @@ public class RobotMap {
         _leftBackMotor = new WPI_TalonSRX(2);
         _rightBackMotor = new WPI_TalonSRX(4);
         climbMotor = new WPI_TalonSRX(5);
+        winch = new WPI_TalonSRX(6);
         liftArm = new DoubleSolenoid(0,1);
 
         _leftMotors = new SpeedControllerGroup(_leftFrontMotor, _leftBackMotor);

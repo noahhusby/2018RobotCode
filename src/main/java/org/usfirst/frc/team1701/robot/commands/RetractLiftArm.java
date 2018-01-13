@@ -7,7 +7,7 @@ public class RetractLiftArm extends Command{
     private boolean isFinished = true;
 
     public RetractLiftArm() {
-        requires(Robot.liftArm);
+        requires(Robot.winch);
     }
     protected void initalize()
     {
@@ -15,7 +15,7 @@ public class RetractLiftArm extends Command{
     }
     protected void execute()
     {
-        Robot.liftArm.retractArm();
+        Robot.winch.winchEnd();
     }
     protected boolean isFinished()
     {

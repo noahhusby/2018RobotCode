@@ -9,7 +9,7 @@ public class StartClimb extends Command {
     private boolean isFinished = true;
 
     public StartClimb() {
-        requires(Robot.climbMotors);
+        requires(Robot.winch);
     }
     protected void initalize()
     {
@@ -17,7 +17,7 @@ public class StartClimb extends Command {
     }
     protected void execute()
     {
-        Robot.climbMotors.climbStart();
+        Robot.winch.winchStart();
     }
     protected boolean isFinished()
     {

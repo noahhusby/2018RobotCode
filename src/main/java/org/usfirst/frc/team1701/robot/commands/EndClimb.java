@@ -7,7 +7,7 @@ public class EndClimb extends Command{
     private boolean isFinished = true;
 
     public EndClimb() {
-        requires(Robot.climbMotors);
+        requires(Robot.winch);
     }
     protected void initalize()
     {
@@ -15,7 +15,7 @@ public class EndClimb extends Command{
     }
     protected void execute()
     {
-        Robot.climbMotors.climbEnd();
+        Robot.winch.winchEnd();
     }
     protected boolean isFinished()
     {
