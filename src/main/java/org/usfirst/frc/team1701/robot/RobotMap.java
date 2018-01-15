@@ -22,6 +22,7 @@ public class RobotMap {
     public static DoubleSolenoid liftArm;
     public static DoubleSolenoid armClamp;
     public static DigitalOutput hook;
+    public static int encPidIdx;
 
 
     // NavX initializer.
@@ -29,11 +30,14 @@ public class RobotMap {
     public static void init() {
         logger.info("RobotMap initializing DriveTrain values.");
         _leftFrontMotor = new WPI_TalonSRX(1);
-        _rightFrontMotor = new WPI_TalonSRX(2);
         _leftBackMotor = new WPI_TalonSRX(3);
-        _rightBackMotor = new WPI_TalonSRX(4);
         _leftMiddleMotor = new WPI_TalonSRX(5);
+        _rightFrontMotor = new WPI_TalonSRX(2);
+        _rightBackMotor = new WPI_TalonSRX(4);
         _rightMiddleMotor = new WPI_TalonSRX(6);
+
+        //Values to be initialized
+        encPidIdx = 0; //0 for Primary closed-loop. 1 for cascaded closed-loop;
 
         climbMotor = new WPI_TalonSRX(5);
         winch = new WPI_TalonSRX(6);
