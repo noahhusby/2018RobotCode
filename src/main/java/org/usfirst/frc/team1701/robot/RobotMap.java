@@ -46,6 +46,8 @@ public class RobotMap {
         driveTrain = new DifferentialDrive(_leftMotors, _rightMotors);
 
 
+
+
         logger.info("RobotMap initializing NavX.");
         _navx = new AHRS(SerialPort.Port.kUSB);
     }
