@@ -54,7 +54,7 @@ public class LiftArm extends Subsystem {
         liftArm.set(DoubleSolenoid.Value.kOff);
     }
 
-    
+
     public void grabArmClamp(){
         armClamp.set(DoubleSolenoid.Value.kForward);
 
