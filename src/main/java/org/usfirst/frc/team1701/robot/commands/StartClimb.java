@@ -11,6 +11,7 @@ public class StartClimb extends Command {
     public StartClimb() {
         requires(Robot.winch);
     }
+    //needs winch to work
     protected void initalize()
     {
 
@@ -19,6 +20,7 @@ public class StartClimb extends Command {
     {
         Robot.winch.winchStart();
     }
+    //Similar to the retractarm, we dont have an end for the winch yet
     protected boolean isFinished()
     {
         return isFinished;

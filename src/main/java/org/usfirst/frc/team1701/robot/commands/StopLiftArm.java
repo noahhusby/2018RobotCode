@@ -9,6 +9,7 @@ public class StopLiftArm extends Command{
     public StopLiftArm() {
         requires(Robot.liftArm);
     }
+    //requires liftArm to work
     protected void initalize()
     {
 
@@ -17,6 +18,7 @@ public class StopLiftArm extends Command{
     {
         Robot.liftArm.stopArm();
     }
+    //To stop the arm from lifting anymore, we need stopArm
     protected boolean isFinished()
     {
         return isFinished;

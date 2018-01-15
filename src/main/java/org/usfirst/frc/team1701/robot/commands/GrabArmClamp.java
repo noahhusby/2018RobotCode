@@ -10,6 +10,7 @@ public class GrabArmClamp extends Command{
     public GrabArmClamp() {
         requires(Robot.liftArm);
     }
+    //it needs liftarm to work because the armClamp is inside of liftarm.
     protected void initalize()
     {
 
@@ -18,6 +19,7 @@ public class GrabArmClamp extends Command{
     {
         Robot.liftArm.grabArmClamp();
     }
+    //Closes the Clamp at the end of the arm.
     protected boolean isFinished()
     {
         return isDone;

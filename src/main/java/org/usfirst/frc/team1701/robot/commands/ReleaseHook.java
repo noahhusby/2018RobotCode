@@ -10,6 +10,7 @@ public class ReleaseHook extends Command{
     public ReleaseHook() {
         requires(Robot.hook);
     }
+    //requires the hook to be able to access the hook
     protected void initalize()
     {
 
@@ -18,6 +19,8 @@ public class ReleaseHook extends Command{
     {
         Robot.hook.releaseHook();
     }
+    //LAY WAY! DROP THE ANCHOR! SECURE THE SHIP
+    //(Meaning release the hook)
     protected boolean isFinished()
     {
         return isDone;

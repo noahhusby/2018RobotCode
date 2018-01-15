@@ -10,7 +10,7 @@ public class ReleaseArmClamp extends Command{
     public ReleaseArmClamp() {
         requires(Robot.liftArm);
     }
-
+    //It needs liftArm to function
     protected void initalize()
     {
 
@@ -19,6 +19,7 @@ public class ReleaseArmClamp extends Command{
     {
         Robot.liftArm.releaseArmClamp();
     }
+    //Releases the clamp at the end of the arm
     protected boolean isFinished()
     {
         return isDone;

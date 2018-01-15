@@ -9,6 +9,7 @@ public class EndClimb extends Command{
     public EndClimb() {
         requires(Robot.winch);
     }
+    //it needs to use a winch to work. Therefore it requires winch ^^
     protected void initalize()
     {
 
@@ -17,6 +18,8 @@ public class EndClimb extends Command{
     {
         Robot.winch.winchEnd();
     }
+    //The whole purpose of this class is right above. It ends the winch from moving
+
     protected boolean isFinished()
     {
         return isFinished;

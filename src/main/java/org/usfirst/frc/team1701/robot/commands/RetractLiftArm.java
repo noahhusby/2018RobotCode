@@ -15,8 +15,10 @@ public class RetractLiftArm extends Command{
     }
     protected void execute()
     {
-        Robot.winch.winchEnd();
+        Robot.winch.winchStart();
     }
+    //**NOTE WE STILL NEED TO HAVE AN END FOR THE WINCH SO WE DONT BREAK IT
+    //Otherwise this is the winch beginning, allowing the arm to retract
     protected boolean isFinished()
     {
         return isFinished;

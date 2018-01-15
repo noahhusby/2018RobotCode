@@ -9,6 +9,7 @@ public class ExtendLiftArm extends Command {
     public ExtendLiftArm() {
         requires(Robot.liftArm);
     }
+    //It needs to use the liftarm to do anything.
     protected void initalize()
     {
 
@@ -17,6 +18,8 @@ public class ExtendLiftArm extends Command {
     {
         Robot.liftArm.extendArm();
     }
+    //Extend the arm. Simple as that. ^^
+
     protected boolean isFinished()
     {
         return isFinished;
