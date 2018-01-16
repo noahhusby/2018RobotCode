@@ -91,6 +91,12 @@ public class DriveTrain extends Subsystem {
     right_3.set(inputSpeed);
   }
 
+  public void resetEncoders()
+  {
+      resetLeftEncoder();
+      resetRightEncoder();
+  }
+
   private boolean reversed = true;
   private boolean precise = false;
 

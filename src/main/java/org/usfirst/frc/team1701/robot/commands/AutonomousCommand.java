@@ -55,6 +55,11 @@ public class AutonomousCommand extends Command {
     if (switchPosition == "L") {
       if (robotPosition == 1) {
         // Take control of left side of switch.
+        Robot.driveTrain.resetEncoders();
+        
+        SmartDashboard.putNumber("Left Encoder:", Robot.driveTrain.getLeftDistance());
+        SmartDashboard.putNumber("Right Encoder:", Robot.driveTrain.getRightDistance());
+        //To convert number to string
       }
     } else if (switchPosition == "R") {
       if (robotPosition == 3) {
