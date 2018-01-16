@@ -1,3 +1,10 @@
+/**
+ * RobotMap.java
+ *
+ * @author Nick Hubbard
+ * @since 1/3/19
+ * @license BSD-3-Clause
+ */
 package org.usfirst.frc.team1701.robot;
 
 import com.ctre.phoenix.motorcontrol.can.*;
