@@ -6,15 +6,18 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.usfirst.frc.team1701.robot.commands.*;
-
+import org.usfirst.frc.team1701.robot.commands.*; // Should be eventually replaced with absolute imports.
+/*
+ * This class sets up and enables the Joysticks and Buttons on your console.
+ */
 public class OI {
-
+  /*
+   * Create initial values.
+   */
   public static Joystick drive_FB;
   public static Joystick drive_T;
   public static Joystick operation;
@@ -27,15 +30,20 @@ public class OI {
   public static JoystickButton climber;
   public static JoystickButton hook;
   private static final Logger logger = LogManager.getLogger();
-
+  /*
+   * Instead of an init() function, we call this on OI startup.
+   */
   public OI() {
-
     logger.info("Assigning joystick values...");
-    //Assign joysticks addresses (from DriverStation)
+    /*
+     * Enable the physical joysticks.
+     */
     operation = new Joystick(0);
     drive_FB = new Joystick(1);
     drive_T = new Joystick(2);
-
+    /*
+     * Assign commands to buttons.
+     */
     gearMode = new JoystickButton(operation, 1);
     resetGyro = new JoystickButton(operation, 2);
     preciseMode = new JoystickButton(operation, 3);
@@ -51,15 +59,21 @@ public class OI {
     climber.whenReleased(new EndClimb());
     hook = new JoystickButton(operation, 8);
   }
-
+  /*
+   * Return an instance of the forwards/backwards joystick.
+   */
   public Joystick getDrive_FB() {
     return drive_FB;
   }
-
+  /*
+   * Return an instance of the throttle joystick.
+   */
   public Joystick getDrive_T() {
     return drive_T;
   }
-
+  /*
+   * Return an instance of the operation joystick.
+   */
   public Joystick getOperation() {
     return operation;
   }
