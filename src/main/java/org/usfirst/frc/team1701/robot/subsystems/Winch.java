@@ -13,11 +13,13 @@ import org.usfirst.frc.team1701.robot.RobotMap;
 public class Winch extends Subsystem {
 
   public void winchStart() {
-    RobotMap.winch.set(.5);
+    RobotMap.winch1.set(.5);
+    RobotMap.winch2.set(.5);
   }
 
   public void winchEnd() {
-    RobotMap.winch.set(0);
+    RobotMap.winch1.set(0);
+    RobotMap.winch2.set(0);
   }
 
   public void initDefaultCommand() {}
