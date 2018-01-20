@@ -14,7 +14,7 @@ public class StopLiftArm extends Command {
   private boolean isFinished = true;
 
   public StopLiftArm() {
-    requires(Robot.liftArm);
+
   }
   //requires liftArm to work
   protected void initalize() {}

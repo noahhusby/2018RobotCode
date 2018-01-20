@@ -14,7 +14,6 @@ public class ExtendLiftArm extends Command {
   private boolean isFinished = true;
 
   public ExtendLiftArm() {
-    requires(Robot.liftArm);
   }
   //It needs to use the liftarm to do anything.
   protected void initalize() {}

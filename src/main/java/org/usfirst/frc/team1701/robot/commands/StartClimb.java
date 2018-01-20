@@ -14,7 +14,7 @@ public class StartClimb extends Command {
   private boolean isFinished = true;
 
   public StartClimb() {
-    requires(Robot.winch);
+
   }
   //needs winch to work
   protected void initalize() {}

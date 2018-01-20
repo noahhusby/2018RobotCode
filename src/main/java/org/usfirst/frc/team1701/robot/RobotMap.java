@@ -8,6 +8,7 @@
 package org.usfirst.frc.team1701.robot;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX; // Replaced wildcard import.
 import com.kauailabs.navx.frc.AHRS;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.SpeedControllerGroup; // SpeedControllerGroup, DoubleSolenoid and DigitalOutput: replaced wildcard import with absolute imports.
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DigitalOutput;
@@ -52,7 +53,7 @@ public class RobotMap {
      * Encoder PID index.
      * @value 0 for primary closed-loop, 1 for cascaded closed-loop.
      */
-    encPidIdx = 0; // Where is this used?
+    encPidIdx = 0; // Where is this used? DriveTrain.java, The DriveTrain Nick!
     /*
      * Initialize all non-drivetrain motors.
      */
