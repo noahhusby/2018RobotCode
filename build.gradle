@@ -3,7 +3,7 @@ plugins {
     id "eclipse"
     id "idea"
     id "jaci.openrio.gradle.GradleRIO" version "2018.01.06b"
-    id "com.github.sherter.google-java-format" version "0.6"
+    //id "com.github.sherter.google-java-format" version "0.6"
 }
 
 repositories {

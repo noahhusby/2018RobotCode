@@ -8,14 +8,12 @@
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team1701.robot.OI;
 import org.usfirst.frc.team1701.robot.commands.GrabArmClamp;
 import org.usfirst.frc.team1701.robot.commands.ReleaseArmClamp;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team1701.robot.subsystems.Hook;
 import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
-import org.usfirst.frc.team1701.robot.subsystems.Winch;
+
 /*
  * The VM on the RoboRIO is automatically configured to run this class. If you change the name of
  * this class or the package, change it in Gradle and here.
@@ -53,25 +51,19 @@ public class Robot extends IterativeRobot {
    * This function is called when autonomous mode is started.
    */
   public void autonomousInit() {
-    Robot.driveTrain.resetEncoders();
   }
   /*
    * This function is called periodically during autonomous mode.
    */
 
   public void autonomousPeriodic() {
-    //Scheduler.getInstance().run();
-
-
-    SmartDashboard.putNumber("Left Encoder:", Robot.driveTrain.getLeftDistance());
-    SmartDashboard.putNumber("Right Encoder:", Robot.driveTrain.getRightDistance());
-
-
+    Scheduler.getInstance().run();
   }
   /*
    * This function is called on start of teleop.
    */
-  public void teleopInit() {}
+  public void teleopInit() {
+  }
   /*
    * This function is called periodically during teleop.
    */

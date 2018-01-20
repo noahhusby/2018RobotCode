@@ -20,7 +20,7 @@ public class DriveTrain extends Subsystem {
   private final WPI_TalonSRX right_2 = RobotMap._rightBackMotor;
 
   private final WPI_TalonSRX leftEncTalon = left_1;
-  private final WPI_TalonSRX rightEncTalon = right_2;
+  private final WPI_TalonSRX rightEncTalon = right_1;
 
   private final int encPidIdx = RobotMap.encPidIdx;
   private final double WHEEL_CIRCUMFERENCE = 3.9 * Math.PI;
