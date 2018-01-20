@@ -8,8 +8,6 @@
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import org.usfirst.frc.team1701.robot.commands.GrabArmClamp;
-import org.usfirst.frc.team1701.robot.commands.ReleaseArmClamp;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team1701.robot.subsystems.Hook;
 import org.usfirst.frc.team1701.robot.subsystems.LiftArm;

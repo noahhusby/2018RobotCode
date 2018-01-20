@@ -61,6 +61,7 @@ public class RobotMap {
     hook = new DigitalOutput(0);
     /*
      * Create 6-wheel drivetrain object using DifferentialDrive and SpeedControllerGroups.
+     * We have a four wheel
      */
     _leftMotors = new SpeedControllerGroup(_leftFrontMotor, _leftBackMotor);
     _rightMotors = new SpeedControllerGroup(_rightFrontMotor, _rightBackMotor);
