@@ -16,13 +16,11 @@ public class DriveTrain extends Subsystem {
 
   private final WPI_TalonSRX left_1 = RobotMap._leftFrontMotor;
   private final WPI_TalonSRX left_2 = RobotMap._leftBackMotor;
-  private final WPI_TalonSRX left_3 = RobotMap._leftMiddleMotor;
   private final WPI_TalonSRX right_1 = RobotMap._rightFrontMotor;
   private final WPI_TalonSRX right_2 = RobotMap._rightBackMotor;
-  private final WPI_TalonSRX right_3 = RobotMap._rightMiddleMotor;
 
-  private final WPI_TalonSRX leftEncTalon = left_3;
-  private final WPI_TalonSRX rightEncTalon = right_3;
+  private final WPI_TalonSRX leftEncTalon = left_1;
+  private final WPI_TalonSRX rightEncTalon = right_2;
 
   private final int encPidIdx = RobotMap.encPidIdx;
   private final double WHEEL_CIRCUMFERENCE = 3.9 * Math.PI;
@@ -60,13 +58,13 @@ public class DriveTrain extends Subsystem {
   public void leftDriveControl(double inputSpeed) {
     left_1.set(inputSpeed);
     left_2.set(inputSpeed);
-    left_3.set(inputSpeed);
+
   }
 
   public void rightDriveControl(double inputSpeed) {
     right_1.set(inputSpeed);
     right_2.set(inputSpeed);
-    right_3.set(inputSpeed);
+
   }
 
   public void resetEncoders()

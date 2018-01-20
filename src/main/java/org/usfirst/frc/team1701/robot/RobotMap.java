@@ -22,10 +22,8 @@ public class RobotMap {
    */
   private static final Logger logger = LogManager.getLogger();
   public static WPI_TalonSRX _leftFrontMotor;
-  public static WPI_TalonSRX _leftMiddleMotor;
   public static WPI_TalonSRX _leftBackMotor;
   public static WPI_TalonSRX _rightFrontMotor;
-  public static WPI_TalonSRX _rightMiddleMotor;
   public static WPI_TalonSRX _rightBackMotor;
   public static WPI_TalonSRX climbMotor;
   public static WPI_TalonSRX winch1;
@@ -45,10 +43,8 @@ public class RobotMap {
     logger.info("RobotMap initializing DriveTrain values.");
     _leftFrontMotor = new WPI_TalonSRX(1);
     _leftBackMotor = new WPI_TalonSRX(3);
-    _leftMiddleMotor = new WPI_TalonSRX(5);
-    _rightFrontMotor = new WPI_TalonSRX(2);
-    _rightBackMotor = new WPI_TalonSRX(4);
-    _rightMiddleMotor = new WPI_TalonSRX(6);
+    _rightFrontMotor = new WPI_TalonSRX(5);
+    _rightBackMotor = new WPI_TalonSRX(7);
     /*
      * Encoder PID index.
      * @value 0 for primary closed-loop, 1 for cascaded closed-loop.
@@ -66,8 +62,8 @@ public class RobotMap {
     /*
      * Create 6-wheel drivetrain object using DifferentialDrive and SpeedControllerGroups.
      */
-    _leftMotors = new SpeedControllerGroup(_leftFrontMotor, _leftBackMotor, _leftMiddleMotor);
-    _rightMotors = new SpeedControllerGroup(_rightFrontMotor, _rightBackMotor, _rightMiddleMotor);
+    _leftMotors = new SpeedControllerGroup(_leftFrontMotor, _leftBackMotor);
+    _rightMotors = new SpeedControllerGroup(_rightFrontMotor, _rightBackMotor);
     driveTrain = new DifferentialDrive(_leftMotors, _rightMotors);
     /*
      * Instantiate NavX.

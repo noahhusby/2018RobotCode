@@ -8,6 +8,7 @@
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.OI;
 import org.usfirst.frc.team1701.robot.commands.GrabArmClamp;
 import org.usfirst.frc.team1701.robot.commands.ReleaseArmClamp;
@@ -51,12 +52,21 @@ public class Robot extends IterativeRobot {
   /*
    * This function is called when autonomous mode is started.
    */
-  public void autonomousInit() {}
+  public void autonomousInit() {
+    Robot.driveTrain.resetEncoders();
+  }
   /*
    * This function is called periodically during autonomous mode.
    */
+
   public void autonomousPeriodic() {
-    Scheduler.getInstance().run();
+    //Scheduler.getInstance().run();
+
+
+    SmartDashboard.putNumber("Left Encoder:", Robot.driveTrain.getLeftDistance());
+    SmartDashboard.putNumber("Right Encoder:", Robot.driveTrain.getRightDistance());
+
+
   }
   /*
    * This function is called on start of teleop.
