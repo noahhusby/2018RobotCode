@@ -49,7 +49,7 @@ public class RobotMap {
      * Encoder PID index.
      * @value 0 for primary closed-loop, 1 for cascaded closed-loop.
      */
-    encPidIdx = 0; // Where is this used? DriveTrain.java, The DriveTrain Nick!
+    encPidIdx = 0;
     /*
      * Initialize all non-drivetrain motors.
      */
