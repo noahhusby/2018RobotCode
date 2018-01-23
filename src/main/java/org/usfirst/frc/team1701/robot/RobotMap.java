@@ -15,6 +15,8 @@ import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import sun.invoke.util.ValueConversions;
+
 public class RobotMap {
   /*
    * Create all static variables, most (exception of logger) filled
@@ -71,5 +73,7 @@ public class RobotMap {
      */
     logger.info("RobotMap initializing NavX.");
     _navx = new AHRS(SerialPort.Port.kUSB);
+
+    
   }
 }
