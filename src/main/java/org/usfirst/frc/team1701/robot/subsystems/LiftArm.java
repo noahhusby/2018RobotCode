@@ -29,14 +29,27 @@ public class LiftArm extends Subsystem {
   private final WPI_TalonSRX winchEnc2 = winch2;
 
   public double getArmAngle(){
-    return 0;
+    double winchEnc1Value = winchEnc1.getSelectedSensorPosition(encPidIdx);
+    double winchEnc2Value = winchEnc2.getSelectedSensorPosition(encPidIdx);
+    return (winchEnc1Value+winchEnc2Value)/2;
   }
   public void resetArmAngle()
   {
-
+    winchEnc1.setSelectedSensorPosition(0,encPidIdx,0);
+    winchEnc2.setSelectedSensorPosition(0,encPidIdx,0);
   }
-  public void setArmAngle(){
-
+  public void setArmAngle(double rotations){
+    while(rotations != getArmAngle())
+    {
+      if(rotations > getArmAngle())
+      {
+        winchEnc1.set(1);
+      }
+      else if(rotations < getArmAngle())
+      {
+        winchEnc2.set(-1);
+      }
+    }
   }
   public double getWristAngle(){
     return wristEnc.getSelectedSensorPosition(encPidIdx); // In Rotations
@@ -44,16 +57,20 @@ public class LiftArm extends Subsystem {
   public void resetWristAngle() {
     wristEnc.setSelectedSensorPosition(0,encPidIdx,0);
   }
-  public void setWristAngle(double angle){
-    while(angle != wristEnc.getSelectedSensorPosition(encPidIdx))
+  public void setWristAngle(double rotations){
+    /**
+     * Very much not tested... Just a birth child of my brain and IntelliJ
+     * Im sure someone is going to want this in degrees and not rotations...
+     */
+    while(rotations != wristEnc.getSelectedSensorPosition(encPidIdx))
     {
-      if(angle > wristEnc.getSelectedSensorPosition(encPidIdx))
+      if(rotations > wristEnc.getSelectedSensorPosition(encPidIdx))
       {
-
+        wrist.set(1);
       }
-      else if(angle < wristEnc.getSelectedSensorPosition(encPidIdx))
+      else if(rotations < wristEnc.getSelectedSensorPosition(encPidIdx))
       {
-
+        wrist.set(-1);
       }
     }
   }
