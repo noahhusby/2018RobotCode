@@ -8,8 +8,13 @@
 package org.usfirst.frc.team1701.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.PIDOutput;
+import edu.wpi.first.wpilibj.PIDSource;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import org.usfirst.frc.team1701.robot.commands.TeleopDrive;
+// Currently we do not implement PIDOutput; it is in an infancy stage in this current setup.
+// I have left some PID methods down below. - Nick, 2018-01-23 20:54
 public class DriveTrain extends Subsystem {
   /*
    * Set of motors.
@@ -30,11 +35,47 @@ public class DriveTrain extends Subsystem {
   private final double WHEEL_CIRCUMFERENCE = 3.9 * Math.PI;
   private final int PULSES_PER_ROTATION = 1440;
   private final double DIST_ADJUST_CONST = 1052.6;
+  private double rate;
   /*
    * Motor state variables.
    */
   private boolean reversed = true;
   private boolean precise = false;
+  /*
+   * PID controller.
+   */
+  private PIDController pid;
+  /**
+   * Set up PID controller. This **must** be done before anything else.
+   * @param kP Given constant for P in PID.
+   * @param kI Given constant for I in PID.
+   * @param kD Given constant for D in PID.
+   * @param kF Given constant.
+   * @param kS PID source.
+   * @param kO PID output.
+   */
+  public void setupPID(double kP, double kI, double kD, double kF, PIDSource kS, PIDOutput kO) {
+    pid = new PIDController(kP, kI, kD, kF, kS, kO);
+    pid.setInputRange(-180, 180);
+    pid.setOutputRange(-.5, .5);
+    pid.setAbsoluteTolerance(2.0);
+    pid.setContinuous(true);
+    pid.enable();
+  }
+  /**
+   * Turn PID to a specific angle.
+   * @param angle The angle to turn to.
+   */
+  public void turn(double angle) {
+    pid.setSetpoint(angle);
+  }
+  /**
+   * Get PID.
+   * @return PIDController
+   */
+  public PIDController getPID() {
+    return pid;
+  }
   /**
    * Return left velocity.
    * @return int of left side velocity.
