@@ -20,11 +20,7 @@ public class Vision extends Subsystem {
     public boolean getTarget() {
         NetworkTableEntry tv_key = table.getEntry("tv");
         double tv = tv_key.getDouble(-1);
-        if(tv == 0) {
-            return false;
-        } else {
-            return true;
-        }
+      return !(tv == 0);
     }
     /**
      * Get horizontal offset.
@@ -32,8 +28,7 @@ public class Vision extends Subsystem {
      */
     public double getHorizontalOffset() {
         NetworkTableEntry tx_key = table.getEntry("tx");
-        double tx = tx_key.getDouble(-1);
-        return tx;
+        return tx_key.getDouble(-1);
     }
     /**
      * Get vertical offset.
@@ -41,8 +36,7 @@ public class Vision extends Subsystem {
      */
     public double getVerticalOffset() {
         NetworkTableEntry ty_key = table.getEntry("ty");
-        double ty = ty_key.getDouble(-1);
-        return ty;
+        return ty_key.getDouble(-1);
     }
     /**
      * Get targeting area.
@@ -50,8 +44,7 @@ public class Vision extends Subsystem {
      */
     public double getTargetArea() {
         NetworkTableEntry ta_key = table.getEntry("ta");
-        double ta = ta_key.getDouble(-1);
-        return ta;
+        return ta_key.getDouble(-1);
     }
     /**
      * Get target skew.
@@ -59,8 +52,7 @@ public class Vision extends Subsystem {
      */
     public double getTargetSkew() {
         NetworkTableEntry ts_key = table.getEntry("ts");
-        double ts = ts_key.getDouble(-1);
-        return ts;
+        return ts_key.getDouble(-1);
     }
     /**
      * Set LED mode.
