@@ -7,15 +7,25 @@
  */
 package org.usfirst.frc.team1701.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.PIDOutput;
-import edu.wpi.first.wpilibj.PIDSource;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import org.usfirst.frc.team1701.robot.commands.TeleopDrive;
+import com.kauailabs.navx.frc.AHRS;
 // Currently we do not implement PIDOutput; it is in an infancy stage in this current setup.
 // I have left some PID methods down below. - Nick, 2018-01-23 20:54
-public class DriveTrain extends Subsystem {
+public class DriveTrain extends PIDSubsystem {
+  /*
+   * Basic PID constructor for PIDSubsystem.
+   */
+  public DriveTrain() {
+    super("DriveTrain", 0.03, 0.00,0.00);
+    setInputRange(-180, 180);
+    setOutputRange(-.5, .5);
+    setAbsoluteTolerance(2.0);
+    getPIDController().setContinuous(true);
+    enable();
+  }
   /*
    * Set of motors.
    */
@@ -29,6 +39,10 @@ public class DriveTrain extends Subsystem {
   private final WPI_TalonSRX leftEncTalon = left_1;
   private final WPI_TalonSRX rightEncTalon = right_1;
   /*
+   * NavX.
+   */
+  private final AHRS navx = RobotMap._navx;
+  /*
    * Special math stuffs.
    */
   private final int encPidIdx = RobotMap.encPidIdx;
@@ -41,40 +55,12 @@ public class DriveTrain extends Subsystem {
    */
   private boolean reversed = true;
   private boolean precise = false;
-  /*
-   * PID controller.
-   */
-  private PIDController pid;
-  /**
-   * Set up PID controller. This **must** be done before anything else.
-   * @param kP Given constant for P in PID.
-   * @param kI Given constant for I in PID.
-   * @param kD Given constant for D in PID.
-   * @param kF Given constant.
-   * @param kS PID source.
-   * @param kO PID output.
-   */
-  public void setupPID(double kP, double kI, double kD, double kF, PIDSource kS, PIDOutput kO) {
-    pid = new PIDController(kP, kI, kD, kF, kS, kO);
-    pid.setInputRange(-180, 180);
-    pid.setOutputRange(-.5, .5);
-    pid.setAbsoluteTolerance(2.0);
-    pid.setContinuous(true);
-    pid.enable();
-  }
   /**
    * Turn PID to a specific angle.
    * @param angle The angle to turn to.
    */
   public void turn(double angle) {
-    pid.setSetpoint(angle);
-  }
-  /**
-   * Get PID.
-   * @return PIDController
-   */
-  public PIDController getPID() {
-    return pid;
+    getPIDController().setSetpoint(angle);
   }
   /**
    * Return left velocity.
@@ -191,5 +177,17 @@ public class DriveTrain extends Subsystem {
    */
   public void initDefaultCommand() {
       setDefaultCommand(new TeleopDrive());
+  }
+  /**
+   * Get the PID input from the navX.
+   */
+  protected double returnPIDInput() {
+    return navx.getAngle();
+  }
+  /**
+   * Use PID output from navX.
+   */
+  protected void usePIDOutput(double output) {
+    turn(output);
   }
 }
