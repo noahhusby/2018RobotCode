@@ -9,11 +9,10 @@ package org.usfirst.frc.team1701.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import org.usfirst.frc.team1701.robot.commands.TeleopDrive;
 import com.kauailabs.navx.frc.AHRS;
-// Currently we do not implement PIDOutput; it is in an infancy stage in this current setup.
-// I have left some PID methods down below. - Nick, 2018-01-23 20:54
 public class DriveTrain extends PIDSubsystem {
   /*
    * Basic PID constructor for PIDSubsystem.
@@ -33,6 +32,7 @@ public class DriveTrain extends PIDSubsystem {
   private final WPI_TalonSRX left_2 = RobotMap._leftBackMotor;
   private final WPI_TalonSRX right_1 = RobotMap._rightFrontMotor;
   private final WPI_TalonSRX right_2 = RobotMap._rightBackMotor;
+  private final DifferentialDrive robotDrive = RobotMap.driveTrain;
   /*
    * Set of encoders.
    */
@@ -49,7 +49,6 @@ public class DriveTrain extends PIDSubsystem {
   private final double WHEEL_CIRCUMFERENCE = 3.9 * Math.PI;
   private final int PULSES_PER_ROTATION = 1440;
   private final double DIST_ADJUST_CONST = 1052.6;
-  private double rate;
   /*
    * Motor state variables.
    */
@@ -188,6 +187,6 @@ public class DriveTrain extends PIDSubsystem {
    * Use PID output from navX.
    */
   protected void usePIDOutput(double output) {
-    turn(output);
+    // I really don't know what to do here. Should I run the robot forward toward the target? idk.
   }
 }
