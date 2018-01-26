@@ -31,16 +31,17 @@ public class AutonomousCommand extends Command {
   protected void execute() {
     logger.warn("Autonomous command started! May the force be with you.");
     // This is how we figure out what to do. It's a bit rough at best.
-    if (switchPosition == "L") {
-      if (robotPosition == 1 && targets == true) {
-        Robot.vision.getTarget();
-      }
-    } else if (switchPosition == "R") {
-      if (robotPosition == 3 && targets = true) {
-        // Take control of right side of switch.
-      }
-    } else {
-      // Attempt to cross autonomous line.
+    switch(switchPosition) {
+      case "L":
+        if (robotPosition == 1 && targets) {
+          Robot.vision.getTarget();
+        }
+      case "R":
+        if (robotPosition == 3 && targets) {
+          // Take control of right side of switch.
+        }
+      default:
+        // Attempt to cross autonomous line.
     }
   }
   /**
