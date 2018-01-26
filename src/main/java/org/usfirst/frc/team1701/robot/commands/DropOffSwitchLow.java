@@ -1,4 +1,9 @@
 package org.usfirst.frc.team1701.robot.commands;
 
-public class DropOffSwitchLow {
+import edu.wpi.first.wpilibj.command.Command;
+
+public class DropOffSwitchLow extends Command {
+    public boolean isFinished(){
+        return false;
+    }
 }

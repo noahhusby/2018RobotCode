@@ -1,4 +1,10 @@
 package org.usfirst.frc.team1701.robot.commands;
 
-public class DropOffScaleMedium {
+import edu.wpi.first.wpilibj.command.Command;
+
+public class DropOffScaleMedium extends Command {
+    public boolean isFinished(){
+        return false;
+    }
+
 }
