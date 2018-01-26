@@ -30,7 +30,7 @@ public class OI {
   public static JoystickButton climber;
   public static JoystickButton hook;
   private static final Logger logger = LogManager.getLogger();
-  /*
+  /**
    * Instead of an init() function, we call this on OI startup.
    */
   public OI() {
@@ -49,11 +49,11 @@ public class OI {
     preciseMode = new JoystickButton(operation, 3);
     turboMode = new JoystickButton(operation, 4);
     extendArm = new JoystickButton(operation, 5); //Placeholder Value... To Be Changed
-    extendArm.whenPressed(new ExtendLiftArm());
-    extendArm.whenReleased(new StopLiftArm());
+    //extendArm.whenPressed(new ExtendLiftArm());
+    //extendArm.whenReleased(new StopLiftArm());
     retractArm = new JoystickButton(operation, 6); //Placeholder Value... To Be Changed
-    retractArm.whenPressed(new RetractLiftArm());
-    retractArm.whenReleased(new StopLiftArm());
+    //retractArm.whenPressed(new RetractLiftArm());
+    //retractArm.whenReleased(new StopLiftArm());
     climber = new JoystickButton(operation, 7);
     climber.whenPressed(new StartClimb());
     climber.whenReleased(new EndClimb());

@@ -11,16 +11,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
 public class StartClimb extends Command {
-  private boolean isFinished = true;
-
-  public StartClimb() {
-
-  }
+  private boolean isFinished = false;
+  public void winchStart() {}
+  public void winchEnd() {}
   //needs winch to work
   protected void initalize() {}
 
   protected void execute() {
-    Robot.winch.winchStart();
+    winchStart();
   }
   //Similar to the retractarm, we dont have an end for the winch yet
   protected boolean isFinished() {

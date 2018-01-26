@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team1701.robot.subsystems.Hook;
 import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
+import org.usfirst.frc.team1701.robot.subsystems.Winch;
+import org.usfirst.frc.team1701.robot.subsystems.Vision;
 
 /*
  * The VM on the RoboRIO is automatically configured to run this class. If you change the name of
@@ -25,8 +27,9 @@ public class Robot extends IterativeRobot {
   public static LiftArm liftArm;
   public static Winch winch;
   public static Hook hook;
-  public static GrabArmClamp grabArmClamp;
-  public static ReleaseArmClamp releaseArmClamp;
+  public static Vision vision;
+  //public static GrabArmClamp grabArmClamp;
+  //public static ReleaseArmClamp releaseArmClamp;
   /*
    * This function is run when the robot is first started up.
    */

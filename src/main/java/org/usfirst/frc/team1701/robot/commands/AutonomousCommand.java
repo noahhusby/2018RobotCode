@@ -20,6 +20,7 @@ public class AutonomousCommand extends Command {
   private static final String switchPosition = gameCode.substring(0, 1);
   private static final Double defaultPosition = 2.0;
   private static final double robotPosition = SmartDashboard.getNumber("Position", defaultPosition);
+  private static boolean targets = Robot.vision.getTarget();
 
   public AutonomousCommand() {
     requires(Robot.driveTrain);
@@ -31,13 +32,11 @@ public class AutonomousCommand extends Command {
     logger.warn("Autonomous command started! May the force be with you.");
     // This is how we figure out what to do. It's a bit rough at best.
     if (switchPosition == "L") {
-      if (robotPosition == 1) {
-        // Take control of left side of switch.
-
-        //To convert number to string
+      if (robotPosition == 1 && targets == true) {
+        Robot.vision.getTarget();
       }
     } else if (switchPosition == "R") {
-      if (robotPosition == 3) {
+      if (robotPosition == 3 && targets = true) {
         // Take control of right side of switch.
       }
     } else {
