@@ -42,10 +42,10 @@ public class RobotMap {
    */
   public static void init() {
     logger.info("RobotMap initializing DriveTrain values.");
-    _leftFrontMotor = new WPI_TalonSRX(1);
-    _leftBackMotor = new WPI_TalonSRX(2);
-    _rightFrontMotor = new WPI_TalonSRX(5);
-    _rightBackMotor = new WPI_TalonSRX(6);
+    _leftFrontMotor = new WPI_TalonSRX(5);
+    _leftBackMotor = new WPI_TalonSRX(6);
+    _rightFrontMotor = new WPI_TalonSRX(7);
+    _rightBackMotor = new WPI_TalonSRX(8);
     /*
      * Encoder PID index.
      * @value 0 for primary closed-loop, 1 for cascaded closed-loop.
@@ -54,9 +54,9 @@ public class RobotMap {
     /*
      * Initialize all non-drivetrain motors.
      */
-    winch1 = new WPI_TalonSRX(3);
-    winch2 = new WPI_TalonSRX(4);
-    wrist = new WPI_TalonSRX(7);
+    winch1 = new WPI_TalonSRX(1);
+    winch2 = new WPI_TalonSRX(2);
+    wrist = new WPI_TalonSRX(3);
     puncher = new DoubleSolenoid(0,0,1);
     armClamp = new DoubleSolenoid(0, 2, 3);
     hook = new DigitalOutput(0);
