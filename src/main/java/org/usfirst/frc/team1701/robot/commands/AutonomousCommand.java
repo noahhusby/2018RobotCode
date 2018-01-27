@@ -34,7 +34,7 @@ public class AutonomousCommand extends Command {
     switch(switchPosition) {
       case "L":
         if (robotPosition == 1 && targets) {
-          Robot.vision.getTarget();
+
         }
       case "R":
         if (robotPosition == 3 && targets) {
