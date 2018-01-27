@@ -20,7 +20,6 @@ public class DropOffScaleHigh extends Command{
     //the angle that the scale needs to be for the box to be successfully dropped off
 
     protected void initalize() {
-        RobotMap.winch1.set(1);
     }
 
     protected void execute() {
@@ -37,6 +36,7 @@ public class DropOffScaleHigh extends Command{
                 RobotMap.winch2.set(0);
 
             } else {
+                //when the arm is at the scale height needed
                 x = 1;
             }
 
