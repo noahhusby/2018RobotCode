@@ -7,6 +7,7 @@
  */
 package org.usfirst.frc.team1701.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import org.usfirst.frc.team1701.robot.RobotMap;
@@ -37,6 +38,11 @@ public class DriveTrain extends PIDSubsystem {
    */
   private final WPI_TalonSRX leftEncTalon = left_1;
   private final WPI_TalonSRX rightEncTalon = right_1;
+  /*
+   * Set of Gear Shifters
+   */
+  private final DoubleSolenoid gearShifter1 = RobotMap.gearShifter1;
+  private final DoubleSolenoid gearShifter2 = RobotMap.gearShifter2;
   /*
    * NavX.
    */
@@ -189,5 +195,19 @@ public class DriveTrain extends PIDSubsystem {
    */
   protected void usePIDOutput(double output) {
     // I really don't know what to do here. Should I run the robot forward toward the target? idk. *Nick hit a stub
+  }
+  /**
+   * Set high gear shift
+   */
+  public void setHighGear() {
+    gearShifter1.set(DoubleSolenoid.Value.kForward);
+    gearShifter2.set(DoubleSolenoid.Value.kForward);
+  }
+  /**
+   * Set low gear shift
+   */
+  public void setLowGear() {
+    gearShifter1.set(DoubleSolenoid.Value.kReverse);
+    gearShifter2.set(DoubleSolenoid.Value.kReverse);
   }
 }
