@@ -30,13 +30,14 @@ public class LiftArm extends Subsystem {
 
   public double getArmAngle(){
     double winchEnc1Value = winchEnc1.getSelectedSensorPosition(encPidIdx);
-    double winchEnc2Value = winchEnc2.getSelectedSensorPosition(encPidIdx);
-    return (winchEnc1Value+winchEnc2Value)/2;
+    //double winchEnc2Value = winchEnc2.getSelectedSensorPosition(encPidIdx);
+    //return (winchEnc1Value+winchEnc2Value)/2;
+    return winchEnc1.getSelectedSensorPosition(encPidIdx);
   }
   public void resetArmAngle()
   {
     winchEnc1.setSelectedSensorPosition(0,encPidIdx,0);
-    winchEnc2.setSelectedSensorPosition(0,encPidIdx,0);
+  //  winchEnc2.setSelectedSensorPosition(0,encPidIdx,0);
   }
   public void setArmAngle(double rotations){
     while(rotations != getArmAngle())

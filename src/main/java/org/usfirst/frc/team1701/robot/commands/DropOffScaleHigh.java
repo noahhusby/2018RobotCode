@@ -41,8 +41,6 @@ public class DropOffScaleHigh extends Command{
             }
 
         }
-
-
         //===========================================================================================
         //Above is to get the arm at the right height to do stuff, does not have anything to do with the wrist angle. Yet.
 

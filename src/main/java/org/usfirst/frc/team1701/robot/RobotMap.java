@@ -43,9 +43,9 @@ public class RobotMap {
   public static void init() {
     logger.info("RobotMap initializing DriveTrain values.");
     _leftFrontMotor = new WPI_TalonSRX(1);
-    _leftBackMotor = new WPI_TalonSRX(3);
+    _leftBackMotor = new WPI_TalonSRX(2);
     _rightFrontMotor = new WPI_TalonSRX(5);
-    _rightBackMotor = new WPI_TalonSRX(7);
+    _rightBackMotor = new WPI_TalonSRX(6);
     /*
      * Encoder PID index.
      * @value 0 for primary closed-loop, 1 for cascaded closed-loop.
@@ -54,9 +54,9 @@ public class RobotMap {
     /*
      * Initialize all non-drivetrain motors.
      */
-    winch1 = new WPI_TalonSRX(10); // Add Encoder Husby
-    winch2 = new WPI_TalonSRX(11);
-    wrist = new WPI_TalonSRX(12);
+    winch1 = new WPI_TalonSRX(3);
+    winch2 = new WPI_TalonSRX(4);
+    wrist = new WPI_TalonSRX(7);
     puncher = new DoubleSolenoid(0,0,1);
     armClamp = new DoubleSolenoid(0, 2, 3);
     hook = new DigitalOutput(0);
@@ -67,11 +67,12 @@ public class RobotMap {
     _leftMotors = new SpeedControllerGroup(_leftFrontMotor, _leftBackMotor);
     _rightMotors = new SpeedControllerGroup(_rightFrontMotor, _rightBackMotor);
     driveTrain = new DifferentialDrive(_leftMotors, _rightMotors);
+
     /*
      * Instantiate NavX.
      */
     logger.info("RobotMap initializing NavX.");
-    _navx = new AHRS(SerialPort.Port.kUSB);
+    //_navx = new AHRS(SerialPort.Port.kUSB);
 
     
   }

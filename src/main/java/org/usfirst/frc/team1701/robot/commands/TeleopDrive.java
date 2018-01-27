@@ -19,19 +19,15 @@ public class TeleopDrive extends Command {
   }
 
   protected void initialize() {
-    Robot.driveTrain.resetEncoders();
 
   }
 
   protected void execute() {
 
     double deadConst = .10;
-    double fBInput = checkDeadZone(OI.drive_FB.getY(), deadConst);
+    double fBInput = -1 * checkDeadZone(OI.drive_FB.getY(), deadConst);
     double tInput = .75 * checkDeadZone(OI.drive_T.getX(), deadConst);
 
-
-    SmartDashboard.putNumber("Left Encoder:", Robot.driveTrain.getLeftDistance());
-    SmartDashboard.putNumber("Right Encoder:", Robot.driveTrain.getRightDistance());
 
     Robot.driveTrain.teleopControl(tInput, fBInput);
   }

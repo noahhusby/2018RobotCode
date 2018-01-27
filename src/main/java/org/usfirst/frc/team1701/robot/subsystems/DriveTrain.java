@@ -52,7 +52,7 @@ public class DriveTrain extends PIDSubsystem {
   /*
    * Motor state variables.
    */
-  private boolean reversed = true;
+  private boolean reversed = false;
   private boolean precise = false;
   /**
    * Turn PID to a specific angle.
@@ -187,6 +187,6 @@ public class DriveTrain extends PIDSubsystem {
    * Use PID output from navX.
    */
   protected void usePIDOutput(double output) {
-    // I really don't know what to do here. Should I run the robot forward toward the target? idk.
+    // I really don't know what to do here. Should I run the robot forward toward the target? idk. *Nick hit a stub
   }
 }

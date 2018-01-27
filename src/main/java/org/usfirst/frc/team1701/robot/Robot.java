@@ -8,6 +8,7 @@
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team1701.robot.subsystems.Hook;
 import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
@@ -28,6 +29,7 @@ public class Robot extends IterativeRobot {
   public static Winch winch;
   public static Hook hook;
   public static Vision vision;
+
   //public static GrabArmClamp grabArmClamp;
   //public static ReleaseArmClamp releaseArmClamp;
   /*
@@ -37,6 +39,7 @@ public class Robot extends IterativeRobot {
     RobotMap.init(); // Initialize our RobotMap.    // Initialize our subsystems.
     driveTrain = new DriveTrain();
     oi = new OI(); // If you move this... you're gonna have a bad time
+
   }
   /*
    * This function is called when the robot has been disabled.
