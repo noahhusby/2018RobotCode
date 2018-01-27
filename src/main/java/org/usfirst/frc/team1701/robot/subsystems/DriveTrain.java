@@ -52,8 +52,12 @@ public class DriveTrain extends PIDSubsystem {
   /*
    * Motor state variables.
    */
+<<<<<<< HEAD
   private boolean reversed = false;
   private boolean precise = false;
+=======
+  private boolean reversed = true;  private boolean precise = false;
+>>>>>>> 2cf986159378ae4e52cae5f7c9c9d21376179bb8
   /**
    * Turn PID to a specific angle.
    * @param angle The angle to turn to.

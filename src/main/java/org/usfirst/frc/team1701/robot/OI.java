@@ -25,8 +25,12 @@ public class OI {
   public static JoystickButton resetGyro;
   public static JoystickButton preciseMode;
   public static JoystickButton turboMode;
-  public static JoystickButton extendArm;
-  public static JoystickButton retractArm;
+  public static JoystickButton scaleHigh;
+  public static JoystickButton scaleMedium;
+  public static JoystickButton scaleLow;
+  public static JoystickButton switchHigh;
+  public static JoystickButton switchMeduim;
+  public static JoystickButton switchLow;
   public static JoystickButton climber;
   public static JoystickButton hook;
   private static final Logger logger = LogManager.getLogger();
@@ -48,16 +52,25 @@ public class OI {
     resetGyro = new JoystickButton(operation, 2);
     preciseMode = new JoystickButton(operation, 3);
     turboMode = new JoystickButton(operation, 4);
-    extendArm = new JoystickButton(operation, 5); //Placeholder Value... To Be Changed
+    //extendArm = new JoystickButton(operation, 5); //Placeholder Value... To Be Changed
     //extendArm.whenPressed(new ExtendLiftArm());
     //extendArm.whenReleased(new StopLiftArm());
-    retractArm = new JoystickButton(operation, 6); //Placeholder Value... To Be Changed
+    //retractArm = new JoystickButton(operation, 6); //Placeholder Value... To Be Changed
     //retractArm.whenPressed(new RetractLiftArm());
     //retractArm.whenReleased(new StopLiftArm());
-    climber = new JoystickButton(operation, 7);
+    climber = new JoystickButton(operation, 5);
     climber.whenPressed(new StartClimb());
     climber.whenReleased(new EndClimb());
-    hook = new JoystickButton(operation, 8);
+    hook = new JoystickButton(operation, 6);
+    scaleHigh = new JoystickButton(operation,7);
+    scaleHigh.whenPressed(new DropOffScaleHigh());
+    scaleMedium = new JoystickButton(operation,8);
+    scaleLow = new JoystickButton(operation,9);
+    switchHigh = new JoystickButton(operation,10);
+    switchMeduim = new JoystickButton(operation,11);
+    switchLow = new JoystickButton(operation,12);
+
+
   }
   /*
    * Return an instance of the forwards/backwards joystick.
