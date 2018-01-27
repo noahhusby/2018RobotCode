@@ -39,7 +39,6 @@ public class Robot extends IterativeRobot {
     RobotMap.init(); // Initialize our RobotMap.    // Initialize our subsystems.
     driveTrain = new DriveTrain();
     oi = new OI(); // If you move this... you're gonna have a bad time
-
   }
   /*
    * This function is called when the robot has been disabled.

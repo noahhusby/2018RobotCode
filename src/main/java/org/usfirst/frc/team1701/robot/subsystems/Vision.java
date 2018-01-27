@@ -10,8 +10,6 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Subsystem;
-
-
 public class Vision extends Subsystem {
     private NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
     /**
@@ -82,7 +80,5 @@ public class Vision extends Subsystem {
     /**
      * Initialize default command. Currently nothing.
      */
-    public void initDefaultCommand() {
-
-    }
+    public void initDefaultCommand() {}
 }
