@@ -8,9 +8,7 @@
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team1701.robot.subsystems.Hook;
 import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
 import org.usfirst.frc.team1701.robot.subsystems.Winch;
 import org.usfirst.frc.team1701.robot.subsystems.Vision;
@@ -27,7 +25,6 @@ public class Robot extends IterativeRobot {
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
   public static Winch winch;
-  public static Hook hook;
   public static Vision vision;
 
   //public static GrabArmClamp grabArmClamp;

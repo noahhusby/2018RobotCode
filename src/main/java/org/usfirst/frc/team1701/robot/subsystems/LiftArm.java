@@ -7,7 +7,6 @@
  */
 package org.usfirst.frc.team1701.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team1701.robot.RobotMap;
@@ -16,7 +15,6 @@ public class LiftArm extends Subsystem {
    * Hardware references.
    */
   private final DoubleSolenoid armClamp = RobotMap.armClamp;
-  private final DigitalOutput Hook = RobotMap.hook;
   private final WPI_TalonSRX wrist = RobotMap.wrist;
   private final WPI_TalonSRX winch1 = RobotMap.winch1;
   private final WPI_TalonSRX winch2 = RobotMap.winch2;
@@ -97,18 +95,7 @@ public class LiftArm extends Subsystem {
      armClamp.set(DoubleSolenoid.Value.kReverse);
     }
   }
-  /**
-   * Enable the hook.
-   */
-  public void engageHook() {
-      Hook.set(true);
-      //We need to make a delay to allow the hook to stop after it reaches where it needs to be so we don't break the motor.
-  }
-  /**
-   * Disable the hook.
-   */
-  public void disengageHook() {
-    Hook.set(false);
-  }
+
+
   public void initDefaultCommand() {}
 }

@@ -41,8 +41,7 @@ public class DriveTrain extends PIDSubsystem {
   /*
    * Set of Gear Shifters
    */
-  private final DoubleSolenoid gearShifter1 = RobotMap.gearShifter1;
-  private final DoubleSolenoid gearShifter2 = RobotMap.gearShifter2;
+  private final DoubleSolenoid gearShifter = RobotMap.gearShifter;
   /*
    * NavX.
    */
@@ -200,14 +199,12 @@ public class DriveTrain extends PIDSubsystem {
    * Set high gear shift
    */
   public void setHighGear() {
-    gearShifter1.set(DoubleSolenoid.Value.kForward);
-    gearShifter2.set(DoubleSolenoid.Value.kForward);
+    gearShifter.set(DoubleSolenoid.Value.kForward);
   }
   /**
    * Set low gear shift
    */
   public void setLowGear() {
-    gearShifter1.set(DoubleSolenoid.Value.kReverse);
-    gearShifter2.set(DoubleSolenoid.Value.kReverse);
+    gearShifter.set(DoubleSolenoid.Value.kReverse);
   }
 }

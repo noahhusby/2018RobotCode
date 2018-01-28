@@ -20,7 +20,7 @@ public class EndClimb extends Command {
   protected void initalize() {}
 
   protected void execute() {
-    Robot.winch.winchEnd();
+
   }
   //The whole purpose of this class is right above. It ends the winch from moving
 
