@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
-import org.usfirst.frc.team1701.robot.subsystems.Winch;
 import org.usfirst.frc.team1701.robot.subsystems.Vision;
 
 /*
@@ -24,7 +23,6 @@ public class Robot extends IterativeRobot {
   public static OI oi;
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
-  public static Winch winch;
   public static Vision vision;
 
   //public static GrabArmClamp grabArmClamp;

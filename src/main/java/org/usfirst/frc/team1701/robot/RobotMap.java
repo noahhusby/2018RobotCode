@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.w3c.dom.css.RGBColor;
 
 public class RobotMap {
   /*
@@ -71,7 +70,9 @@ public class RobotMap {
      * Instantiate NavX.
      */
     logger.info("RobotMap initializing NavX.");
-    //_navx = new AHRS(SerialPort.Port.kUSB);
+    _navx = new AHRS(SerialPort.Port.kUSB);
+
+
 
     
   }
