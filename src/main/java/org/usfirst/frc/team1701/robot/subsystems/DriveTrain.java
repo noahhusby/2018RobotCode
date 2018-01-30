@@ -221,18 +221,18 @@ public class DriveTrain extends PIDSubsystem {
   }
   /**
    * Will change gear based on speed input
-   * @param tInput live speed value
+   * @param fbInput live speed value
    */
-  public void useAutoGear(double tInput) {
+  public void useAutoGear(double fbInput) {
     if(this.autoGear) {
 
       double minAutoGearPercent = (autoGearPercent/100) * autoGearMinInputRange;
       double maxAutoGearPercent = (autoGearPercent/100) * autoGearMaxInputRange;
 
-      if(tInput >= maxAutoGearPercent || tInput < minAutoGearPercent) {
+      if(fbInput >= maxAutoGearPercent || fbInput < minAutoGearPercent) {
         setHighGear(); //If input is greater than percent then set high gear
       }
-      else if(tInput >= maxAutoGearPercent || tInput < minAutoGearPercent) {
+      else if(fbInput >= maxAutoGearPercent || fbInput < minAutoGearPercent) {
         setLowGear(); // If input is lower than percent then set low gear
       }
     }

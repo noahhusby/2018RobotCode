@@ -27,6 +27,9 @@ public class TeleopDrive extends Command {
     double fBInput = checkDeadZone(OI.drive_FB.getY(), deadConst);
     double tInput = .75 * checkDeadZone(OI.drive_T.getX(), deadConst);
 
+    Robot.driveTrain.useAutoGear(fBInput);
+    Robot.driveTrain.setAutoGearPercent(75);
+    Robot.driveTrain.setAutoGearInputRange(-1,1);
 
     Robot.driveTrain.teleopControl(fBInput, tInput);
   }
