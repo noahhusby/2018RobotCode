@@ -33,7 +33,6 @@ public class OI {
   public static JoystickButton switchLow;
   public static JoystickButton climber;
   public static JoystickButton hook;
-  public static JoystickButton test;
   private static final Logger logger = LogManager.getLogger();
   /**
    * Instead of an init() function, we call this on OI startup.
@@ -66,9 +65,6 @@ public class OI {
     scaleHigh = new JoystickButton(operation,7);
     scaleHigh.whenPressed(new DropOffScaleHigh());
     scaleMedium = new JoystickButton(operation,8);
-    test = new JoystickButton(operation,9);
-    test.whenPressed(new SetHighGear());
-    test.whenReleased(new SetLowGear());
     switchHigh = new JoystickButton(operation,10);
     switchMeduim = new JoystickButton(operation,11);
     switchLow = new JoystickButton(operation,12);
