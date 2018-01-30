@@ -53,12 +53,17 @@ public class DriveTrain extends PIDSubsystem {
   private final double WHEEL_CIRCUMFERENCE = 3.9 * Math.PI;
   private final int PULSES_PER_ROTATION = 1440;
   private final double DIST_ADJUST_CONST = 1052.6;
+  private double autoGearPercent = 0.75;
+  private double autoGearMinInputRange = -1;
+  private double autoGearMaxInputRange = 1;
+
   /*
    * Motor state variables.
    */
 
   private boolean reversed = false;
   private boolean precise = false;
+  private boolean autoGear = false;
 
   /**
    * Turn PID to a specific angle.
@@ -207,4 +212,56 @@ public class DriveTrain extends PIDSubsystem {
   public void setLowGear() {
     gearShifter.set(DoubleSolenoid.Value.kReverse);
   }
+  /**
+   * Set state of autoGear
+   * @param autoGear Set Boolean
+   */
+  public void setAutoGear(boolean autoGear) {
+    this.autoGear = autoGear;
+  }
+  /**
+   * Will change gear based on speed input
+   * @param tInput live speed value
+   */
+  public void useAutoGear(double tInput) {
+    if(this.autoGear) {
+
+      double minAutoGearPercent = (autoGearPercent/100) * autoGearMinInputRange;
+      double maxAutoGearPercent = (autoGearPercent/100) * autoGearMaxInputRange;
+
+      if(tInput >= maxAutoGearPercent || tInput < minAutoGearPercent) {
+        setHighGear(); //If input is greater than percent then set high gear
+      }
+      else if(tInput >= maxAutoGearPercent || tInput < minAutoGearPercent) {
+        setLowGear(); // If input is lower than percent then set low gear
+      }
+    }
+  }
+  /**
+   * Sets the percent of both negative and forward thrust where high/low gear is activated
+   * @param gearPercentCap Percent Cap 0 - 100%
+   */
+  public void setAutoGearPercent(double gearPercentCap) {
+    this.autoGearPercent = gearPercentCap;
+  }
+
+  /**
+   * Sets the maximum and minimum input range for useAutoGear()
+   * @param minInput Minimum input range; negative
+   * @param maxInput Maximum input range; positive
+   */
+  public void setAutoGearInputRange(double minInput, double maxInput) {
+    this.autoGearMinInputRange = minInput;
+    this.autoGearMaxInputRange = maxInput;
+  }
+  /**
+   * Get the state of the the auto gear
+   * @return this.autoGear
+   */
+  public boolean getAutoGear() {
+    return this.autoGear;
+  }
+
+
+
 }
