@@ -232,7 +232,7 @@ public class DriveTrain extends PIDSubsystem {
       if(fbInput >= maxAutoGearPercent || fbInput < minAutoGearPercent) {
         setHighGear(); //If input is greater than percent then set high gear
       }
-      else if(fbInput >= maxAutoGearPercent || fbInput < minAutoGearPercent) {
+      else {
         setLowGear(); // If input is lower than percent then set low gear
       }
     }
