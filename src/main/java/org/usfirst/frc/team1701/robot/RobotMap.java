@@ -55,8 +55,8 @@ public class RobotMap {
     winch2 = new WPI_TalonSRX(2);
     wrist = new WPI_TalonSRX(3);
     gearShifter = new DoubleSolenoid(0,0,1);
-    puncher = new DoubleSolenoid(0,2,3);
-    armClamp = new DoubleSolenoid(0, 4, 5);
+    armClamp = new DoubleSolenoid(0, 2, 3);
+    puncher = new DoubleSolenoid(0,4,5);
 
     /*
      * Create 6-wheel drivetrain object using DifferentialDrive and SpeedControllerGroups.

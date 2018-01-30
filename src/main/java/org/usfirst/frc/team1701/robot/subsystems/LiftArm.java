@@ -88,7 +88,7 @@ public class LiftArm extends Subsystem {
    * Set the clamp position.
    * @param clamp true for enabled, false for disabled.
    */
-  public void setClamp(boolean clamp) {
+  public void setArmClamp(boolean clamp) {
     if(clamp) {
       armClamp.set(DoubleSolenoid.Value.kForward);
     } else {

@@ -244,7 +244,6 @@ public class DriveTrain extends PIDSubsystem {
   public void setAutoGearPercent(double gearPercentCap) {
     this.autoGearPercent = gearPercentCap;
   }
-
   /**
    * Sets the maximum and minimum input range for useAutoGear()
    * @param minInput Minimum input range; negative
@@ -261,7 +260,4 @@ public class DriveTrain extends PIDSubsystem {
   public boolean getAutoGear() {
     return this.autoGear;
   }
-
-
-
 }
