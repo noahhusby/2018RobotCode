@@ -15,11 +15,12 @@ public class SetLowGear extends Command {
     }
 
     protected void execute() {
+        Robot.driveTrain.setAutoGear(false);
         Robot.driveTrain.setLowGear();
     }
 
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     protected void end() {}

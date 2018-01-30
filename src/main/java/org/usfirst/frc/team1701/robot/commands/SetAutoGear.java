@@ -3,8 +3,8 @@ package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
-public class SetHighGear extends Command{
-    public SetHighGear() {
+public class SetAutoGear extends Command {
+    public SetAutoGear() {
         requires(Robot.driveTrain);
     }
 
@@ -13,9 +13,7 @@ public class SetHighGear extends Command{
     }
 
     protected void execute() {
-        Robot.driveTrain.setAutoGear(false);
-        Robot.driveTrain.setHighGear();
-
+        Robot.driveTrain.setAutoGear(true);
     }
 
     protected boolean isFinished() {
