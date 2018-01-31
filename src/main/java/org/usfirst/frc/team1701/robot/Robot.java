@@ -7,10 +7,15 @@
  */
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
 import org.usfirst.frc.team1701.robot.subsystems.Vision;
+import org.usfirst.frc.team1701.robot.commands.AutonomousCommand;
+import org.usfirst.frc.team1701.robot.commands.DriveForward;
 
 /*
  * The VM on the RoboRIO is automatically configured to run this class. If you change the name of
@@ -20,11 +25,11 @@ public class Robot extends IterativeRobot {
   /*
    * Initialize the various subsystems on the robot.
    */
+  private SendableChooser autoProgram;
   public static OI oi;
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
   public static Vision vision;
-
   //public static GrabArmClamp grabArmClamp;
   //public static ReleaseArmClamp releaseArmClamp;
   /*
@@ -33,6 +38,10 @@ public class Robot extends IterativeRobot {
   public void robotInit() {
     RobotMap.init(); // Initialize our RobotMap.    // Initialize our subsystems.
     driveTrain = new DriveTrain();
+    autoProgram = new SendableChooser();
+    autoProgram.addDefault("Straightforward Autonomous", new DriveForward());
+    autoProgram.addObject("Experimental Autonomous", new AutonomousCommand());
+    SmartDashboard.putData("Autonomous Mode", autoProgram);
     oi = new OI(); // If you move this... you're gonna have a bad time
   }
   /*

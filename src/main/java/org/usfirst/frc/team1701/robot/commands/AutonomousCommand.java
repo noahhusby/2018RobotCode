@@ -6,14 +6,12 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.commands;
-
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.usfirst.frc.team1701.robot.Robot;
-
 public class AutonomousCommand extends Command {
   private static final Logger logger = LogManager.getLogger();
   private static final String gameCode = DriverStation.getInstance().getGameSpecificMessage();
@@ -21,7 +19,6 @@ public class AutonomousCommand extends Command {
   private static final Double defaultPosition = 2.0;
   private static final double robotPosition = SmartDashboard.getNumber("Position", defaultPosition);
   private static boolean targets = Robot.vision.getTarget();
-
   public AutonomousCommand() {
     requires(Robot.driveTrain);
   }
