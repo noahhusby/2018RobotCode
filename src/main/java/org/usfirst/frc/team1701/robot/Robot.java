@@ -30,13 +30,14 @@ public class Robot extends IterativeRobot {
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
   public static Vision vision;
-  //public static GrabArmClamp grabArmClamp;
-  //public static ReleaseArmClamp releaseArmClamp;
   /*
    * This function is run when the robot is first started up.
    */
   public void robotInit() {
     RobotMap.init(); // Initialize our RobotMap.    // Initialize our subsystems.
+    /**
+     * NICK!!! THE NEW CODE IS BAD! IT DOES AN EL-CRASHO, TEST ALL CODE ON THE ROBORIO BEFORE CONTINUING
+     */
     driveTrain = new DriveTrain();
     autoProgram = new SendableChooser();
     autoProgram.addDefault("Straightforward Autonomous", new DriveForward());

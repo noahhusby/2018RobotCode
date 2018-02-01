@@ -10,6 +10,7 @@ package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.OI;
 import org.usfirst.frc.team1701.robot.Robot;
+import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class TeleopDrive extends Command {
 
@@ -27,11 +28,8 @@ public class TeleopDrive extends Command {
     double fBInput = checkDeadZone(OI.drive_FB.getY(), deadConst);
     double tInput = .75 * checkDeadZone(OI.drive_T.getX(), deadConst);
 
-    Robot.driveTrain.useAutoGear(fBInput);
-    Robot.driveTrain.setAutoGearPercent(75);
-    Robot.driveTrain.setAutoGearInputRange(-1,1);
-
     Robot.driveTrain.teleopControl(fBInput, tInput);
+
   }
 
   protected boolean isFinished() {
