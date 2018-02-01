@@ -39,10 +39,13 @@ public class Robot extends IterativeRobot {
      * NICK!!! THE NEW CODE IS BAD! IT DOES AN EL-CRASHO, TEST ALL CODE ON THE ROBORIO BEFORE CONTINUING
      */
     driveTrain = new DriveTrain();
+    /**
     autoProgram = new SendableChooser();
     autoProgram.addDefault("Straightforward Autonomous", new DriveForward());
     autoProgram.addObject("Experimental Autonomous", new AutonomousCommand());
     SmartDashboard.putData("Autonomous Mode", autoProgram);
+     FIX DIS BOI NICKI
+     */
     oi = new OI(); // If you move this... you're gonna have a bad time
   }
   /*
