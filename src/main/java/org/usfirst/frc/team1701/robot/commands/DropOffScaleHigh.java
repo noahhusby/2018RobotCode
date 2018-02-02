@@ -27,11 +27,11 @@ public class DropOffScaleHigh extends Command{
         //Between the two ===========================================================================
 
         while(x == 0) {
-            if (Robot.liftArm.getArmAngle() > scaleHighHeight && Robot.liftArm.getArmAngle() != scaleHighHeight) {
+            if (Robot.liftArm.getArmAngle() > scaleHighHeight) {
                 RobotMap.winch1.set(1);
                 RobotMap.winch2.set(1);
 
-            } else if (Robot.liftArm.getArmAngle() < scaleHighHeight && Robot.liftArm.getArmAngle() != scaleHighHeight){
+            } else if (Robot.liftArm.getArmAngle() < scaleHighHeight){
                 RobotMap.winch1.set(0);
                 RobotMap.winch2.set(0);
 
