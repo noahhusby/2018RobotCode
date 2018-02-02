@@ -7,7 +7,6 @@
  */
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -16,7 +15,6 @@ import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
 import org.usfirst.frc.team1701.robot.subsystems.Vision;
 import org.usfirst.frc.team1701.robot.commands.AutonomousCommand;
 import org.usfirst.frc.team1701.robot.commands.DriveForward;
-
 /*
  * The VM on the RoboRIO is automatically configured to run this class. If you change the name of
  * this class or the package, change it in Gradle and here.
@@ -30,13 +28,11 @@ public class Robot extends IterativeRobot {
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
   public static Vision vision;
-  //public static GrabArmClamp grabArmClamp;
-  //public static ReleaseArmClamp releaseArmClamp;
   /*
    * This function is run when the robot is first started up.
    */
   public void robotInit() {
-    RobotMap.init(); // Initialize our RobotMap.    // Initialize our subsystems.
+    RobotMap.init(); // Initialize our RobotMap.
     driveTrain = new DriveTrain();
     autoProgram = new SendableChooser();
     autoProgram.addDefault("Straightforward Autonomous", new DriveForward());
