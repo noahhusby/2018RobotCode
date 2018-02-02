@@ -34,10 +34,13 @@ public class Robot extends IterativeRobot {
   public void robotInit() {
     RobotMap.init(); // Initialize our RobotMap.
     driveTrain = new DriveTrain();
+    /**
     autoProgram = new SendableChooser();
     autoProgram.addDefault("Straightforward Autonomous", new DriveForward());
     autoProgram.addObject("Experimental Autonomous", new AutonomousCommand());
     SmartDashboard.putData("Autonomous Mode", autoProgram);
+     FIX DIS BOI NICKI
+     */
     oi = new OI(); // If you move this... you're gonna have a bad time
   }
   /*
