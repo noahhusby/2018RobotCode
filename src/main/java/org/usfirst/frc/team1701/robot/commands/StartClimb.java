@@ -1,19 +1,21 @@
 /**
  * commands/StartClimb.java
  *
- * @author Noah Husby
+ * @author Steven Wall
  * @since 1/9/18
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class StartClimb extends Command {
   private boolean isFinished = false;
-  public void winchStart() {}
-  public void winchEnd() {}
-  //needs winch to work
+  public void winchStart() {
+    RobotMap.winch1.set(1);
+    RobotMap.winch2.set(1);
+  }
   protected void initalize() {}
 
   protected void execute() {
