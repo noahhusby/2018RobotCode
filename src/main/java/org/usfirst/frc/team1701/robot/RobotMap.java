@@ -69,7 +69,7 @@ public class RobotMap {
     /*
      * Instantiate NavX.
      */
-    logger.info("RobotMap initializing NavX.");
+    //logger.info("RobotMap initializing NavX.");
     _navx = new AHRS(SerialPort.Port.kUSB);
 
 
