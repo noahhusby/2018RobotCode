@@ -10,15 +10,15 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX; // Replaced wildcard impo
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
 
 public class RobotMap {
   /*
    * Create all static variables, most (exception of logger) filled
    * by the init() method below.
    */
-  private static final Logger logger = LogManager.getLogger();
+  //private static final Logger logger = LogManager.getLogger();
   public static WPI_TalonSRX _leftFrontMotor;
   public static WPI_TalonSRX _leftBackMotor;
   public static WPI_TalonSRX _rightFrontMotor;
@@ -38,7 +38,7 @@ public class RobotMap {
    * Initialize the public values above.
    */
   public static void init() {
-    logger.info("RobotMap initializing DriveTrain values.");
+    //logger.info("RobotMap initializing DriveTrain values.");
     _leftFrontMotor = new WPI_TalonSRX(5);
     _leftBackMotor = new WPI_TalonSRX(6);
     _rightFrontMotor = new WPI_TalonSRX(7);

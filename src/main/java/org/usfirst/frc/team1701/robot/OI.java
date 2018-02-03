@@ -8,8 +8,8 @@
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
 import org.usfirst.frc.team1701.robot.commands.*; // Should be eventually replaced with absolute imports.
 /*
  * This class sets up and enables the Joysticks and Buttons on your console.
@@ -33,12 +33,12 @@ public class OI {
   public static JoystickButton switchLow;
   public static JoystickButton climber;
   public static JoystickButton hook;
-  private static final Logger logger = LogManager.getLogger();
+  //private static final Logger logger = LogManager.getLogger();
   /**
    * Instead of an init() function, we call this on OI startup.
    */
   public OI() {
-    logger.info("Assigning joystick values...");
+    //logger.info("Assigning joystick values...");
     /*
      * Enable the physical joysticks.
      */

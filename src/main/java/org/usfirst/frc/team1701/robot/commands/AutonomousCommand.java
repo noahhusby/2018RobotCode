@@ -9,11 +9,11 @@ package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
 import org.usfirst.frc.team1701.robot.Robot;
 public class AutonomousCommand extends Command {
-  private static final Logger logger = LogManager.getLogger();
+  //private static final Logger logger = LogManager.getLogger();
   private static final String gameCode = DriverStation.getInstance().getGameSpecificMessage();
   private static final String switchPosition = gameCode.substring(0, 1);
   private static final Double defaultPosition = 2.0;
@@ -26,7 +26,7 @@ public class AutonomousCommand extends Command {
   protected void initialize() {}
   /** Execute the autonomous. */
   protected void execute() {
-    logger.warn("Autonomous command started! May the force be with you.");
+    //logger.warn("Autonomous command started! May the force be with you.");
     // This is how we figure out what to do. It's a bit rough at best.
     switch(switchPosition) {
       case "L":
@@ -51,12 +51,12 @@ public class AutonomousCommand extends Command {
   }
   /** End the command. */
   protected void end() {
-    logger.info("Halt! We are the Knights Who Say Ni! Bring us some shrubbery to continue.");
-    logger.warn("Just kidding; returning control to user.");
+    //logger.info("Halt! We are the Knights Who Say Ni! Bring us some shrubbery to continue.");
+    //logger.warn("Just kidding; returning control to user.");
   }
   /** End the command, the hard way. */
   protected void interrupted() {
-    logger.info("Halt! We are the Knights Who Say Ni! Bring us some shrubbery to continue.");
-    logger.warn("Just kidding; returning control to user.");
+    //logger.info("Halt! We are the Knights Who Say Ni! Bring us some shrubbery to continue.");
+    //logger.warn("Just kidding; returning control to user.");
   }
 }
