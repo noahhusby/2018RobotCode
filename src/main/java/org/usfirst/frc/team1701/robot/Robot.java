@@ -7,7 +7,10 @@
  */
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
@@ -23,7 +26,8 @@ public class Robot extends IterativeRobot {
   /*
    * Initialize the various subsystems on the robot.
    */
-  private SendableChooser autoProgram;
+  SendableChooser autoProgram;
+  Command autonomousCode;
   public static OI oi;
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
@@ -34,13 +38,10 @@ public class Robot extends IterativeRobot {
   public void robotInit() {
     RobotMap.init(); // Initialize our RobotMap.
     driveTrain = new DriveTrain();
-    /**
     autoProgram = new SendableChooser();
-    autoProgram.addDefault("Straightforward Autonomous", new DriveForward());
-    autoProgram.addObject("Experimental Autonomous", new AutonomousCommand());
-    SmartDashboard.putData("Autonomous Mode", autoProgram);
-     FIX DIS BOI NICKI
-     */
+    autoProgram.addDefault("Default Autonomous", new AutonomousCommand());
+    autoProgram.addObject("Forward Autonomous", new DriveForward());
+    SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
     oi = new OI(); // If you move this... you're gonna have a bad time
   }
   /*
@@ -57,7 +58,10 @@ public class Robot extends IterativeRobot {
    * This function is called when autonomous mode is started.
    */
   public void autonomousInit() {
+    autonomousCode = (Command) autoProgram.getSelected();
+    autonomousCode.start();
   }
+
   /*
    * This function is called periodically during autonomous mode.
    */

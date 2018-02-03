@@ -28,6 +28,7 @@ public class AutonomousCommand extends Command {
   protected void execute() {
     //logger.warn("Autonomous command started! May the force be with you.");
     // This is how we figure out what to do. It's a bit rough at best.
+    /**
     switch(switchPosition) {
       case "L":
         if (robotPosition == 1 && targets) {
@@ -40,6 +41,7 @@ public class AutonomousCommand extends Command {
       default:
         // Attempt to cross autonomous line.
     }
+     */
   }
   /**
    * Don't stop the party!
