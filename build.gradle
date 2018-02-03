@@ -5,7 +5,6 @@ plugins {
     id "jaci.openrio.gradle.GradleRIO" version "2018.01.22"
     //id "com.github.sherter.google-java-format" version "0.6"
 }
-
 repositories {
     jcenter()
     mavenCentral()
