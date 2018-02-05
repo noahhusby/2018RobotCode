@@ -42,9 +42,9 @@ public class OI {
     /*
      * Enable the physical joysticks.
      */
-    operation = new Joystick(0);
-    drive_FB = new Joystick(1);
-    drive_T = new Joystick(2);
+    operation = new Joystick(0); // UHID device
+    drive_FB = new Joystick(1); // Right
+    drive_T = new Joystick(2); // Left
     /*
      * Assign commands to buttons.
      */
