@@ -31,7 +31,9 @@ public class RobotMap {
   public static DifferentialDrive driveTrain;
   public static DoubleSolenoid armClamp;
   public static DoubleSolenoid puncher;
-  public static DoubleSolenoid gearShifter;
+  public static DoubleSolenoid driveShift;
+  public static DoubleSolenoid winchShfit;
+  public static DoubleSolenoid winchBrake;
   public static AHRS _navx;
   public static int encPidIdx;
   /*
@@ -54,9 +56,11 @@ public class RobotMap {
     winch1 = new WPI_TalonSRX(1);
     winch2 = new WPI_TalonSRX(2);
     wrist = new WPI_TalonSRX(3);
-    gearShifter = new DoubleSolenoid(0,0,1);
-    armClamp = new DoubleSolenoid(0, 2, 3);
-    puncher = new DoubleSolenoid(0,4,5);
+    driveShift = new DoubleSolenoid(0,7,0);
+    winchShfit = new DoubleSolenoid(0,6,1);
+    armClamp = new DoubleSolenoid(0, 5, 2);
+    puncher = new DoubleSolenoid(0,4,3);
+    winchBrake = new DoubleSolenoid(1,7,0);
 
     /*
      * Create 6-wheel drivetrain object using DifferentialDrive and SpeedControllerGroups.

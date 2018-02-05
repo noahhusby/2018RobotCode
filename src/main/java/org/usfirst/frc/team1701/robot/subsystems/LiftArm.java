@@ -6,6 +6,7 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.subsystems;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -18,6 +19,8 @@ public class LiftArm extends Subsystem {
   private final WPI_TalonSRX wrist = RobotMap.wrist;
   private final WPI_TalonSRX winch1 = RobotMap.winch1;
   private final WPI_TalonSRX winch2 = RobotMap.winch2;
+  private final DoubleSolenoid winchBrake = RobotMap.winchBrake;
+  private final DoubleSolenoid winchShift = RobotMap.winchShfit;
   /*
    * Value references.
    */
@@ -28,6 +31,21 @@ public class LiftArm extends Subsystem {
   private final WPI_TalonSRX wristEnc = wrist;
   private final WPI_TalonSRX winchEnc1 = winch1;
   private final WPI_TalonSRX winchEnc2 = winch2;
+  /**
+   * Sets the winches to brake mode, using two different methods
+   */
+  public void enableWinchBrake()
+  {
+    winch1.setNeutralMode(NeutralMode.Brake);
+    winch2.setNeutralMode(NeutralMode.Brake);
+    winchBrake.set(DoubleSolenoid.Value.kForward);
+  }
+  public void disableWinchBrake()
+  {
+    winch1.setNeutralMode(NeutralMode.Coast);
+    winch2.setNeutralMode(NeutralMode.Coast);
+    winchBrake.set(DoubleSolenoid.Value.kReverse);
+  }
   /**
    * Return arm angle.
    * @return arm angle as double
