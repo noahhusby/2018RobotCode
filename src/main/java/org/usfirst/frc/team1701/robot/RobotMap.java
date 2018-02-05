@@ -8,8 +8,10 @@
 package org.usfirst.frc.team1701.robot;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX; // Replaced wildcard import.
 import com.kauailabs.navx.frc.AHRS;
-import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 /*import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;*/
 
@@ -35,17 +37,18 @@ public class RobotMap {
   public static DoubleSolenoid winchShfit;
   public static DoubleSolenoid winchBrake;
   public static AHRS _navx;
+  public static Spark _led0;
+  public static Spark _led1;
   public static int encPidIdx;
   /*
    * Initialize the public values above.
    */
   public static void init() {
-    //logger.info("RobotMap initializing DriveTrain values.");
     _leftFrontMotor = new WPI_TalonSRX(0);
     _leftBackMotor = new WPI_TalonSRX(1);
     _rightFrontMotor = new WPI_TalonSRX(15);
     _rightBackMotor = new WPI_TalonSRX(14);
-    /*
+    /**
      * Encoder PID index.
      * @value 0 for primary closed-loop, 1 for cascaded closed-loop.
      */
@@ -61,23 +64,21 @@ public class RobotMap {
     armClamp = new DoubleSolenoid(0, 5, 2);
     puncher = new DoubleSolenoid(0,4,3);
     winchBrake = new DoubleSolenoid(1,7,0);
-
     /*
-     * Create 6-wheel drivetrain object using DifferentialDrive and SpeedControllerGroups.
-     * We have a four wheel
+     * Create 4-wheel drivetrain object using DifferentialDrive and SpeedControllerGroups.
      */
     _leftMotors = new SpeedControllerGroup(_leftFrontMotor, _leftBackMotor);
     _rightMotors = new SpeedControllerGroup(_rightFrontMotor, _rightBackMotor);
     driveTrain = new DifferentialDrive(_leftMotors, _rightMotors);
-
-    /*
+    /**
      * Instantiate NavX.
      */
-    //logger.info("RobotMap initializing NavX.");
     _navx = new AHRS(SerialPort.Port.kUSB);
-
-
-
-    
+    /**
+     * LED controllers, follows Spark motor controller pattern.
+     * @see https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf, page 7
+     */
+    _led0 = new Spark(0);
+    _led1 = new Spark(1);
   }
 }
