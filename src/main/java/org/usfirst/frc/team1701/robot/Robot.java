@@ -9,8 +9,6 @@ package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
@@ -19,6 +17,20 @@ import org.usfirst.frc.team1701.robot.subsystems.Lights;
 import org.usfirst.frc.team1701.robot.subsystems.Vision;
 import org.usfirst.frc.team1701.robot.commands.AutonomousCommand;
 import org.usfirst.frc.team1701.robot.commands.DriveForward;
+
+/*
+  _____   ________  ________    _____
+ / __  \ |\_____  \|\   __  \  / __  \
+|\/_|\  \ \|___/  /\ \  \|\  \|\/_|\  \
+\|/ \ \  \    /  / /\ \  \\\  \|/ \ \  \
+     \ \  \  /  / /  \ \  \\\  \   \ \  \
+      \ \__\/__/ /    \ \_______\   \ \__\
+       \|__||__|/      \|_______|    \|__|
+
+  Team 1701 The Robocubs
+  Code by Noah Husby and Nick Hubbard
+ */
+
 /*
  * The VM on the RoboRIO is automatically configured to run this class. If you change the name of
  * this class or the package, change it in Gradle and here.
@@ -42,12 +54,16 @@ public class Robot extends IterativeRobot {
     driveTrain = new DriveTrain();
     lights = new Lights();
     vision = new Vision();
+    oi = new OI();
     autoProgram = new SendableChooser();
     autoProgram.addDefault("Default Autonomous", new AutonomousCommand());
     autoProgram.addObject("Forward Autonomous", new DriveForward());
     SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
-    oi = new OI(); // If you move this... you're gonna have a bad time
+    /*
+     * Resets Encoders for Autonomous
+     */
     Robot.driveTrain.resetEncoders();
+
   }
   /*
    * This function is called when the robot has been disabled.
