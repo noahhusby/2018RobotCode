@@ -21,6 +21,7 @@ public class OI {
   public static Joystick drive_FB;
   public static Joystick drive_T;
   public static Joystick operation;
+  /**
   public static JoystickButton gearMode;
   public static JoystickButton resetGyro;
   public static JoystickButton preciseMode;
@@ -33,6 +34,17 @@ public class OI {
   public static JoystickButton switchLow;
   public static JoystickButton climber;
   public static JoystickButton hook;
+   */
+  public static JoystickButton _winchUp;
+  public static JoystickButton _winchDown;
+  public static JoystickButton _wristRight;
+  public static JoystickButton _wristLeft;
+  public static JoystickButton _lowGear;
+  public static JoystickButton _highGear;
+  public static JoystickButton _winchGearShiftLow;
+  public static JoystickButton _winchGearShiftHigh;
+  public static JoystickButton _puncher;
+  public static JoystickButton _clamp;
   //private static final Logger logger = LogManager.getLogger();
   /**
    * Instead of an init() function, we call this on OI startup.
@@ -48,6 +60,7 @@ public class OI {
     /*
      * Assign commands to buttons.
      */
+    /**
     gearMode = new JoystickButton(operation, 1);
     resetGyro = new JoystickButton(operation, 2);
     preciseMode = new JoystickButton(operation, 3);
@@ -69,6 +82,35 @@ public class OI {
     switchMeduim = new JoystickButton(operation,11);
     switchLow = new JoystickButton(operation,12);
     scaleLow = new JoystickButton(operation,13);
+     */
+    _winchUp = new JoystickButton(drive_FB,5);
+    _winchUp.whenPressed(new _winchUp());
+    _winchUp.whenReleased(new _winchBrake());
+    _winchDown = new JoystickButton(drive_FB, 6);
+    _winchDown.whenPressed(new _winchDown());
+    _winchDown.whenReleased(new _winchBrake());
+    _wristRight = new JoystickButton(drive_FB,3);
+    _wristRight.whenPressed(new _wristRight());
+    _wristRight.whenReleased(new _wristBrake());
+    _wristLeft = new JoystickButton(drive_FB,4);
+    _wristLeft.whenPressed(new _wristLeft());
+    _wristLeft.whenReleased(new _wristBrake());
+    _lowGear = new JoystickButton(drive_FB,1);
+    _lowGear.whenPressed(new _setLowGear());
+    _highGear = new JoystickButton(drive_FB,2);
+    _highGear.whenPressed(new _setHighGear());
+    _winchGearShiftLow = new JoystickButton(operation,1);
+    _winchGearShiftLow.whenPressed(new _setWinchLowGear());
+    _winchGearShiftHigh = new JoystickButton(operation,2);
+    _winchGearShiftHigh.whenPressed(new _setWinchHighGear());
+    _puncher = new JoystickButton(operation,3);
+    _puncher.whenPressed(new _punchPuncher());
+    _puncher.whenReleased(new _notPunchPuncher());
+    _clamp = new JoystickButton(operation,9);
+    _clamp.whenPressed(new _doClamp());
+    _clamp.whenReleased(new _stopDoingClamp());
+
+
 
 
   }

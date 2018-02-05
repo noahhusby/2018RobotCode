@@ -46,6 +46,22 @@ public class LiftArm extends Subsystem {
     winch2.setNeutralMode(NeutralMode.Coast);
     winchBrake.set(DoubleSolenoid.Value.kReverse);
   }
+  public void enableWristBrake()
+  {
+    wrist.setNeutralMode(NeutralMode.Brake);
+  }
+  public void disableWristBrake()
+  {
+    wrist.setNeutralMode(NeutralMode.Coast);
+  }
+  public void winchLowGear()
+  {
+    winchShift.set(DoubleSolenoid.Value.kReverse);
+  }
+  public void winchHighGear()
+  {
+    winchShift.set(DoubleSolenoid.Value.kForward);
+  }
   /**
    * Return arm angle.
    * @return arm angle as double
