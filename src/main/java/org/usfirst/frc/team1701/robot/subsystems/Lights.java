@@ -34,21 +34,21 @@ public class Lights extends Subsystem {
    * Set LED mode on controller 0.
    * @param color A reference to the State enum from above.
    */
-  public void setLedModeA(State color) {
+  public void setLedModeA(double color) {
     led0.set(color);
   }
   /**
    * Set LED mode on controller 1.
    * @param color A reference to the State enum from above.
    */
-  public void setLedModeB(State color) {
+  public void setLedModeB(double color) {
     led1.set(color);
   }
   /**
    * Set both LED modes.
    * @param color A reference to the State enum from above.
    */
-  public void setLedModeBoth(State color) {
+  public void setLedModeBoth(double color) {
     led0.set(color);
     led1.set(color);
   }
