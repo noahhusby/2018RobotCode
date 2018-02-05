@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
+import org.usfirst.frc.team1701.robot.subsystems.Lights;
 import org.usfirst.frc.team1701.robot.subsystems.Vision;
 import org.usfirst.frc.team1701.robot.commands.AutonomousCommand;
 import org.usfirst.frc.team1701.robot.commands.DriveForward;
@@ -32,12 +33,14 @@ public class Robot extends IterativeRobot {
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
   public static Vision vision;
+  public static Lights lights;
   /*
    * This function is run when the robot is first started up.
    */
   public void robotInit() {
     RobotMap.init(); // Initialize our RobotMap.
     driveTrain = new DriveTrain();
+    lights = new Lights();
     /**
     autoProgram = new SendableChooser();
     autoProgram.addDefault("Default Autonomous", new AutonomousCommand());

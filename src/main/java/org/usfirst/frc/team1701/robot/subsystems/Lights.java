@@ -16,24 +16,9 @@ public class Lights extends Subsystem {
    * State of the LEDs running off of the Blinkin LED Driver (REV-11-1105-UM).
    * @see https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf page 14
    */
-  public enum State {
-    private final double color;
-    State(double color) {
-      this.color = color;
-    }
-    /**
-     * Simple red.
-     */
-    RED(0.61),
-    /**
-     * Lawn clipping green.
-     */
-    GREEN(0.71),
-    /**
-     * Aqua blue.
-     */
-    BLUE(0.81);
-  }
+  public static double RED = 0.61;
+  public static double BLUE = 0.81;
+  public static double GREEN = 0.71;
   /**
    * Set LED mode on controller 0.
    * @param color A reference to the State enum from above.
