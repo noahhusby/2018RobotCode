@@ -17,6 +17,10 @@ public class Lights extends Subsystem {
    * @see https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf page 14
    */
   public enum State {
+    private final double color;
+    State(double color) {
+      this.color = color;
+    }
     /**
      * Simple red.
      */
@@ -28,7 +32,7 @@ public class Lights extends Subsystem {
     /**
      * Aqua blue.
      */
-    BLUE(0.81)
+    BLUE(0.81);
   }
   /**
    * Set LED mode on controller 0.
