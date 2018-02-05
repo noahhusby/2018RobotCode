@@ -41,12 +41,11 @@ public class Robot extends IterativeRobot {
     RobotMap.init(); // Initialize our RobotMap.
     driveTrain = new DriveTrain();
     lights = new Lights();
-    /**
+    vision = new Vision();
     autoProgram = new SendableChooser();
     autoProgram.addDefault("Default Autonomous", new AutonomousCommand());
     autoProgram.addObject("Forward Autonomous", new DriveForward());
     SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
-     */
     oi = new OI(); // If you move this... you're gonna have a bad time
   }
   /*
@@ -63,10 +62,8 @@ public class Robot extends IterativeRobot {
    * This function is called when autonomous mode is started.
    */
   public void autonomousInit() {
-    /**
     autonomousCode = (Command) autoProgram.getSelected();
     autonomousCode.start();
-     */
   }
 
   /*

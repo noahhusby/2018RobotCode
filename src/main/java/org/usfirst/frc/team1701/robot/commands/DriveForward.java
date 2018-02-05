@@ -26,13 +26,21 @@ public class DriveForward extends Command {
       Robot.driveTrain.leftDriveControl(0.6);
       Robot.driveTrain.rightDriveControl(0.6);
     }
+    else
+    {
+      Robot.driveTrain.stopMotors();
+    }
   }
 
   protected boolean isFinished() {
     return true;
   }
 
-  protected void end() {}
+  protected void end() {
+    Robot.driveTrain.stopMotors();
+  }
 
-  protected void interrupted() {}
+  protected void interrupted() {
+    Robot.driveTrain.stopMotors();
+  }
 }

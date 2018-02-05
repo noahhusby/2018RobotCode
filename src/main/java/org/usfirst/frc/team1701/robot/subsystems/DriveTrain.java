@@ -98,6 +98,13 @@ public class DriveTrain extends PIDSubsystem {
    * Get right velocity.
    * @return int of right side velocity.
    */
+  public void stopMotors()
+  {
+    right_1.stopMotor();
+    right_2.stopMotor();
+    left_1.stopMotor();
+    left_2.stopMotor();
+  }
   public int getRightVelocity() {
     return rightEncTalon.getSelectedSensorVelocity(encPidIdx);
   }
@@ -113,7 +120,7 @@ public class DriveTrain extends PIDSubsystem {
 
   public double getEncoderDistance()
   {
-    return ((rightEncTalon.getSelectedSensorPosition(encPidIdx) * WHEEL_CIRCUMFERENCE) + (leftEncTalon.getSelectedSensorPosition(encPidIdx) * WHEEL_CIRCUMFERENCE)) / 2;
+    return ((rightEncTalon.getSelectedSensorPosition(encPidIdx)) + (leftEncTalon.getSelectedSensorPosition(encPidIdx))) / 2;
   }
   /**
    * Reset right side encoder.
