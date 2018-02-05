@@ -47,6 +47,7 @@ public class Robot extends IterativeRobot {
     autoProgram.addObject("Forward Autonomous", new DriveForward());
     SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
     oi = new OI(); // If you move this... you're gonna have a bad time
+    Robot.driveTrain.resetEncoders();
   }
   /*
    * This function is called when the robot has been disabled.

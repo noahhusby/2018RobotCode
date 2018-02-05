@@ -15,6 +15,14 @@ import org.usfirst.frc.team1701.robot.Robot;
 public class AutonomousCommand extends Command {
   //private static final Logger logger = LogManager.getLogger();
 
+    /**
+     * distance = wheel_circumference * wheel_rotations
+     * wheel_rotations = distance / wheel_circumference
+     *
+     * wheel_circumference = 4 * pi
+     * distance = X - 38 (Robot Length)
+     */
+
  private static String gameCode;
   private static Double defaultPosition = 2.0;
 
