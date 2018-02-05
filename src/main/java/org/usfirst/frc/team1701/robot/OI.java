@@ -55,8 +55,8 @@ public class OI {
      * Enable the physical joysticks.
      */
     operation = new Joystick(0); // UHID device
-    drive_FB = new Joystick(1); // Right
-    drive_T = new Joystick(2); // Left
+    drive_FB = new Joystick(1); // Left
+    drive_T = new Joystick(2); // Right
     /*
      * Assign commands to buttons.
      */

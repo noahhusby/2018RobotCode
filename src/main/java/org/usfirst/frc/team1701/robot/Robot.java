@@ -55,15 +55,14 @@ public class Robot extends IterativeRobot {
     lights = new Lights();
     vision = new Vision();
     oi = new OI();
+    /*
     autoProgram = new SendableChooser();
     autoProgram.addDefault("Default Autonomous", new AutonomousCommand());
     autoProgram.addObject("Forward Autonomous", new DriveForward());
     SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
-    /*
-     * Resets Encoders for Autonomous
-     */
-    Robot.driveTrain.resetEncoders();
 
+    Robot.driveTrain.resetEncoders();
+    */
   }
   /*
    * This function is called when the robot has been disabled.
@@ -79,8 +78,9 @@ public class Robot extends IterativeRobot {
    * This function is called when autonomous mode is started.
    */
   public void autonomousInit() {
-    autonomousCode = (Command) autoProgram.getSelected();
+    /*autonomousCode = (Command) autoProgram.getSelected();
     autonomousCode.start();
+    */
   }
 
   /*
