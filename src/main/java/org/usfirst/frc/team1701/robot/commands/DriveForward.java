@@ -17,11 +17,15 @@ public class DriveForward extends Command {
   public DriveForward() {
 
   }
-  protected void initalize() {
-  }
 
   protected void execute() {
-
+    Robot.driveTrain.resetEncoders();
+    if(Robot.driveTrain.getEncoderDistance() < forwardDistance)
+    {
+      Robot.driveTrain.setLowGear();
+      Robot.driveTrain.leftDriveControl(0.6);
+      Robot.driveTrain.rightDriveControl(0.6);
+    }
   }
 
   protected boolean isFinished() {

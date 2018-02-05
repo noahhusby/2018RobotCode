@@ -110,6 +110,11 @@ public class DriveTrain extends PIDSubsystem {
         * WHEEL_CIRCUMFERENCE
         / DIST_ADJUST_CONST;
   }
+
+  public double getEncoderDistance()
+  {
+    return ((rightEncTalon.getSelectedSensorPosition(encPidIdx) * WHEEL_CIRCUMFERENCE) + (leftEncTalon.getSelectedSensorPosition(encPidIdx) * WHEEL_CIRCUMFERENCE)) / 2;
+  }
   /**
    * Reset right side encoder.
    */
