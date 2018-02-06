@@ -4,6 +4,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
 public class _stopDoingClamp extends Command{
+    public _stopDoingClamp() {
+        requires(Robot.liftArm);
+    }
     protected void execute() {
         Robot.liftArm.setArmClamp(false);
     }
