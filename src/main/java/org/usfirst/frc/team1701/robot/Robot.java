@@ -39,8 +39,8 @@ public class Robot extends IterativeRobot {
   /*
    * Initialize the various subsystems on the robot.
    */
-  SendableChooser autoProgram;
-  Command autonomousCode;
+  private SendableChooser autoProgram;
+  private Command autonomousCode;
   public static OI oi;
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
@@ -54,6 +54,7 @@ public class Robot extends IterativeRobot {
     driveTrain = new DriveTrain();
     lights = new Lights();
     vision = new Vision();
+    liftArm = new LiftArm();
     oi = new OI();
 
     autoProgram = new SendableChooser();

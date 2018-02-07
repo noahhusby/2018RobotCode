@@ -6,7 +6,7 @@ import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class _winchUp extends Command {
     protected void execute() {
-        Robot.liftArm.disableWinchBrake();
+        //Robot.liftArm.disableWinchBrake();
         RobotMap.winch1.set(0.5);
         RobotMap.winch1.set(0.5);
     }
