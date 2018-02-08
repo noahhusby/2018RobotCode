@@ -57,7 +57,7 @@ public class RobotMap {
     /*
      * Initialize all non-drivetrain motors/objects.
      */
-    winch1 = new WPI_TalonSRX(13);
+    winch1 = new WPI_TalonSRX(30);
     winch2 = new WPI_TalonSRX(12);
     wrist = new WPI_TalonSRX(2);
     driveShift = new DoubleSolenoid(0,7,0);
