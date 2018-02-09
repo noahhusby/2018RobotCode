@@ -8,11 +8,8 @@
 package org.usfirst.frc.team1701.robot;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX; // Replaced wildcard import.
 import com.kauailabs.navx.frc.AHRS;
-import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
 /*import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;*/
 
@@ -35,11 +32,13 @@ public class RobotMap {
   public static DoubleSolenoid armClamp;
   public static DoubleSolenoid puncher;
   public static DoubleSolenoid driveShift;
-  public static DoubleSolenoid winchShfit;
+  public static DoubleSolenoid winchShift;
   public static DoubleSolenoid winchBrake;
-  public static AHRS _navx;
+  public static AnalogInput liftArmEncoder;
+  public static AnalogInput wristEncoder;
   public static Spark _led0;
   public static Spark _led1;
+  public static AHRS _navx;
   public static int encPidIdx;
   /*
    * Initialize the public values above.
@@ -55,13 +54,21 @@ public class RobotMap {
      */
     encPidIdx = 0;
     /*
+     * Initialize all analog encoders
+     */
+    liftArmEncoder = new AnalogInput(0);
+    wristEncoder = new AnalogInput(1);
+    /*
      * Initialize all non-drivetrain motors/objects.
      */
     winch1 = new WPI_TalonSRX(30);
     winch2 = new WPI_TalonSRX(12);
     wrist = new WPI_TalonSRX(2);
+    /*
+     * Initialize all pneumatic controllers
+     */
     driveShift = new DoubleSolenoid(0,7,0);
-    winchShfit = new DoubleSolenoid(0,6,1);
+    winchShift = new DoubleSolenoid(0,6,1);
     armClamp = new DoubleSolenoid(0, 5, 2);
     puncher = new DoubleSolenoid(0,4,3);
     winchBrake = new DoubleSolenoid(1,7,0);

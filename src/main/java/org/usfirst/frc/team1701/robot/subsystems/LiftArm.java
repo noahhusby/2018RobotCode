@@ -8,6 +8,7 @@
 package org.usfirst.frc.team1701.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team1701.robot.RobotMap;
@@ -15,22 +16,19 @@ public class LiftArm extends Subsystem {
   /*
    * Hardware references.
    */
-  private final DoubleSolenoid armClamp = RobotMap.armClamp;
+  private final AnalogInput liftArmEncoder = RobotMap.liftArmEncoder;
+  private final AnalogInput wristEncoder = RobotMap.wristEncoder;
   private final WPI_TalonSRX wrist = RobotMap.wrist;
   private final WPI_TalonSRX winch1 = RobotMap.winch1;
   private final WPI_TalonSRX winch2 = RobotMap.winch2;
+  private final DoubleSolenoid armClamp = RobotMap.armClamp;
   private final DoubleSolenoid winchBrake = RobotMap.winchBrake;
-  private final DoubleSolenoid winchShift = RobotMap.winchShfit;
+  private final DoubleSolenoid winchShift = RobotMap.winchShift;
   /*
    * Value references.
    */
   private final int encPidIdx = RobotMap.encPidIdx;
-  private final double WHEEL_CIRCUMFERENCE = 3.9 * Math.PI;
-  private final int PULSES_PER_ROTATION = 1440;
-  private final double DIST_ADJUST_CONST = 1052.6;
-  private final WPI_TalonSRX wristEnc = wrist;
-  private final WPI_TalonSRX winchEnc1 = winch1;
-  private final WPI_TalonSRX winchEnc2 = winch2;
+
   /**
    * Sets the winches to brake mode, using two different methods
    */
@@ -67,56 +65,28 @@ public class LiftArm extends Subsystem {
    * @return arm angle as double
    */
   public double getArmAngle() {
-    return winchEnc1.getSelectedSensorPosition(encPidIdx);
-  }
-  /**
-   * Reset the arm angle.
-   */
-  public void resetArmAngle() {
-    winchEnc1.setSelectedSensorPosition(0,encPidIdx,0);
+    return liftArmEncoder.getValue();
   }
   /**
    * Set the arm angle
    * @param rotations the number of rotations.
    */
   public void setArmAngle(double rotations) {
-    while(rotations != getArmAngle()) {
-      if(rotations > getArmAngle()) {
-        winchEnc1.set(1);
-      } else if(rotations < getArmAngle()) {
-        winchEnc2.set(-1);
-      }
-    }
+
   }
   /**
    * Return wrist angle.
    * @return wrist angle as double.
    */
   public double getWristAngle() {
-    return wristEnc.getSelectedSensorPosition(encPidIdx); // In Rotations
-  }
-  /**
-   * Reset the wrist angle.
-   */
-  public void resetWristAngle() {
-    wristEnc.setSelectedSensorPosition(0,encPidIdx,0);
+    return wristEncoder.getValue();
   }
   /**
    * Set the wrist angle.
    * @param rotations Wrist angle to set to.
    */
   public void setWristAngle(double rotations) {
-    /*
-     * Very much not tested... Just a birth child of my brain and IntelliJ
-     * I'm sure someone is going to want this in degrees and not rotations...
-     */
-    while(rotations != wristEnc.getSelectedSensorPosition(encPidIdx)) {
-      if(rotations > wristEnc.getSelectedSensorPosition(encPidIdx)) {
-        wrist.set(1);
-      } else if(rotations < wristEnc.getSelectedSensorPosition(encPidIdx)) {
-        wrist.set(-1);
-      }
-    }
+
   }
   /**
    * Set the clamp position.
