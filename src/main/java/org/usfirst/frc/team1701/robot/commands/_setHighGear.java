@@ -5,7 +5,7 @@ import org.usfirst.frc.team1701.robot.Robot;
 
 public class _setHighGear extends Command {
     protected void execute() {
-        Robot.driveTrain.setLowGear();
+        Robot.driveTrain.setHighGear();
     }
 
     protected boolean isFinished() {
