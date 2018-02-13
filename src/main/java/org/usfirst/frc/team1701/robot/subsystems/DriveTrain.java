@@ -51,7 +51,6 @@ public class DriveTrain extends PIDSubsystem {
    */
   private final int encPidIdx = RobotMap.encPidIdx;
   private final double WHEEL_CIRCUMFERENCE = 3.9 * Math.PI;
-  private final int PULSES_PER_ROTATION = 1440;
   private final double DIST_ADJUST_CONST = 1052.6;
   private double autoGearPercent = 0.75;
   private double autoGearMinInputRange = -1;
@@ -84,9 +83,7 @@ public class DriveTrain extends PIDSubsystem {
    * @return double of left side distance.
    */
   public double getLeftDistance() {
-    return leftEncTalon.getSelectedSensorPosition(encPidIdx)
-        * WHEEL_CIRCUMFERENCE
-        / DIST_ADJUST_CONST;
+    return leftEncTalon.getSelectedSensorPosition(encPidIdx);
   }
   /**
    * Reset left side encoder.

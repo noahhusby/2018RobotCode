@@ -21,6 +21,7 @@ public class LiftArm extends Subsystem {
   private final WPI_TalonSRX wrist = RobotMap.wrist;
   private final WPI_TalonSRX winch1 = RobotMap.winch1;
   private final WPI_TalonSRX winch2 = RobotMap.winch2;
+  private final WPI_TalonSRX winch3 = RobotMap.winch3;
   private final DoubleSolenoid armClamp = RobotMap.armClamp;
   private final DoubleSolenoid winchBrake = RobotMap.winchBrake;
   private final DoubleSolenoid winchShift = RobotMap.winchShift;
