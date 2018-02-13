@@ -29,11 +29,29 @@ public class AutonomousCommand extends Command {
   private static final double robotPosition = SmartDashboard.getNumber("Position", defaultPosition);
   private static  char switchPosition;
   private static boolean targets = Robot.vision.getTarget();
+  private static double allienceToLineDistance = 10.35;
+
+  /*
+   Booleans to check current states of autonomous
+   */
+
+  private static boolean forwardState;
+  private static boolean turnState;
+  private static boolean dropState;
 
 
   public AutonomousCommand() {
     requires(Robot.driveTrain);
   }
+
+    /**
+     * Resets the states, so that autonomous knows where its at.
+     */
+    private void initilaizeStates() {
+        forwardState = false;
+        turnState = false;
+        dropState = false;
+    }
   /** Initialize the autonomous command. */
   protected void initialize() {
      gameCode = DriverStation.getInstance().getGameSpecificMessage();
@@ -41,6 +59,7 @@ public class AutonomousCommand extends Command {
        gameCode = "LRL";
      }
      switchPosition  = gameCode.charAt(0);
+     initilaizeStates();
   }
   /** Execute the autonomous. */
   protected void execute() {
@@ -55,12 +74,33 @@ public class AutonomousCommand extends Command {
       case 'R':
         if (robotPosition == 3 && targets) {
           // Take control of right side of switch.
+
+            /*
+             * Checks if any autonomous has started yet
+             */
+            if(!forwardState && !turnState && !dropState)
+            {
+                forwardState = true;
+            }
+
+            if(Robot.driveTrain.getEncoderDistance() < allienceToLineDistance && forwardState)
+            {
+                Robot.driveTrain.setLowGear();
+                Robot.driveTrain.leftDriveControl(0.75);
+                Robot.driveTrain.rightDriveControl(0.75);
+            }
+            else if(forwardState)
+            {
+                Robot.driveTrain.stopMotors();
+                forwardState = false;
+            }
         }
       default:
         // Attempt to cross autonomous line.
     }
 
   }
+
   /**
    * Don't stop the party!
    *
