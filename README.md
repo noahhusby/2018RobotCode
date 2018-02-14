@@ -4,9 +4,9 @@ Welcome! This is our 2018 robot code for FIRST Power Up.
 
 ## New This Year
 
-* We switched to Gradle and GradleRIO from [**@JacisNonsense**](https://github.com/JacisNonsense).
+* We switched to Gradle and GradleRIO from <span style="color: black">[**@JacisNonsense**](https://github.com/JacisNonsense)</span>.
 * We now use the Limelight vision coprocessor, instead of a RYO solution with an Nvidia Jetson TX1.
-* We switched away from Eclipse to IntelliJ IDEA for perfect refactoring support and much better assistance in general. Thank you [**@JetBrains**](https://github.com/JetBrains)!
+* We switched away from Eclipse to IntelliJ IDEA for perfect refactoring support and much better assistance in general. Thank you <span style="color: black">[**@JetBrains**](https://github.com/JetBrains)</span>!
 
 ## Getting Started
 
