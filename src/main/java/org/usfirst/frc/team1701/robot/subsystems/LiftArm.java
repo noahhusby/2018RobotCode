@@ -35,14 +35,14 @@ public class LiftArm extends Subsystem {
    */
   public void enableWinchBrake()
   {
-    winch1.setNeutralMode(NeutralMode.Brake);
-    winch2.setNeutralMode(NeutralMode.Brake);
+    //winch1.setNeutralMode(NeutralMode.Brake);
+    //winch2.setNeutralMode(NeutralMode.Brake);
     winchBrake.set(DoubleSolenoid.Value.kForward);
   }
   public void disableWinchBrake()
   {
-    winch1.setNeutralMode(NeutralMode.Coast);
-    winch2.setNeutralMode(NeutralMode.Coast);
+    //winch1.setNeutralMode(NeutralMode.Coast);
+    //winch2.setNeutralMode(NeutralMode.Coast);
     winchBrake.set(DoubleSolenoid.Value.kReverse);
   }
   public void enableWristBrake()

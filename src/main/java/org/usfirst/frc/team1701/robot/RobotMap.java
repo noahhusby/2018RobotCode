@@ -72,8 +72,8 @@ public class RobotMap {
     driveShift = new DoubleSolenoid(0,7,0);
     winchShift = new DoubleSolenoid(0,6,1);
     armClamp = new DoubleSolenoid(0, 5, 2);
-    puncher = new DoubleSolenoid(0,4,3);
-    winchBrake = new DoubleSolenoid(1,7,0);
+    puncher = new DoubleSolenoid(1,4,3);
+    winchBrake = new DoubleSolenoid(0,4,3);
     /*
      * Create 4-wheel drivetrain object using DifferentialDrive and SpeedControllerGroups.
      */

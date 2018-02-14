@@ -8,6 +8,7 @@ public class _winchBrake extends Command {
     protected void execute() {
         RobotMap.winch1.stopMotor();
         RobotMap.winch2.stopMotor();
+        RobotMap.winch3.stopMotor();
         //Robot.liftArm.enableWinchBrake();
 
     }

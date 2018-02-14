@@ -45,6 +45,7 @@ public class OI {
   public static JoystickButton _winchGearShiftHigh;
   public static JoystickButton _puncher;
   public static JoystickButton _clamp;
+  public static JoystickButton _manualBrake;
   //private static final Logger logger = LogManager.getLogger();
   /**
    * Instead of an init() function, we call this on OI startup.
@@ -109,6 +110,9 @@ public class OI {
     _clamp = new JoystickButton(operation,9);
     _clamp.whenPressed(new _doClamp());
     _clamp.whenReleased(new _stopDoingClamp());
+    _manualBrake = new JoystickButton(operation,5);
+    _manualBrake.whenPressed(new _winchManualBrake());
+    _manualBrake.whenReleased(new _winchUnBrake());
 
 
 
