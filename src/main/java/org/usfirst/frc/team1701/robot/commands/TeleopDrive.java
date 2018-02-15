@@ -15,6 +15,8 @@ import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class TeleopDrive extends Command {
 
+  private boolean reversed = Robot.driveTrain.getReverse();
+
   public TeleopDrive() {
     requires(Robot.driveTrain);
   }
@@ -24,6 +26,8 @@ public class TeleopDrive extends Command {
   }
 
   protected void execute() {
+
+    SmartDashboard.putBoolean("Reversed", reversed);
 
     double deadConst = .10;
     double fBInput = checkDeadZone(OI.drive_FB.getY(), deadConst);
