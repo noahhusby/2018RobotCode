@@ -10,6 +10,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import org.usfirst.frc.team1701.robot.commands.TeleopDrive;
 import com.kauailabs.navx.frc.AHRS;
@@ -173,8 +174,8 @@ public class DriveTrain extends PIDSubsystem {
    * Set status of reverse mode.
    * @param reverse Reverse mode; true or false.
    */
-  public void setReverse(boolean reverse) {
-    this.reversed = reverse;
+  public void toggleReverse() {
+    this.reversed = !this.reversed;
   }
   /**
    * Initialize teleoperated control.

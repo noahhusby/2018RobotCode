@@ -35,6 +35,7 @@ public class RobotMap {
   public static DoubleSolenoid driveShift;
   public static DoubleSolenoid winchShift;
   public static DoubleSolenoid winchBrake;
+  public static DoubleSolenoid wristBrake;
   public static AnalogInput liftArmEncoder;
   public static AnalogInput wristEncoder;
   public static Spark _led0;
@@ -74,6 +75,7 @@ public class RobotMap {
     armClamp = new DoubleSolenoid(0, 5, 2);
     puncher = new DoubleSolenoid(0,4,3);
     winchBrake = new DoubleSolenoid(1,7,0);
+    wristBrake = new DoubleSolenoid(1,6,1);
     /*
      * Create 4-wheel drivetrain object using DifferentialDrive and SpeedControllerGroups.
      */

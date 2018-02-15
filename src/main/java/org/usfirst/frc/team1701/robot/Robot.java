@@ -60,7 +60,9 @@ public class Robot extends IterativeRobot {
     autoProgram = new SendableChooser();
     autoProgram.addDefault("Default Autonomous", new AutonomousCommand());
     autoProgram.addObject("Forward Autonomous", new DriveForward());
+
     SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
+    SmartDashboard.putBoolean("Reversed", Robot.driveTrain.getReverse());
 
     Robot.driveTrain.resetEncoders();
 

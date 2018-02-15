@@ -7,7 +7,7 @@ import org.usfirst.frc.team1701.robot.RobotMap;
 public class _wristBrake extends Command{
     protected void execute() {
         RobotMap.wrist.stopMotor();
-        //Robot.liftArm.enableWristBrake();
+        Robot.liftArm.enableWristBrake();
 
     }
 

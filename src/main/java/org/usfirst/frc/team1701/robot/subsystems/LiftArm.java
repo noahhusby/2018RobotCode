@@ -25,6 +25,8 @@ public class LiftArm extends Subsystem {
   private final DoubleSolenoid armClamp = RobotMap.armClamp;
   private final DoubleSolenoid winchBrake = RobotMap.winchBrake;
   private final DoubleSolenoid winchShift = RobotMap.winchShift;
+  private final DoubleSolenoid puncher = RobotMap.puncher;
+  private final DoubleSolenoid wristBrake = RobotMap.wristBrake;
   /*
    * Value references.
    */
@@ -47,11 +49,11 @@ public class LiftArm extends Subsystem {
   }
   public void enableWristBrake()
   {
-    wrist.setNeutralMode(NeutralMode.Brake);
+    wristBrake.set(DoubleSolenoid.Value.kForward);
   }
   public void disableWristBrake()
   {
-    wrist.setNeutralMode(NeutralMode.Coast);
+    wristBrake.set(DoubleSolenoid.Value.kReverse);
   }
   public void winchLowGear()
   {
@@ -95,10 +97,19 @@ public class LiftArm extends Subsystem {
    */
   public void setArmClamp(boolean clamp) {
     if(clamp) {
-      armClamp.set(DoubleSolenoid.Value.kForward);
+      armClamp.set(DoubleSolenoid.Value.kReverse);
     } else {
-     armClamp.set(DoubleSolenoid.Value.kReverse);
+     armClamp.set(DoubleSolenoid.Value.kForward);
     }
+  }
+
+  public void extendPuncher() {
+    puncher.set(DoubleSolenoid.Value.kForward);
+  }
+
+  public void retractPuncher()
+  {
+    puncher.set(DoubleSolenoid.Value.kReverse);
   }
 
 
