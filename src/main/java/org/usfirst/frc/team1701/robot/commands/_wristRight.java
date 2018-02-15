@@ -6,8 +6,8 @@ import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class _wristRight extends Command{
     protected void execute() {
-        //Robot.liftArm.disableWristBrake();
-        RobotMap.wrist.set(0.80);
+        Robot.liftArm.disableWristBrake();
+        RobotMap.wrist.set(0.30);
     }
 
     protected boolean isFinished() {

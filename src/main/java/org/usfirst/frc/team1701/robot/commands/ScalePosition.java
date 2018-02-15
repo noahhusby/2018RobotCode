@@ -14,7 +14,7 @@ import org.usfirst.frc.team1701.robot.Robot;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
 
-public class DropOffScaleHigh extends Command {
+public class ScalePosition extends Command {
     public double scaleHighHeight = 0.0; // This is the number that the arm angle is at when it has reached the scale height.
     public double currentHeight; // This is the current height.
     public double minHeight; //this is the bottom of the wrist fold in zone
