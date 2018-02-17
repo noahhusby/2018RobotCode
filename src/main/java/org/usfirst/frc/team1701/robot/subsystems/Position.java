@@ -7,9 +7,15 @@ public class Position extends Subsystem {
     public double armSafety = 0;
     public double wristSafety = 0;
 
+    public double wristStow = -172;
+    public double wristGrab = 1084;
+    public double wristScale = 911;
+    public double wristSwitch = -1644;
 
-    public double grabArm = 0;
-    public double grabWrist = 0;
+    public double armGrab = -10;
+    public double armScale = 1580;
+    public double armSwitch = 795;
+
 
     public double liftArmMax = 0;
     public double liftArmMin = 1437;

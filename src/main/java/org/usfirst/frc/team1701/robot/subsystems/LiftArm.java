@@ -98,6 +98,7 @@ public class LiftArm extends Subsystem {
     }
   }
   public void setLiftArm(double input) {
+    disableWinchBrake();
     winch1.set(input);
     winch2.set(input);
     winch3.set(input);
@@ -105,6 +106,7 @@ public class LiftArm extends Subsystem {
 
   public void stopLiftArm()
   {
+    enableWristBrake();
     winch1.stopMotor();
     winch2.stopMotor();
     winch3.stopMotor();
@@ -115,6 +117,17 @@ public class LiftArm extends Subsystem {
   public void retractPuncher()
   {
     puncher.set(DoubleSolenoid.Value.kReverse);
+  }
+
+  public void stopWrist()
+  {
+    enableWristBrake();
+    wrist.stopMotor();
+  }
+
+  public void setWrist(double input) {
+    disableWristBrake();
+    wrist.set(input);
   }
   public void initDefaultCommand() {}
 }

@@ -35,6 +35,9 @@ public class OI {
   public static JoystickButton climber;
   public static JoystickButton hook;
   public static JoystickButton reverse;
+  public static JoystickButton scalePosition;
+  public static JoystickButton grabPosition;
+  public static JoystickButton switchPosition;
 
 
   public static JoystickButton _winchUp;
@@ -90,7 +93,12 @@ public class OI {
      */
     reverse = new JoystickButton(operation, 7);
     reverse.whenPressed(new ToggleReverse());
-
+    scalePosition = new JoystickButton(operation,8);
+    scalePosition.whenPressed(new ScalePosition());
+    grabPosition = new JoystickButton(operation,10);
+    grabPosition.whenPressed(new GrabPosition());
+    switchPosition = new JoystickButton(drive_FB,2);
+    switchPosition.whenPressed(new SwitchPosition());
 
 
 
@@ -108,8 +116,7 @@ public class OI {
     _wristLeft.whenReleased(new _wristBrake());
     _lowGear = new JoystickButton(drive_FB,1);
     _lowGear.whenPressed(new _setLowGear());
-    _highGear = new JoystickButton(drive_FB,2);
-    _highGear.whenPressed(new _setHighGear());
+
     _winchGearShiftLow = new JoystickButton(operation,1);
     _winchGearShiftLow.whenPressed(new _setWinchLowGear());
     _winchGearShiftHigh = new JoystickButton(operation,2);
@@ -123,8 +130,7 @@ public class OI {
     _manualBrake.whenReleased(new _winchUnBrake());
     _releaseCube = new JoystickButton(operation,4);
     _releaseCube.whenPressed(new ReleaseCube());
-    _boner = new JoystickButton(operation,10);
-    _boner.whenPressed(new _boner());
+
 
 
 
