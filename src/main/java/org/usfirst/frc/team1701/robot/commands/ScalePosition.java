@@ -62,6 +62,8 @@ public class ScalePosition extends Command {
     protected void initialize() {}
     protected void execute() {
         isFinshed = false;
+        Robot.liftArm.setArmClamp(true);
+
 
         if(RobotMap.liftArmEncoder.getValue() - 497 > Robot.position.armScale + 40) {
             Robot.liftArm.setLiftArm(0.35);

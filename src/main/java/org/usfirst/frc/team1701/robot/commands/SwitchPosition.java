@@ -41,7 +41,6 @@ public class SwitchPosition extends Command {
         else
         {
             Robot.liftArm.stopWrist();
-            Robot.liftArm.setArmClamp(false);
             isFinshed = true;
         }
     }
@@ -52,6 +51,7 @@ public class SwitchPosition extends Command {
     protected void initialize() {}
     protected void execute() {
         isFinshed = false;
+        Robot.liftArm.setArmClamp(true);
 
         if(RobotMap.liftArmEncoder.getValue() - 497 > Robot.position.armSwitch + 40) {
             Robot.liftArm.setLiftArm(0.35);
