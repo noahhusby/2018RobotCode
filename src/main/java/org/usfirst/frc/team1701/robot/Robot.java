@@ -39,7 +39,7 @@ public class Robot extends IterativeRobot {
   /*
    * Initialize the various subsystems on the robot.
    */
-  private SendableChooser autoProgram;
+  private SendableChooser<Command> autoProgram;
   private Command autonomousCode;
   public static OI oi;
   public static DriveTrain driveTrain;
@@ -56,16 +56,12 @@ public class Robot extends IterativeRobot {
     vision = new Vision();
     liftArm = new LiftArm();
     oi = new OI();
-
-    autoProgram = new SendableChooser();
+    autoProgram = new SendableChooser<>();
     autoProgram.addDefault("Default Autonomous", new AutonomousCommand());
     autoProgram.addObject("Forward Autonomous", new DriveForward());
-
     SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
     SmartDashboard.putBoolean("Reversed", false);
-
     Robot.driveTrain.resetEncoders();
-
   }
   /*
    * This function is called when the robot has been disabled.
@@ -81,9 +77,8 @@ public class Robot extends IterativeRobot {
    * This function is called when autonomous mode is started.
    */
   public void autonomousInit() {
-    autonomousCode = (Command) autoProgram.getSelected();
+    autonomousCode = autoProgram.getSelected();
     autonomousCode.start();
-
   }
 
   /*

@@ -31,18 +31,15 @@ public class LiftArm extends Subsystem {
    * Value references.
    */
   private final int encPidIdx = RobotMap.encPidIdx;
-
   /**
    * Sets the winches to brake mode, using two different methods
    */
-  public void enableWinchBrake()
-  {
+  public void enableWinchBrake() {
     //winch1.setNeutralMode(NeutralMode.Brake);
     //winch2.setNeutralMode(NeutralMode.Brake);
     winchBrake.set(DoubleSolenoid.Value.kForward);
   }
-  public void disableWinchBrake()
-  {
+  public void disableWinchBrake() {
     //winch1.setNeutralMode(NeutralMode.Coast);
     //winch2.setNeutralMode(NeutralMode.Coast);
     winchBrake.set(DoubleSolenoid.Value.kReverse);
@@ -74,9 +71,7 @@ public class LiftArm extends Subsystem {
    * Set the arm angle
    * @param rotations the number of rotations.
    */
-  public void setArmAngle(double rotations) {
-
-  }
+  public void setArmAngle(double rotations) {}
   /**
    * Return wrist angle.
    * @return wrist angle as double.
@@ -88,9 +83,7 @@ public class LiftArm extends Subsystem {
    * Set the wrist angle.
    * @param rotations Wrist angle to set to.
    */
-  public void setWristAngle(double rotations) {
-
-  }
+  public void setWristAngle(double rotations) {}
   /**
    * Set the clamp position.
    * @param clamp true for enabled, false for disabled.
@@ -102,16 +95,12 @@ public class LiftArm extends Subsystem {
      armClamp.set(DoubleSolenoid.Value.kForward);
     }
   }
-
   public void extendPuncher() {
     puncher.set(DoubleSolenoid.Value.kForward);
   }
-
   public void retractPuncher()
   {
     puncher.set(DoubleSolenoid.Value.kReverse);
   }
-
-
   public void initDefaultCommand() {}
 }
