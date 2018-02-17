@@ -8,12 +8,24 @@
 package org.usfirst.frc.team1701.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import org.usfirst.frc.team1701.robot.commands.TeleopDrive;
 import com.kauailabs.navx.frc.AHRS;
-public class DriveTrain extends Subsystem {
+public class DriveTrain extends PIDSubsystem {
+  /*
+   * Basic PID constructor for PIDSubsystem.
+   */
+  public DriveTrain() {
+    super("DriveTrain", 0.03, 0.00,0.00);
+    setInputRange(-180, 180);
+    setOutputRange(-.5, .5);
+    setAbsoluteTolerance(2.0);
+    getPIDController().setContinuous(true);
+    //enable();
+  }
   /*
    * Set of motors.
    */
@@ -21,13 +33,14 @@ public class DriveTrain extends Subsystem {
   private final WPI_TalonSRX left_2 = RobotMap._leftBackMotor;
   private final WPI_TalonSRX right_1 = RobotMap._rightFrontMotor;
   private final WPI_TalonSRX right_2 = RobotMap._rightBackMotor;
+  private final DifferentialDrive robotDrive = RobotMap.driveTrain;
   /*
    * Set of encoders.
    */
   private final WPI_TalonSRX leftEncTalon = left_1;
   private final WPI_TalonSRX rightEncTalon = right_1;
   /*
-   * Drivetrain gear shifters.
+   * Set of Gear Shifters
    */
   private final DoubleSolenoid driveShift = RobotMap.driveShift;
   /*
@@ -51,6 +64,14 @@ public class DriveTrain extends Subsystem {
   private boolean reversed = false;
   private boolean precise = false;
   private boolean autoGear = false;
+
+  /**
+   * Turn PID to a specific angle.
+   * @param angle The angle to turn to.
+   */
+  public void turn(double angle) {
+    getPIDController().setSetpoint(angle);
+  }
   /**
    * Return left velocity.
    * @return int of left side velocity.
@@ -63,9 +84,7 @@ public class DriveTrain extends Subsystem {
    * @return double of left side distance.
    */
   public double getLeftDistance() {
-    return leftEncTalon.getSelectedSensorPosition(encPidIdx)
-        * WHEEL_CIRCUMFERENCE
-        / DIST_ADJUST_CONST;
+    return leftEncTalon.getSelectedSensorPosition(encPidIdx);
   }
   /**
    * Reset left side encoder.
@@ -77,18 +96,15 @@ public class DriveTrain extends Subsystem {
    * Get right velocity.
    * @return int of right side velocity.
    */
-  public int getRightVelocity() {
-    return rightEncTalon.getSelectedSensorVelocity(encPidIdx);
-  }
-  /**
-   * Stop all motors.
-   */
   public void stopMotors()
   {
     right_1.stopMotor();
     right_2.stopMotor();
     left_1.stopMotor();
     left_2.stopMotor();
+  }
+  public int getRightVelocity() {
+    return rightEncTalon.getSelectedSensorVelocity(encPidIdx);
   }
   /**
    * Get right side distance.
@@ -182,13 +198,20 @@ public class DriveTrain extends Subsystem {
   public void initDefaultCommand() {
       setDefaultCommand(new TeleopDrive());
   }
-  public String getGear() {
-    if(driveShift.get() == DoubleSolenoid.Value.kForward) return "High Gear";
-    if(driveShift.get() == DoubleSolenoid.Value.kReverse) return "Low Gear";
-    return null;
+  /**
+   * Get the PID input from the navX.
+   */
+  protected double returnPIDInput() {
+    return navx.getAngle();
   }
   /**
-   * Set high gear shift.
+   * Use PID output from navX.
+   */
+  protected void usePIDOutput(double output) {
+   // RobotMap.driveTrain.arcadeDrive(0.5, -output); // DO NOT TRUST THIS LINE! TEST EVERYTHING BEFORE DOING THIS!
+  }
+  /**
+   * Set high gear shift
    */
   public void setHighGear() {
     driveShift.set(DoubleSolenoid.Value.kForward);
