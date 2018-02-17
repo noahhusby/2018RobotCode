@@ -7,6 +7,9 @@
  */
 package org.usfirst.frc.team1701.robot.commands;
 
+import com.sun.javafx.geom.transform.SingularMatrixException;
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.OI;
@@ -27,6 +30,9 @@ public class TeleopDrive extends Command {
   protected void execute() {
 
     SmartDashboard.putBoolean("Reversed", Robot.driveTrain.getReverse());
+    SmartDashboard.putNumber("TE", RobotMap.liftArmEncoder.getValue() - 497);
+    SmartDashboard.putNumber("Wrist", Robot.liftArm.getWristAngle());
+
 
     double deadConst = .10;
     double fBInput = checkDeadZone(OI.drive_FB.getY(), deadConst);

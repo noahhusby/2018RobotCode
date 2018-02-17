@@ -9,6 +9,7 @@
 package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.Robot;
 
 public class DriveForward extends Command {
@@ -30,6 +31,9 @@ public class DriveForward extends Command {
   }
 
   protected void execute() {
+
+    SmartDashboard.putNumber("DT", Robot.driveTrain.getEncoderDistance());
+
     if (Timer.getMatchTime() < startTime - failsafeTime) {
       Robot.driveTrain.stopMotors();
       finished = true;

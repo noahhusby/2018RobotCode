@@ -49,6 +49,7 @@ public class OI {
   public static JoystickButton _clamp;
   public static JoystickButton _manualBrake;
   public static JoystickButton _releaseCube;
+  public static JoystickButton _boner;
   //private static final Logger logger = LogManager.getLogger();
   /**
    * Instead of an init() function, we call this on OI startup.
@@ -122,6 +123,8 @@ public class OI {
     _manualBrake.whenReleased(new _winchUnBrake());
     _releaseCube = new JoystickButton(operation,4);
     _releaseCube.whenPressed(new ReleaseCube());
+    _boner = new JoystickButton(operation,10);
+    _boner.whenPressed(new _boner());
 
 
 

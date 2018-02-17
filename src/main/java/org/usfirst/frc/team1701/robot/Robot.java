@@ -11,10 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import org.usfirst.frc.team1701.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
-import org.usfirst.frc.team1701.robot.subsystems.Lights;
-import org.usfirst.frc.team1701.robot.subsystems.Vision;
+import org.usfirst.frc.team1701.robot.commands._boner;
+import org.usfirst.frc.team1701.robot.subsystems.*;
 import org.usfirst.frc.team1701.robot.commands.AutonomousCommand;
 import org.usfirst.frc.team1701.robot.commands.DriveForward;
 
@@ -46,6 +44,7 @@ public class Robot extends IterativeRobot {
   public static LiftArm liftArm;
   public static Vision vision;
   public static Lights lights;
+  public static Position position;
   /*
    * This function is run when the robot is first started up.
    */
@@ -55,6 +54,7 @@ public class Robot extends IterativeRobot {
     lights = new Lights();
     vision = new Vision();
     liftArm = new LiftArm();
+    position = new Position();
     oi = new OI();
 
     autoProgram = new SendableChooser();
@@ -63,7 +63,9 @@ public class Robot extends IterativeRobot {
 
     SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
     SmartDashboard.putBoolean("Reversed", false);
-
+    SmartDashboard.putNumber("TE", 0);
+    SmartDashboard.putNumber("Wrist",0);
+    SmartDashboard.putNumber("Ian", 0);
     Robot.driveTrain.resetEncoders();
 
   }

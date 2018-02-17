@@ -6,6 +6,7 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX; // Replaced wildcard import.
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.*;
@@ -46,10 +47,10 @@ public class RobotMap {
    * Initialize the public values above.
    */
   public static void init() {
-    _leftFrontMotor = new WPI_TalonSRX(0);
-    _leftBackMotor = new WPI_TalonSRX(1);
-    _rightFrontMotor = new WPI_TalonSRX(15);
-    _rightBackMotor = new WPI_TalonSRX(14);
+    _leftFrontMotor = new WPI_TalonSRX(0); //0
+    _leftBackMotor = new WPI_TalonSRX(1); //1
+    _rightFrontMotor = new WPI_TalonSRX(15); //15
+    _rightBackMotor = new WPI_TalonSRX(14); //14
     /**
      * Encoder PID index.
      * @value 0 for primary closed-loop, 1 for cascaded closed-loop.
@@ -59,7 +60,6 @@ public class RobotMap {
      * Initialize all analog encoders
      */
     liftArmEncoder = new AnalogInput(0);
-    wristEncoder = new AnalogInput(1);
     /*
      * Initialize all non-drivetrain motors/objects.
      */
@@ -92,5 +92,6 @@ public class RobotMap {
      */
     _led0 = new Spark(0);
     _led1 = new Spark(1);
+
   }
 }

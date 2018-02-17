@@ -6,6 +6,7 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.subsystems;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
@@ -84,7 +85,7 @@ public class DriveTrain extends PIDSubsystem {
    * @return double of left side distance.
    */
   public double getLeftDistance() {
-    return leftEncTalon.getSelectedSensorPosition(encPidIdx);
+    return leftEncTalon.getSelectedSensorPosition(encPidIdx) / 5000;
   }
   /**
    * Reset left side encoder.
@@ -113,12 +114,12 @@ public class DriveTrain extends PIDSubsystem {
   public double getRightDistance() {
     return rightEncTalon.getSelectedSensorPosition(encPidIdx)
         * WHEEL_CIRCUMFERENCE
-        / DIST_ADJUST_CONST;
+        / 1.8;
   }
 
   public double getEncoderDistance()
   {
-    return ((rightEncTalon.getSelectedSensorPosition(encPidIdx)) + (leftEncTalon.getSelectedSensorPosition(encPidIdx))) / 2;
+    return -leftEncTalon.getSelectedSensorPosition(encPidIdx);
   }
   /**
    * Reset right side encoder.
@@ -234,19 +235,10 @@ public class DriveTrain extends PIDSubsystem {
    * @param fbInput live speed value
    */
   public void useAutoGear(double fbInput) {
-    if(this.autoGear) {
 
-      double minAutoGearPercent = (autoGearPercent/100) * autoGearMinInputRange;
-      double maxAutoGearPercent = (autoGearPercent/100) * autoGearMaxInputRange;
 
-      if(fbInput >= maxAutoGearPercent || fbInput < minAutoGearPercent) {
-        setHighGear(); //If input is greater than percent then set high gear
-      }
-      else {
-        setLowGear(); // If input is lower than percent then set low gear
-      }
     }
-  }
+
   /**
    * Sets the percent of both negative and forward thrust where high/low gear is activated
    * @param gearPercentCap Percent Cap 0 - 100%
