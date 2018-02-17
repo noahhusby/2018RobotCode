@@ -18,18 +18,19 @@ import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
 public class ScalePosition extends Command {
     public int scaleHighHeight = 0; // This is the number that the arm angle is at when it has reached the scale height.
     public int currentHeight; // This is the current height.
-    public int minHeight; //this is the bottom of the wrist fold in zone
-    public int maxHeight; //this is the top of the wrist fold in zone
+    public int minHeight = 2; //this is the bottom of the wrist fold in zone
+    public int maxHeight = 5; //this is the top of the wrist fold in zone
     private AnalogInput liftArm = RobotMap.liftArmEncoder;
     protected void initialize() {
     }
     protected void execute() {
         do {
-            currentHeight = RobotMap.liftArmEncoder.getValue();
+            currentHeight = liftArm.getValue();
             while(true) {
-                RobotMap.winch1.set(1);
-                RobotMap.winch2.set(1);
-                if (Robot.liftArm.getArmAngle() > minHeight && Robot.liftArm.getArmAngle() > maxHeight){
+                RobotMap.winch1.set(0.45);
+                RobotMap.winch2.set(0.45);
+                RobotMap.winch3.set(0.45);
+                if (currentHeight > minHeight && Robot.liftArm.getArmAngle() > maxHeight){
                     Robot.liftArm.setWristAngle(-.5);
                     //fold wrist in while winch activated and in between the min and max zones
                 }else{
