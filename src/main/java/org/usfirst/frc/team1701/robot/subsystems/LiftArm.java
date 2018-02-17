@@ -106,7 +106,7 @@ public class LiftArm extends Subsystem {
 
   public void stopLiftArm()
   {
-    enableWristBrake();
+    enableWinchBrake();
     winch1.stopMotor();
     winch2.stopMotor();
     winch3.stopMotor();

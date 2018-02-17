@@ -62,7 +62,6 @@ public class SwitchPosition extends Command {
             stowWrist();
         }
         else {
-            Robot.liftArm.setLiftArm(0);
             Robot.liftArm.stopLiftArm();
             grabWrist();
         }

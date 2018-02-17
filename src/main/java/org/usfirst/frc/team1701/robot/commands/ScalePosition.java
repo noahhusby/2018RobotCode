@@ -74,7 +74,6 @@ public class ScalePosition extends Command {
             stowWrist();
         }
         else {
-            Robot.liftArm.setLiftArm(0);
             Robot.liftArm.stopLiftArm();
             grabWrist();
         }
