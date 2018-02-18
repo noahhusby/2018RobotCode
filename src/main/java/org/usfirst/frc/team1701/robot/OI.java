@@ -22,18 +22,9 @@ public class OI {
   public static Joystick drive_T;
   public static Joystick operation;
 
-  public static JoystickButton gearMode;
-  public static JoystickButton resetGyro;
-  public static JoystickButton preciseMode;
-  public static JoystickButton turboMode;
-  public static JoystickButton scaleHigh;
-  public static JoystickButton scaleMedium;
-  public static JoystickButton scaleLow;
-  public static JoystickButton switchHigh;
-  public static JoystickButton switchMeduim;
-  public static JoystickButton switchLow;
-  public static JoystickButton climber;
-  public static JoystickButton hook;
+  public static JoystickButton grabCube;
+  public static JoystickButton releaseCube;
+  public static JoystickButton releasePunchCube;
   public static JoystickButton reverse;
   public static JoystickButton scalePosition;
   public static JoystickButton grabPosition;
@@ -44,15 +35,10 @@ public class OI {
   public static JoystickButton _winchDown;
   public static JoystickButton _wristRight;
   public static JoystickButton _wristLeft;
-  public static JoystickButton _lowGear;
-  public static JoystickButton _highGear;
   public static JoystickButton _winchGearShiftLow;
   public static JoystickButton _winchGearShiftHigh;
-  public static JoystickButton _puncher;
-  public static JoystickButton _clamp;
   public static JoystickButton _manualBrake;
-  public static JoystickButton _releaseCube;
-  public static JoystickButton _boner;
+
   //private static final Logger logger = LogManager.getLogger();
   /**
    * Instead of an init() function, we call this on OI startup.
@@ -68,29 +54,13 @@ public class OI {
     /*
      * Assign commands to buttons.
      */
-    /**
-    gearMode = new JoystickButton(operation, 1);
-    resetGyro = new JoystickButton(operation, 2);
-    preciseMode = new JoystickButton(operation, 3);
-    turboMode = new JoystickButton(operation, 4);
-    //extendArm = new JoystickButton(operation, 5); //Placeholder Value... To Be Changed
-    //extendArm.whenPressed(new ExtendLiftArm());
-    //extendArm.whenReleased(new StopLiftArm());
-    //retractArm = new JoystickButton(operation, 6); //Placeholder Value... To Be Changed
-    //retractArm.whenPressed(new RetractLiftArm());
-    //retractArm.whenReleased(new StopLiftArm());
-    climber = new JoystickButton(operation, 5);
-    climber.whenPressed(new StartClimb());
-    climber.whenReleased(new EndClimb());
-    hook = new JoystickButton(operation, 6);
-    scaleHigh = new JoystickButton(operation,7);
-    scaleHigh.whenPressed(new DropOffScaleHigh());
-    scaleMedium = new JoystickButton(operation,8);
-    switchHigh = new JoystickButton(operation,10);
-    switchMeduim = new JoystickButton(operation,11);
-    switchLow = new JoystickButton(operation,12);
-    scaleLow = new JoystickButton(operation,13);
-     */
+
+    releaseCube = new JoystickButton(operation,4);
+    releaseCube.whenPressed(new ReleaseCube());
+    releasePunchCube = new JoystickButton(operation,3);
+    releasePunchCube.whenPressed(new ReleaseAndPunch());
+    grabCube = new JoystickButton(operation,6);
+    grabCube.whenPressed(new GrabCube());
     reverse = new JoystickButton(operation, 7);
     reverse.whenPressed(new ToggleReverse());
     scalePosition = new JoystickButton(operation,8);
@@ -114,22 +84,18 @@ public class OI {
     _wristLeft = new JoystickButton(drive_FB,4);
     _wristLeft.whenPressed(new _wristLeft());
     _wristLeft.whenReleased(new _wristBrake());
-    _lowGear = new JoystickButton(drive_FB,1);
-    _lowGear.whenPressed(new _setLowGear());
+
 
     _winchGearShiftLow = new JoystickButton(operation,1);
     _winchGearShiftLow.whenPressed(new _setWinchLowGear());
     _winchGearShiftHigh = new JoystickButton(operation,2);
     _winchGearShiftHigh.whenPressed(new _setWinchHighGear());
-    _puncher = new JoystickButton(operation,3);
-    _puncher.whenPressed(new ReleaseAndPunch());
-    _clamp = new JoystickButton(operation,6);
-    _clamp.whenPressed(new GrabCube());
+
+
     _manualBrake = new JoystickButton(operation,5);
     _manualBrake.whenPressed(new _winchManualBrake());
     _manualBrake.whenReleased(new _winchUnBrake());
-    _releaseCube = new JoystickButton(operation,4);
-    _releaseCube.whenPressed(new ReleaseCube());
+
 
 
 

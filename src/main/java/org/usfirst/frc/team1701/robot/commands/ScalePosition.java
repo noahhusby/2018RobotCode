@@ -66,11 +66,11 @@ public class ScalePosition extends Command {
 
 
         if(RobotMap.liftArmEncoder.getValue() - 497 > Robot.position.armScale + 40) {
-            Robot.liftArm.setLiftArm(0.35);
+            Robot.liftArm.setLiftArm(0.25);
             stowWrist();
         }
         else if(RobotMap.liftArmEncoder.getValue() - 497 < Robot.position.armScale - 40) {
-            Robot.liftArm.setLiftArm(-0.35);
+            Robot.liftArm.setLiftArm(-0.25);
             stowWrist();
         }
         else {

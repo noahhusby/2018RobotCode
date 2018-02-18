@@ -37,13 +37,10 @@ public class LiftArm extends Subsystem {
    * Sets the winches to brake mode, using two different methods
    */
   public void enableWinchBrake() {
-    //winch1.setNeutralMode(NeutralMode.Brake);
-    //winch2.setNeutralMode(NeutralMode.Brake);
+
     winchBrake.set(DoubleSolenoid.Value.kForward);
   }
   public void disableWinchBrake() {
-    //winch1.setNeutralMode(NeutralMode.Coast);
-    //winch2.setNeutralMode(NeutralMode.Coast);
     winchBrake.set(DoubleSolenoid.Value.kReverse);
   }
   public void enableWristBrake()
@@ -106,10 +103,10 @@ public class LiftArm extends Subsystem {
 
   public void stopLiftArm()
   {
-    enableWinchBrake();
     winch1.stopMotor();
     winch2.stopMotor();
     winch3.stopMotor();
+    enableWinchBrake();
   }
   public void extendPuncher() {
     puncher.set(DoubleSolenoid.Value.kForward);
@@ -121,8 +118,9 @@ public class LiftArm extends Subsystem {
 
   public void stopWrist()
   {
-    enableWristBrake();
     wrist.stopMotor();
+    enableWristBrake();
+
   }
 
   public void setWrist(double input) {
