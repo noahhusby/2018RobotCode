@@ -48,7 +48,6 @@ public class DriveTrain extends Subsystem {
   /*
    * Motor state variables.
    */
-
   private boolean reversed = false;
   private boolean precise = false;
   private boolean autoGear = false;
