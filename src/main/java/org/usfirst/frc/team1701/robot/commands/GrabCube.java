@@ -9,20 +9,15 @@ public class GrabCube extends Command{
     public GrabCube() {
         requires(Robot.liftArm);
     }
-
     protected void initialize() {
 
     }
-
     protected void execute() {
-        Robot.liftArm.setArmClamp(true);
+        Robot.liftArm.setGrabber(true);
     }
-
     protected boolean isFinished() {
         return true;
     }
-
     protected void end() {}
-
     protected void interrupted() {}
 }

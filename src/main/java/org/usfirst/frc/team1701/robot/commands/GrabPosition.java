@@ -9,12 +9,10 @@ public class GrabPosition extends Command {
     public GrabPosition() {
         requires(Robot.liftArm);
     }
-
     private boolean isFinshed;
-
     private void stowWrist() {
 
-        Robot.liftArm.setArmClamp(true);
+        Robot.liftArm.setGrabber(true);
 
         if(Robot.liftArm.getWristAngle() > Robot.position.wristStow + 50)
         {
@@ -24,12 +22,12 @@ public class GrabPosition extends Command {
         {
             Robot.liftArm.setWrist(-0.50);
         }
-        else
+        else if(Robot.liftArm.getWristAngle() > Robot.position.wristStow - 50 && Robot.liftArm.getWristAngle() < Robot.position.wristStow + 50)
         {
             Robot.liftArm.stopWrist();
+            Robot.liftArm.enableWristBrake();
         }
     }
-
     private void grabWrist() {
         if(Robot.liftArm.getWristAngle() > Robot.position.wristGrab + 50)
         {
@@ -39,26 +37,22 @@ public class GrabPosition extends Command {
         {
             Robot.liftArm.setWrist(-0.50);
         }
-        else
+        else if(Robot.liftArm.getWristAngle() > Robot.position.wristStow - 50 && Robot.liftArm.getWristAngle() < Robot.position.wristStow + 50)
         {
             Robot.liftArm.stopWrist();
-            Robot.liftArm.setArmClamp(false);
+            Robot.liftArm.setGrabber(false);
             isFinshed = true;
         }
     }
-
-
-
-
     protected void initialize() {}
     protected void execute() {
         isFinshed = false;
 
-        if(RobotMap.liftArmEncoder.getValue() - 497 > Robot.position.armGrab + 40) {
+        if(Robot.liftArm.getArmAngle()> Robot.position.armGrab + 40) {
             Robot.liftArm.setLiftArm(0.35);
             stowWrist();
         }
-        else if(RobotMap.liftArmEncoder.getValue() - 497 < Robot.position.armGrab - 40) {
+        else if(Robot.liftArm.getArmAngle() < Robot.position.armGrab - 40) {
             Robot.liftArm.setLiftArm(-0.35);
             stowWrist();
         }

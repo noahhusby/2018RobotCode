@@ -18,20 +18,21 @@ import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class TeleopDrive extends Command {
 
-
   public TeleopDrive() {
     requires(Robot.driveTrain);
   }
-
   protected void initialize() {
-
   }
-
   protected void execute() {
 
     SmartDashboard.putBoolean("Reversed", Robot.driveTrain.getReverse());
-    SmartDashboard.putNumber("TE", RobotMap.liftArmEncoder.getValue() - 497);
+    SmartDashboard.putNumber("Arm", RobotMap.liftArmEncoder.getValue());
     SmartDashboard.putNumber("Wrist", Robot.liftArm.getWristAngle());
+
+    if(Robot.liftArm.getCubeSensor())
+    {
+      Robot.liftArm.setGrabber(true);
+    }
 
 
     double deadConst = .10;
@@ -40,15 +41,11 @@ public class TeleopDrive extends Command {
     Robot.driveTrain.teleopControl(fBInput, tInput);
 
   }
-
   protected boolean isFinished() {
     return false;
   }
-
   protected void end() {}
-
   protected void interrupted() {}
-
   private double checkDeadZone(double input, double deadConst) {
     if (input > 0) {
       if (deadConst >= input) {

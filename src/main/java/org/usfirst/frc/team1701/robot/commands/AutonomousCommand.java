@@ -34,17 +34,14 @@ public class AutonomousCommand extends Command {
   /*
    Booleans to check current states of autonomous
    */
-
   private static boolean forwardState;
   private static boolean turnState;
   private static boolean dropState;
 
-
   public AutonomousCommand() {
     requires(Robot.driveTrain);
   }
-
-    /**
+  /**
      * Resets the states, so that autonomous knows where its at.
      */
     private void initilaizeStates() {
@@ -100,7 +97,6 @@ public class AutonomousCommand extends Command {
     }
 
   }
-
   /**
    * Don't stop the party!
    *

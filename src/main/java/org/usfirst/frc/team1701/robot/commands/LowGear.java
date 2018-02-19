@@ -11,19 +11,14 @@ public class LowGear extends Command {
     }
 
     protected void initialize() {
-
     }
-
     protected void execute() {
         Robot.driveTrain.setAutoGear(false);
         Robot.driveTrain.setLowGear();
     }
-
     protected boolean isFinished() {
         return true;
     }
-
     protected void end() {}
-
     protected void interrupted() {}
 }

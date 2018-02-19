@@ -31,19 +31,19 @@ public class RobotMap {
   public static SpeedControllerGroup _leftMotors;
   public static SpeedControllerGroup _rightMotors;
   public static DifferentialDrive driveTrain;
-  public static DoubleSolenoid armClamp;
+  public static DoubleSolenoid grabber;
   public static DoubleSolenoid puncher;
   public static DoubleSolenoid driveShift;
   public static DoubleSolenoid winchShift;
   public static DoubleSolenoid winchBrake;
   public static DoubleSolenoid wristBrake;
   public static AnalogInput liftArmEncoder;
-  public static AnalogInput wristEncoder;
+  public static DigitalInput cubeSensor;
   public static Spark _led0;
   public static Spark _led1;
   public static AHRS _navx;
   public static int encPidIdx;
-  /*
+  /**
    * Initialize the public values above.
    */
   public static void init() {
@@ -56,27 +56,29 @@ public class RobotMap {
      * @value 0 for primary closed-loop, 1 for cascaded closed-loop.
      */
     encPidIdx = 0;
-    /*
-     * Initialize all analog encoders
+    /**
+     * Initialize all analog and digital objects
      */
     liftArmEncoder = new AnalogInput(0);
-    /*
+    cubeSensor = new DigitalInput(9);
+
+    /**
      * Initialize all non-drivetrain motors/objects.
      */
     winch1 = new WPI_TalonSRX(12);
     winch2 = new WPI_TalonSRX(13);
     winch3 = new WPI_TalonSRX(3);
     wrist = new WPI_TalonSRX(2);
-    /*
+    /**
      * Initialize all pneumatic controllers
      */
     driveShift = new DoubleSolenoid(0,7,0);
     winchShift = new DoubleSolenoid(0,6,1);
-    armClamp = new DoubleSolenoid(0, 5, 2);
+    grabber = new DoubleSolenoid(0, 5, 2);
     puncher = new DoubleSolenoid(0,4,3);
     winchBrake = new DoubleSolenoid(1,7,0);
     wristBrake = new DoubleSolenoid(1,6,1);
-    /*
+    /**
      * Create 4-wheel drivetrain object using DifferentialDrive and SpeedControllerGroups.
      */
     _leftMotors = new SpeedControllerGroup(_leftFrontMotor, _leftBackMotor);

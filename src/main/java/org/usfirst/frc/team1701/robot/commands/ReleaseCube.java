@@ -8,20 +8,14 @@ public class ReleaseCube extends Command{
     public ReleaseCube() {
         requires(Robot.liftArm);
     }
-
     protected void initialize() {
-
     }
-
     protected void execute() {
-        Robot.liftArm.setArmClamp(false);
+        Robot.liftArm.setGrabber(false);
     }
-
     protected boolean isFinished() {
         return true;
     }
-
     protected void end() {}
-
     protected void interrupted() {}
 }

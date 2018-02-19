@@ -7,20 +7,15 @@ public class ToggleReverse extends Command {
     public ToggleReverse() {
         requires(Robot.driveTrain);
     }
-
     protected void initialize() {
 
     }
-
     protected void execute() {
         Robot.driveTrain.toggleReverse();
     }
-
     protected boolean isFinished() {
         return true;
     }
-
     protected void end() {}
-
     protected void interrupted() {}
 }

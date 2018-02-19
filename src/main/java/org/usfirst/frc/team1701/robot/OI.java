@@ -29,15 +29,12 @@ public class OI {
   public static JoystickButton scalePosition;
   public static JoystickButton grabPosition;
   public static JoystickButton switchPosition;
+  public static JoystickButton stowPosition;
+  public static JoystickButton manualWinchUp;
+  public static JoystickButton manualWinchDown;
+  public static JoystickButton manualWristUp;
+  public static JoystickButton manualWristDown;
 
-
-  public static JoystickButton _winchUp;
-  public static JoystickButton _winchDown;
-  public static JoystickButton _wristRight;
-  public static JoystickButton _wristLeft;
-  public static JoystickButton _winchGearShiftLow;
-  public static JoystickButton _winchGearShiftHigh;
-  public static JoystickButton _manualBrake;
 
   //private static final Logger logger = LogManager.getLogger();
   /**
@@ -54,7 +51,6 @@ public class OI {
     /*
      * Assign commands to buttons.
      */
-
     releaseCube = new JoystickButton(operation,4);
     releaseCube.whenPressed(new ReleaseCube());
     releasePunchCube = new JoystickButton(operation,3);
@@ -69,55 +65,21 @@ public class OI {
     grabPosition.whenPressed(new GrabPosition());
     switchPosition = new JoystickButton(drive_FB,2);
     switchPosition.whenPressed(new SwitchPosition());
-
-
-
-    _winchUp = new JoystickButton(drive_FB,5);
-    _winchUp.whenPressed(new _winchUp());
-    _winchUp.whenReleased(new _winchBrake());
-    _winchDown = new JoystickButton(drive_FB, 6);
-    _winchDown.whenPressed(new _winchDown());
-    _winchDown.whenReleased(new _winchBrake());
-    _wristRight = new JoystickButton(drive_FB,3);
-    _wristRight.whenPressed(new _wristRight());
-    _wristRight.whenReleased(new _wristBrake());
-    _wristLeft = new JoystickButton(drive_FB,4);
-    _wristLeft.whenPressed(new _wristLeft());
-    _wristLeft.whenReleased(new _wristBrake());
-
-
-    _winchGearShiftLow = new JoystickButton(operation,1);
-    _winchGearShiftLow.whenPressed(new _setWinchLowGear());
-    _winchGearShiftHigh = new JoystickButton(operation,2);
-    _winchGearShiftHigh.whenPressed(new _setWinchHighGear());
-
-
-    _manualBrake = new JoystickButton(operation,5);
-    _manualBrake.whenPressed(new _winchManualBrake());
-    _manualBrake.whenReleased(new _winchUnBrake());
-
-
-
-
-
+    stowPosition = new JoystickButton(drive_FB,1);
+    stowPosition.whenPressed(new StowPosition());
+    manualWinchUp = new JoystickButton(drive_FB,5);
+    manualWinchUp.whenPressed(new WinchUp());
+    manualWinchUp.whenReleased(new WinchStop());
+    manualWinchDown = new JoystickButton(drive_FB, 6);
+    manualWinchDown.whenPressed(new WinchDown());
+    manualWinchDown.whenReleased(new WinchStop());
+    manualWristUp = new JoystickButton(drive_FB,3);
+    manualWristUp.whenPressed(new WristUp());
+    manualWristUp.whenReleased(new WristStop());
+    manualWristDown = new JoystickButton(drive_FB,4);
+    manualWristDown.whenPressed(new WristDown());
+    manualWristDown.whenReleased(new WristStop());
 
   }
-  /*
-   * Return an instance of the forwards/backwards joystick.
-   */
-  public Joystick getDrive_FB() {
-    return drive_FB;
-  }
-  /*
-   * Return an instance of the throttle joystick.
-   */
-  public Joystick getDrive_T() {
-    return drive_T;
-  }
-  /*
-   * Return an instance of the operation joystick.
-   */
-  public Joystick getOperation() {
-    return operation;
-  }
+
 }

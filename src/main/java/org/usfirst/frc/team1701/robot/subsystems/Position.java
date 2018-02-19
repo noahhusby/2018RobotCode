@@ -10,11 +10,11 @@ public class Position extends Subsystem {
     public double wristStow = -172;
     public double wristGrab = 1084;
     public double wristScale = 911;
-    public double wristSwitch = -1644;
+    public double wristSwitch = -1512;
 
-    public double armGrab = -10;
-    public double armScale = 1580;
-    public double armSwitch = 795;
+    public double armGrab = 292;
+    public double armScale = 2374;
+    public double armSwitch = 1602;
 
 
     public double liftArmMax = 0;

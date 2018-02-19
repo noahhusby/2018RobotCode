@@ -9,23 +9,18 @@ public class ReleaseAndPunch extends Command {
     public ReleaseAndPunch() {
         requires(Robot.liftArm);
     }
-
     protected void initialize() {
 
     }
-
     protected void execute() {
-        Robot.liftArm.setArmClamp(false);
+        Robot.liftArm.setGrabber(false);
         Robot.liftArm.extendPuncher();
         Timer.delay(0.5);
         Robot.liftArm.retractPuncher();
     }
-
     protected boolean isFinished() {
         return true;
     }
-
     protected void end() {}
-
     protected void interrupted() {}
 }

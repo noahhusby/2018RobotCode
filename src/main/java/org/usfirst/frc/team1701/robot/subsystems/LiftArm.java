@@ -24,7 +24,7 @@ public class LiftArm extends Subsystem {
   private final WPI_TalonSRX winch2 = RobotMap.winch2;
   private final WPI_TalonSRX winch3 = RobotMap.winch3;
   private final WPI_TalonSRX wristEncoder = wrist;
-  private final DoubleSolenoid armClamp = RobotMap.armClamp;
+  private final DoubleSolenoid grabber = RobotMap.grabber;
   private final DoubleSolenoid winchBrake = RobotMap.winchBrake;
   private final DoubleSolenoid winchShift = RobotMap.winchShift;
   private final DoubleSolenoid puncher = RobotMap.puncher;
@@ -34,27 +34,41 @@ public class LiftArm extends Subsystem {
    */
   private final int encPidIdx = RobotMap.encPidIdx;
   /**
-   * Sets the winches to brake mode, using two different methods
+   * Sets the winches to brake mode
    */
   public void enableWinchBrake() {
-
     winchBrake.set(DoubleSolenoid.Value.kForward);
   }
+  /**
+   * Disables winch brake
+   */
   public void disableWinchBrake() {
     winchBrake.set(DoubleSolenoid.Value.kReverse);
   }
+  /**
+   * Enables wrist brake
+   */
   public void enableWristBrake()
   {
-    wristBrake.set(DoubleSolenoid.Value.kForward);
+      wristBrake.set(DoubleSolenoid.Value.kForward);
   }
+  /**
+   * Disables wrist brake
+   */
   public void disableWristBrake()
   {
-    wristBrake.set(DoubleSolenoid.Value.kReverse);
+      wristBrake.set(DoubleSolenoid.Value.kReverse);
   }
+  /**
+   * Sets winch gear to low
+   */
   public void winchLowGear()
   {
     winchShift.set(DoubleSolenoid.Value.kReverse);
   }
+  /**
+   * Sets winch gear to high
+   */
   public void winchHighGear()
   {
     winchShift.set(DoubleSolenoid.Value.kForward);
@@ -67,11 +81,6 @@ public class LiftArm extends Subsystem {
     return liftArmEncoder.getValue();
   }
   /**
-   * Set the arm angle
-   * @param rotations the number of rotations.
-   */
-  public void setArmAngle(double rotations) {}
-  /**
    * Return wrist angle.
    * @return wrist angle as double.
    */
@@ -79,19 +88,14 @@ public class LiftArm extends Subsystem {
     return wristEncoder.getSelectedSensorPosition(encPidIdx);
   }
   /**
-   * Set the wrist angle.
-   * @param rotations Wrist angle to set to.
-   */
-  public void setWristAngle(double aInput) {}
-  /**
    * Set the clamp position.
-   * @param clamp true for enabled, false for disabled.
+   * @param state true for enabled, false for disabled.
    */
-  public void setArmClamp(boolean clamp) {
-    if(clamp) {
-      armClamp.set(DoubleSolenoid.Value.kReverse);
+  public void setGrabber(boolean State) {
+    if(State) {
+      grabber.set(DoubleSolenoid.Value.kReverse);
     } else {
-     armClamp.set(DoubleSolenoid.Value.kForward);
+     grabber.set(DoubleSolenoid.Value.kForward);
     }
   }
   public void setLiftArm(double input) {
@@ -100,7 +104,9 @@ public class LiftArm extends Subsystem {
     winch2.set(input);
     winch3.set(input);
   }
-
+  /**
+   * Disables wrist motors, enables winch brake
+   */
   public void stopLiftArm()
   {
     winch1.stopMotor();
@@ -108,24 +114,42 @@ public class LiftArm extends Subsystem {
     winch3.stopMotor();
     enableWinchBrake();
   }
+  /**
+   * Pushes puncher out to push cube
+   */
   public void extendPuncher() {
     puncher.set(DoubleSolenoid.Value.kForward);
   }
+  /**
+   * Pulls puncher into normal state
+   */
   public void retractPuncher()
   {
     puncher.set(DoubleSolenoid.Value.kReverse);
   }
-
+  /**
+   * Stops the wrist motor, automatically enables wrist brake
+   */
   public void stopWrist()
   {
     wrist.stopMotor();
     enableWristBrake();
-
   }
-
-  public void setWrist(double input) {
+  /**
+   * Sets speed of wrist motor, automatically disables brake
+   * @param speed to set wrist motor
+   */
+  public void setWrist(double speed) {
     disableWristBrake();
-    wrist.set(input);
+    wrist.set(speed);
+  }
+  /**
+   * Gets the current state of switches on grabber
+   * @return Boolean of CubeSensor
+   */
+  public boolean getCubeSensor()
+  {
+    return RobotMap.cubeSensor.get();
   }
   public void initDefaultCommand() {}
 }
