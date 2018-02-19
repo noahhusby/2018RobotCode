@@ -62,6 +62,8 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putBoolean("Reversed", false);
     SmartDashboard.putNumber("Arm", 0);
     SmartDashboard.putNumber("Wrist",0);
+    SmartDashboard.putNumber("DLeft",0);
+    SmartDashboard.putNumber("DRight",0);
     Robot.driveTrain.resetEncoders();
   }
   /*

@@ -6,7 +6,7 @@ import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class WristDown extends Command {
     protected void execute() {
-        RobotMap.wrist.set(0.80);
+        Robot.liftArm.setWrist(0.80);
     }
     protected boolean isFinished() {
         return true;

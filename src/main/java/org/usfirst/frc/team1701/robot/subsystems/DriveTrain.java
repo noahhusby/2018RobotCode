@@ -63,9 +63,7 @@ public class DriveTrain extends Subsystem {
    * @return double of left side distance.
    */
   public double getLeftDistance() {
-    return leftEncTalon.getSelectedSensorPosition(encPidIdx)
-        * WHEEL_CIRCUMFERENCE
-        / DIST_ADJUST_CONST;
+    return leftEncTalon.getSelectedSensorPosition(encPidIdx);
   }
   /**
    * Reset left side encoder.
@@ -95,9 +93,7 @@ public class DriveTrain extends Subsystem {
    * @return double of right side distance.
    */
   public double getRightDistance() {
-    return rightEncTalon.getSelectedSensorPosition(encPidIdx)
-        * WHEEL_CIRCUMFERENCE
-        / 1.8;
+    return rightEncTalon.getSelectedSensorPosition(encPidIdx);
   }
 
   public double getEncoderDistance()

@@ -22,7 +22,6 @@ public class LiftArm extends Subsystem {
   private final WPI_TalonSRX wrist = RobotMap.wrist;
   private final WPI_TalonSRX winch1 = RobotMap.winch1;
   private final WPI_TalonSRX winch2 = RobotMap.winch2;
-  private final WPI_TalonSRX winch3 = RobotMap.winch3;
   private final WPI_TalonSRX wristEncoder = wrist;
   private final DoubleSolenoid grabber = RobotMap.grabber;
   private final DoubleSolenoid winchBrake = RobotMap.winchBrake;
@@ -102,7 +101,7 @@ public class LiftArm extends Subsystem {
     disableWinchBrake();
     winch1.set(input);
     winch2.set(input);
-    winch3.set(input);
+
   }
   /**
    * Disables wrist motors, enables winch brake
@@ -111,7 +110,6 @@ public class LiftArm extends Subsystem {
   {
     winch1.stopMotor();
     winch2.stopMotor();
-    winch3.stopMotor();
     enableWinchBrake();
   }
   /**

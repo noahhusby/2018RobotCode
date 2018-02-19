@@ -27,7 +27,6 @@ public class RobotMap {
   public static WPI_TalonSRX wrist;
   public static WPI_TalonSRX winch1;
   public static WPI_TalonSRX winch2;
-  public static WPI_TalonSRX winch3;
   public static SpeedControllerGroup _leftMotors;
   public static SpeedControllerGroup _rightMotors;
   public static DifferentialDrive driveTrain;
@@ -67,7 +66,6 @@ public class RobotMap {
      */
     winch1 = new WPI_TalonSRX(12);
     winch2 = new WPI_TalonSRX(13);
-    winch3 = new WPI_TalonSRX(3);
     wrist = new WPI_TalonSRX(2);
     /**
      * Initialize all pneumatic controllers

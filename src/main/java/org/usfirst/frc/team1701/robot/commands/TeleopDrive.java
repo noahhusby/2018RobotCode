@@ -28,6 +28,8 @@ public class TeleopDrive extends Command {
     SmartDashboard.putBoolean("Reversed", Robot.driveTrain.getReverse());
     SmartDashboard.putNumber("Arm", RobotMap.liftArmEncoder.getValue());
     SmartDashboard.putNumber("Wrist", Robot.liftArm.getWristAngle());
+    SmartDashboard.putNumber("DLeft",Robot.driveTrain.getLeftDistance());
+    SmartDashboard.putNumber("DRight", Robot.driveTrain.getRightDistance());
 
     if(Robot.liftArm.getCubeSensor())
     {

@@ -7,10 +7,10 @@ public class Position extends Subsystem {
     /*
      * Minimum and maximum traveling distance for wrist and arm
      */
-    public double armSafetyMin = 0;
-    public double armSafetyMax = 0;
-    public double wristSafetyMin = 0;
-    public double wristSafetyMax = 0;
+    public static double armSafetyMin = 0;
+    public static double armSafetyMax = 0;
+    public static double wristSafetyMin = 0;
+    public static double wristSafetyMax = 0;
 
     /*
      * Wrist values for positions
