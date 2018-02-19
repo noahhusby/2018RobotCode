@@ -78,6 +78,14 @@ public class Vision extends Subsystem {
         pipeline_key.setNumber(pipeline);
     }
     /**
+     * Set the PIP mode.
+     * @param mode PIP mode. See Limelight NetworkTables API documentation.
+     */
+    public void setPIPMode(Number mode) {
+        NetworkTableEntry stream_key = table.getEntry("stream");
+        stream_key.setNumber(mode);
+    }
+    /**
      * Initialize default command. Currently nothing.
      */
     public void initDefaultCommand() {}
