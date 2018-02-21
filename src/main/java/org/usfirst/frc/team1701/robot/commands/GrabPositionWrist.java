@@ -12,6 +12,7 @@ public class GrabPositionWrist extends Command{
     protected void initialize() {
     }
     protected void execute() {
+        Robot.liftArm.disableWristBrake();
         isFinished = false;
         if(Robot.liftArm.getWristAngle() > Robot.position.wristGrab + 50)
         {
@@ -31,6 +32,8 @@ public class GrabPositionWrist extends Command{
     protected boolean isFinished() {
         return isFinished;
     }
-    protected void end() {}
+    protected void end() {
+        Robot.liftArm.enableWristBrake();
+    }
     protected void interrupted() {}
 }

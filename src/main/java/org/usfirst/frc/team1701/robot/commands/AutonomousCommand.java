@@ -8,7 +8,6 @@
 package org.usfirst.frc.team1701.robot.commands;
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /*import org.apache.logging.log4j.LogManager;
@@ -16,7 +15,6 @@ import org.apache.logging.log4j.Logger;*/
 import org.usfirst.frc.team1701.robot.Robot;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import org.usfirst.frc.team1701.robot.commands.Auto.*;
-import org.usfirst.frc.team1701.robot.subsystems.Position;
 
 public class AutonomousCommand extends CommandGroup {
   //private static final Logger logger = LogManager.getLogger();
@@ -67,7 +65,7 @@ public class AutonomousCommand extends CommandGroup {
                       addSequential(new WallToScale());
                       addSequential(new StowPosition());
                       addSequential(new TurnLeft());
-                      addSequential(new ScalePosition());
+                      addSequential(new ScalePositionArm());
                       addSequential(new ReverseScale());
                       addSequential(new ReleaseAndPunch());
 
@@ -79,7 +77,7 @@ public class AutonomousCommand extends CommandGroup {
                       addSequential(new TurnRight());
                       addSequential(new CrossPlatformZone());
                       addSequential(new TurnLeft());
-                      addParallel(new ScalePosition());
+                      addParallel(new ScalePositionArm());
                       addSequential(new PlatformToScale());
                       addSequential(new ReleaseAndPunch());
                       break;
@@ -96,7 +94,7 @@ public class AutonomousCommand extends CommandGroup {
                       addSequential(new TurnLeft());
                       addSequential(new MiddleToSwitchTurn());
                       addSequential(new TurnRight());
-                      addSequential(new SwitchPosition());
+                      addSequential(new SwitchPositionArm());
                       addSequential(new TurnToSwitch());
                       addSequential(new ReleaseAndPunch());
                       break;
@@ -107,7 +105,7 @@ public class AutonomousCommand extends CommandGroup {
                       addSequential(new TurnRight());
                       addSequential(new MiddleToSwitchTurn());
                       addSequential(new TurnLeft());
-                      addParallel(new SwitchPosition());
+                      addParallel(new SwitchPositionArm());
                       addSequential(new TurnToSwitch());
                       addSequential(new ReleaseAndPunch());
                       break;

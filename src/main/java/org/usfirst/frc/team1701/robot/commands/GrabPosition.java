@@ -10,8 +10,6 @@ public class GrabPosition extends CommandGroup {
 
     public GrabPosition() {
 
-
-
         addSequential(new StowPosition());
         addSequential(new GrabPositionArm());
         addSequential(new GrabPositionWrist());

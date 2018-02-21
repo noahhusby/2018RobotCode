@@ -2,12 +2,15 @@ package org.usfirst.frc.team1701.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
-import org.usfirst.frc.team1701.robot.RobotMap;
 
-public class WinchUp extends Command {
+public class StopClimb extends Command {
+    public StopClimb() {
+        requires(Robot.driveTrain);
+    }
+    protected void initialize() {
+    }
     protected void execute() {
-        Robot.liftArm.winchLowGear();
-        Robot.liftArm.setLiftArm(1);
+        Robot.liftArm.stopLiftArm();
     }
     protected boolean isFinished() {
         return true;
