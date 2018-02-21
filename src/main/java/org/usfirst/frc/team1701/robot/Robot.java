@@ -8,6 +8,7 @@
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -36,7 +37,8 @@ public class Robot extends IterativeRobot {
   /*
    * Initialize the various subsystems on the robot.
    */
-  private SendableChooser<Command> autoProgram;
+  private SendableChooser<CommandGroup> autoProgram;
+  public static SendableChooser<Number> autonomousLocation;
   private Command autonomousCode;
   public static OI oi;
   public static DriveTrain driveTrain;
@@ -57,14 +59,25 @@ public class Robot extends IterativeRobot {
     oi = new OI();
     autoProgram = new SendableChooser<>();
     autoProgram.addDefault("Default Autonomous", new AutonomousCommand());
-    autoProgram.addObject("Forward Autonomous", new DriveForward());
+    //autoProgram.addObject("Forward Autonomous", new DriveForward());
     SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
+    autonomousLocation = new SendableChooser<>();
+    autonomousLocation.addObject("Left",1);
+    autonomousLocation.addDefault("Middle",2);
+    autonomousLocation.addObject("Right",3);
+    SmartDashboard.putData("Autonomous Location Chooser", autonomousLocation);
     SmartDashboard.putBoolean("Reversed", false);
     SmartDashboard.putNumber("Arm", 0);
     SmartDashboard.putNumber("Wrist",0);
     SmartDashboard.putNumber("DLeft",0);
     SmartDashboard.putNumber("DRight",0);
-    Robot.driveTrain.resetEncoders();
+    SmartDashboard.putNumber("NVAngle", 0);
+    SmartDashboard.putNumber("NVYaw", 0);
+
+
+
+    vision.setPIPMode(2);
+    driveTrain.resetEncoders();
   }
   /*
    * This function is called when the robot has been disabled.
@@ -80,8 +93,8 @@ public class Robot extends IterativeRobot {
    * This function is called when autonomous mode is started.
    */
   public void autonomousInit() {
-    autonomousCode = autoProgram.getSelected();
-    autonomousCode.start();
+    AutonomousCommand auto = new AutonomousCommand();
+    auto.start();
   }
 
   /*

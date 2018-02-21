@@ -6,6 +6,7 @@ import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class WinchDown extends Command {
     protected void execute() {
+        Robot.liftArm.winchLowGear();
         Robot.liftArm.setLiftArm(-0.45);
     }
     protected boolean isFinished() {

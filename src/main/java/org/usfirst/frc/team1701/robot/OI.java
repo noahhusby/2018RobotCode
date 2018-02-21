@@ -29,6 +29,7 @@ public class OI {
   public static JoystickButton scalePosition;
   public static JoystickButton grabPosition;
   public static JoystickButton switchPosition;
+  public static JoystickButton switchShootPosition;
   public static JoystickButton stowPosition;
   public static JoystickButton manualWinchUp;
   public static JoystickButton manualWinchDown;
@@ -65,6 +66,8 @@ public class OI {
     grabPosition.whenPressed(new GrabPosition());
     switchPosition = new JoystickButton(drive_FB,2);
     switchPosition.whenPressed(new SwitchPosition());
+    switchShootPosition = new JoystickButton(operation,1);
+    switchShootPosition.whenPressed(new SwitchShootPosition());
     stowPosition = new JoystickButton(drive_FB,1);
     stowPosition.whenPressed(new StowPosition());
     manualWinchUp = new JoystickButton(drive_FB,5);

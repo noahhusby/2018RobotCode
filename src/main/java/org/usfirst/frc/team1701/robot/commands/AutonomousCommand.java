@@ -6,13 +6,19 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.commands;
+import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /*import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;*/
 import org.usfirst.frc.team1701.robot.Robot;
-public class AutonomousCommand extends Command {
+import org.usfirst.frc.team1701.robot.RobotMap;
+import org.usfirst.frc.team1701.robot.commands.Auto.*;
+import org.usfirst.frc.team1701.robot.subsystems.Position;
+
+public class AutonomousCommand extends CommandGroup {
   //private static final Logger logger = LogManager.getLogger();
 
     /**
@@ -27,92 +33,101 @@ public class AutonomousCommand extends Command {
   private static Double defaultPosition = 2.0;
 
   private static final double robotPosition = SmartDashboard.getNumber("Position", defaultPosition);
-  private static  char switchPosition;
+  private static char switchPosition;
+  private static char scalePosition;
   private static boolean targets = Robot.vision.getTarget();
-  private static double allienceToLineDistance = 10.35;
+  private boolean isFinished = false;
 
-  /*
-   Booleans to check current states of autonomous
-   */
-  private static boolean forwardState;
-  private static boolean turnState;
-  private static boolean dropState;
+  private AHRS navx = RobotMap._navx;
+
+
+
+
+
 
   public AutonomousCommand() {
-    requires(Robot.driveTrain);
-  }
-  /**
-     * Resets the states, so that autonomous knows where its at.
-     */
-    private void initilaizeStates() {
-        forwardState = false;
-        turnState = false;
-        dropState = false;
-    }
-  /** Initialize the autonomous command. */
-  protected void initialize() {
-     gameCode = DriverStation.getInstance().getGameSpecificMessage();
-     if (gameCode == null) {
-       gameCode = "LRL";
-     }
-     switchPosition  = gameCode.charAt(0);
-     initilaizeStates();
-  }
-  /** Execute the autonomous. */
-  protected void execute() {
-    //logger.warn("Autonomous command started! May the force be with you.");
-    // This is how we figure out what to do. It's a bit rough at best.
+      gameCode = DriverStation.getInstance().getGameSpecificMessage();
+      if (gameCode == null) {
+          gameCode = "LRL";
+      }
 
-    switch(switchPosition) {
-      case 'L':
-        if (robotPosition == 1 && targets) {
+      switchPosition = gameCode.charAt(0);
+      scalePosition = gameCode.charAt(1);
 
-        }
-      case 'R':
-        if (robotPosition == 3 && targets) {
-          // Take control of right side of switch.
 
-            /*
-             * Checks if any autonomous has started yet
-             */
-            if(!forwardState && !turnState && !dropState)
-            {
-                forwardState = true;
-            }
 
-            if(Robot.driveTrain.getEncoderDistance() < allienceToLineDistance && forwardState)
-            {
-                Robot.driveTrain.setLowGear();
-                Robot.driveTrain.leftDriveControl(0.75);
-                Robot.driveTrain.rightDriveControl(0.75);
-            }
-            else if(forwardState)
-            {
-                Robot.driveTrain.stopMotors();
-                forwardState = false;
-            }
-        }
-      default:
-        // Attempt to cross autonomous line.
-    }
+
+      double autoLocation = SmartDashboard.getNumber("Autonomous Location Chooser", 2);
+
+
+          if(autoLocation == 1) {
+
+              switch(scalePosition) {
+                  case 'L':
+                      addSequential(new WallToScale());
+                      addSequential(new StowPosition());
+                      addSequential(new TurnLeft());
+                      addSequential(new ScalePosition());
+                      addSequential(new ReverseScale());
+                      addSequential(new ReleaseAndPunch());
+
+                      break;
+
+                  case 'R':
+                      addSequential(new WallToPlatformZone());
+                      addParallel(new StowPosition());
+                      addSequential(new TurnRight());
+                      addSequential(new CrossPlatformZone());
+                      addSequential(new TurnLeft());
+                      addParallel(new ScalePosition());
+                      addSequential(new PlatformToScale());
+                      addSequential(new ReleaseAndPunch());
+                      break;
+              }
+
+
+
+          } else if (autoLocation == 2) {
+
+              switch(switchPosition) {
+                  case 'L':
+                      addSequential(new WallToMiddle());
+                      addParallel(new StowPosition());
+                      addSequential(new TurnLeft());
+                      addSequential(new MiddleToSwitchTurn());
+                      addSequential(new TurnRight());
+                      addSequential(new SwitchPosition());
+                      addSequential(new TurnToSwitch());
+                      addSequential(new ReleaseAndPunch());
+                      break;
+
+                  case 'R':
+                      addSequential(new WallToMiddle());
+                      addParallel(new StowPosition());
+                      addSequential(new TurnRight());
+                      addSequential(new MiddleToSwitchTurn());
+                      addSequential(new TurnLeft());
+                      addParallel(new SwitchPosition());
+                      addSequential(new TurnToSwitch());
+                      addSequential(new ReleaseAndPunch());
+                      break;
+              }
+
+
+          } else if (autoLocation == 3) {
+
+
+
+          }
+
+
+
+
+
+      }
+
 
   }
-  /**
-   * Don't stop the party!
-   *
-   * @return boolean
-   */
-  protected boolean isFinished() {
-    return false;
-  }
-  /** End the command. */
-  protected void end() {
-    //logger.info("Halt! We are the Knights Who Say Ni! Bring us some shrubbery to continue.");
-    //logger.warn("Just kidding; returning control to user.");
-  }
-  /** End the command, the hard way. */
-  protected void interrupted() {
-    //logger.info("Halt! We are the Knights Who Say Ni! Bring us some shrubbery to continue.");
-    //logger.warn("Just kidding; returning control to user.");
-  }
-}
+
+
+

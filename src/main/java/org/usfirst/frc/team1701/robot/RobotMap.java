@@ -59,7 +59,7 @@ public class RobotMap {
      * Initialize all analog and digital objects
      */
     liftArmEncoder = new AnalogInput(0);
-    cubeSensor = new DigitalInput(9);
+    cubeSensor = new DigitalInput(0);
 
     /**
      * Initialize all non-drivetrain motors/objects.
@@ -85,7 +85,7 @@ public class RobotMap {
     /**
      * Instantiate NavX.
      */
-    _navx = new AHRS(SerialPort.Port.kUSB);
+    _navx = new AHRS(SerialPort.Port.kUSB1);
     /**
      * LED controllers, follows Spark motor controller pattern.
      * @see https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf, page 7

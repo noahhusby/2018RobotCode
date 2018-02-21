@@ -22,7 +22,7 @@ public class StowPosition extends Command{
         {
             Robot.liftArm.setWrist(-0.50);
         }
-        else if(Robot.liftArm.getWristAngle() > Robot.position.wristStow - 50 && Robot.liftArm.getWristAngle() < Robot.position.wristStow + 50)
+        else
         {
             isFinshed = true;
             Robot.liftArm.stopWrist();

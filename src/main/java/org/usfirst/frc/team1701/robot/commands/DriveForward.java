@@ -12,40 +12,33 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.Robot;
 
 public class DriveForward extends Command {
-  private final double failsafeTime = 12.0;
-
   //distance to switch - length of robot / wheel circ
   //private double forwardDistance = (168 - 38) / (4 * Math.PI);
-  private double forwardDistance = 10.35;
+  private double forwardDistance = 11;
 
-  private boolean finished = false;
-  private double startTime;
+  private boolean isFinished = false;
 
   public DriveForward() {
 
   }
   protected void initialize() {
-    startTime = Timer.getMatchTime();
   }
   protected void execute() {
 
     SmartDashboard.putNumber("DT", Robot.driveTrain.getEncoderDistance());
 
-    if (Timer.getMatchTime() < startTime - failsafeTime) {
-      Robot.driveTrain.stopMotors();
-      finished = true;
-    } else if(Robot.driveTrain.getEncoderDistance() < forwardDistance) {
+    if(Robot.driveTrain.getRightDistance() < forwardDistance) {
       Robot.driveTrain.setLowGear();
-      Robot.driveTrain.leftDriveControl(0.6);
+      Robot.driveTrain.leftDriveControl(-0.6);
       Robot.driveTrain.rightDriveControl(0.6);
-    }
+  }
     else {
       Robot.driveTrain.stopMotors();
-      finished = true;
+      isFinished = true;
     }
   }
   protected boolean isFinished() {
-    return finished;
+    return isFinished;
   }
   protected void end() {
     Robot.driveTrain.stopMotors();

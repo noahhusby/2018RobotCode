@@ -2,10 +2,10 @@ package org.usfirst.frc.team1701.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
-import org.usfirst.frc.team1701.robot.RobotMap;
 
-public class SwitchPosition extends Command {
-    public SwitchPosition() {
+public class SwitchShootPosition extends Command {
+
+    public SwitchShootPosition() {
         requires(Robot.liftArm);
     }
 
@@ -30,11 +30,11 @@ public class SwitchPosition extends Command {
         }
     }
     private void grabWrist() {
-        if(Robot.liftArm.getWristAngle() > Robot.position.wristSwitch + 50)
+        if(Robot.liftArm.getWristAngle() > Robot.position.wristSwitchShoot + 50)
         {
             Robot.liftArm.setWrist(0.50);
         }
-        else if(Robot.liftArm.getWristAngle() < Robot.position.wristSwitch - 50)
+        else if(Robot.liftArm.getWristAngle() < Robot.position.wristSwitchShoot - 50)
         {
             Robot.liftArm.setWrist(-0.50);
         }
@@ -51,12 +51,12 @@ public class SwitchPosition extends Command {
         isFinshed = false;
         Robot.liftArm.setGrabber(true);
 
-        if(Robot.liftArm.getArmAngle()> Robot.position.armSwitch + 40) {
-            Robot.liftArm.setLiftArm(0.70);
+        if(Robot.liftArm.getArmAngle()> Robot.position.armSwitchShoot + 40) {
+            Robot.liftArm.setLiftArm(0.35);
             stowWrist();
         }
-        else if(Robot.liftArm.getArmAngle()< Robot.position.armSwitch - 40) {
-            Robot.liftArm.setLiftArm(-0.70);
+        else if(Robot.liftArm.getArmAngle()< Robot.position.armSwitchShoot - 40) {
+            Robot.liftArm.setLiftArm(-0.35);
             stowWrist();
         }
         else {

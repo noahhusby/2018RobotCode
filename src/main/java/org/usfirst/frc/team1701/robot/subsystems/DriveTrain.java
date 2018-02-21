@@ -93,7 +93,7 @@ public class DriveTrain extends Subsystem {
    * @return double of right side distance.
    */
   public double getRightDistance() {
-    return rightEncTalon.getSelectedSensorPosition(encPidIdx);
+    return rightEncTalon.getSelectedSensorPosition(encPidIdx) / 22000;
   }
 
   public double getEncoderDistance()
@@ -147,6 +147,19 @@ public class DriveTrain extends Subsystem {
    * Get status of reverse mode.
    * @return boolean of reverse mode
    */
+  /**
+   * Checks navX for pitch, so we can do precise turns
+   * @return navX Pitch
+   */
+  public double getNavxAngle()
+  {
+    return -navx.getAngle();
+  }
+
+  public void resetNavxAngle()
+  {
+    navx.reset();
+  }
   public boolean getReverse() {
     return reversed;
   }
