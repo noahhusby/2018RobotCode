@@ -39,44 +39,24 @@ public class DriveTrain extends Subsystem {
    * Special math stuffs.
    */
   private final int encPidIdx = RobotMap.encPidIdx;
-  private final double WHEEL_CIRCUMFERENCE = 3.9 * Math.PI;
-  private final double DIST_ADJUST_CONST = 1052.6;
-  private double autoGearPercent = 0.75;
-  private double autoGearMinInputRange = -1;
-  private double autoGearMaxInputRange = 1;
+
 
   /*
    * Motor state variables.
    */
   private boolean reversed = false;
-  private boolean precise = false;
-  private boolean autoGear = false;
-  /**
-   * Return left velocity.
-   * @return int of left side velocity.
-   */
-  public int getLeftVelocity() {
-    return leftEncTalon.getSelectedSensorVelocity(encPidIdx);
-  }
   /**
    * Return left distance.
    * @return double of left side distance.
    */
   public double getLeftDistance() {
-    return leftEncTalon.getSelectedSensorPosition(encPidIdx);
+    return -leftEncTalon.getSelectedSensorPosition(encPidIdx) / 22000;
   }
   /**
    * Reset left side encoder.
    */
   public void resetLeftEncoder() {
     leftEncTalon.setSelectedSensorPosition(0, encPidIdx, 0);
-  }
-  /**
-   * Get right velocity.
-   * @return int of right side velocity.
-   */
-  public int getRightVelocity() {
-    return rightEncTalon.getSelectedSensorVelocity(encPidIdx);
   }
   /**
    * Stop all motors.
@@ -94,11 +74,6 @@ public class DriveTrain extends Subsystem {
    */
   public double getRightDistance() {
     return rightEncTalon.getSelectedSensorPosition(encPidIdx) / 22000;
-  }
-
-  public double getEncoderDistance()
-  {
-    return -leftEncTalon.getSelectedSensorPosition(encPidIdx);
   }
   /**
    * Reset right side encoder.
@@ -130,24 +105,6 @@ public class DriveTrain extends Subsystem {
       resetRightEncoder();
   }
   /**
-   * Return boolean of precise mode.
-   * @return boolean of precise mode.
-   */
-  public boolean getPrecise() {
-    return precise;
-  }
-  /**
-   * Set precise mode.
-   * @param precise boolean of precise mode.
-   */
-  public void setPrecise(boolean precise) {
-    this.precise = precise;
-  }
-  /**
-   * Get status of reverse mode.
-   * @return boolean of reverse mode
-   */
-  /**
    * Checks navX for pitch, so we can do precise turns
    * @return navX Pitch
    */
@@ -156,10 +113,10 @@ public class DriveTrain extends Subsystem {
     return -navx.getAngle();
   }
 
-  public void resetNavxAngle()
-  {
-    navx.reset();
-  }
+  /**
+   * Checks current reverse boolean
+   * @return State of reversed
+   */
   public boolean getReverse() {
     return reversed;
   }
@@ -179,10 +136,6 @@ public class DriveTrain extends Subsystem {
     if (reversed) {
       forwardsBackwardsAxis *= -1;
     }
-    if (precise) {
-      forwardsBackwardsAxis *= .5;
-      turningAxis *= .75;
-    }
     RobotMap.driveTrain.arcadeDrive(forwardsBackwardsAxis, turningAxis);
   }
   /**
@@ -191,6 +144,11 @@ public class DriveTrain extends Subsystem {
   public void initDefaultCommand() {
       setDefaultCommand(new TeleopDrive());
   }
+
+  /**
+   * Checks current state of drive train gear
+   * @return "High Gear" if true, and "Low Gear" if false;
+   */
   public String getGear() {
     if(driveShift.get() == DoubleSolenoid.Value.kForward) return "High Gear";
     if(driveShift.get() == DoubleSolenoid.Value.kReverse) return "Low Gear";
@@ -212,39 +170,4 @@ public class DriveTrain extends Subsystem {
    * Set state of autoGear
    * @param autoGear Set Boolean
    */
-  public void setAutoGear(boolean autoGear) {
-    this.autoGear = autoGear;
-  }
-  /**
-   * Will change gear based on speed input
-   * @param fbInput live speed value
-   */
-  public void useAutoGear(double fbInput) {
-
-
-    }
-
-  /**
-   * Sets the percent of both negative and forward thrust where high/low gear is activated
-   * @param gearPercentCap Percent Cap 0 - 100%
-   */
-  public void setAutoGearPercent(double gearPercentCap) {
-    this.autoGearPercent = gearPercentCap;
-  }
-  /**
-   * Sets the maximum and minimum input range for useAutoGear()
-   * @param minInput Minimum input range; negative
-   * @param maxInput Maximum input range; positive
-   */
-  public void setAutoGearInputRange(double minInput, double maxInput) {
-    this.autoGearMinInputRange = minInput;
-    this.autoGearMaxInputRange = maxInput;
-  }
-  /**
-   * Get the state of the the auto gear
-   * @return this.autoGear
-   */
-  public boolean getAutoGear() {
-    return this.autoGear;
-  }
 }

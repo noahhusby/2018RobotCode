@@ -1,7 +1,7 @@
 /**
- * commands/AutonomousClamp.java
+ * commands/AutonomousCommand.java
  *
- * @author Nicholos Hubbard
+ * @author Noah Husby
  * @since 12/29/17
  * @license BSD-3-Clause
  */
@@ -65,7 +65,7 @@ public class AutonomousCommand extends CommandGroup {
                       addSequential(new WallToScale());
                       addSequential(new StowPosition());
                       addSequential(new TurnLeft());
-                      addSequential(new ScalePositionArm());
+                      addSequential(new ScalePosition());
                       addSequential(new ReverseScale());
                       addSequential(new ReleaseAndPunch());
 
@@ -77,7 +77,7 @@ public class AutonomousCommand extends CommandGroup {
                       addSequential(new TurnRight());
                       addSequential(new CrossPlatformZone());
                       addSequential(new TurnLeft());
-                      addParallel(new ScalePositionArm());
+                      addParallel(new ScalePosition());
                       addSequential(new PlatformToScale());
                       addSequential(new ReleaseAndPunch());
                       break;
@@ -94,7 +94,7 @@ public class AutonomousCommand extends CommandGroup {
                       addSequential(new TurnLeft());
                       addSequential(new MiddleToSwitchTurn());
                       addSequential(new TurnRight());
-                      addSequential(new SwitchPositionArm());
+                      addSequential(new SwitchPosition());
                       addSequential(new TurnToSwitch());
                       addSequential(new ReleaseAndPunch());
                       break;
@@ -105,7 +105,7 @@ public class AutonomousCommand extends CommandGroup {
                       addSequential(new TurnRight());
                       addSequential(new MiddleToSwitchTurn());
                       addSequential(new TurnLeft());
-                      addParallel(new SwitchPositionArm());
+                      addParallel(new SwitchPosition());
                       addSequential(new TurnToSwitch());
                       addSequential(new ReleaseAndPunch());
                       break;

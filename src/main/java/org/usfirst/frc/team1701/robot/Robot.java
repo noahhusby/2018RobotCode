@@ -12,9 +12,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import org.usfirst.frc.team1701.robot.commands.DriveForward;
 import org.usfirst.frc.team1701.robot.subsystems.*;
 import org.usfirst.frc.team1701.robot.commands.AutonomousCommand;
-import org.usfirst.frc.team1701.robot.commands.DriveForward;
+import org.usfirst.frc.team1701.robot.commands.Auto.DriveForwardCommand;
 
 /*
   _____   ________  ________    _____
@@ -39,7 +40,6 @@ public class Robot extends IterativeRobot {
    */
   private SendableChooser<CommandGroup> autoProgram;
   public static SendableChooser<Number> autonomousLocation;
-  private Command autonomousCode;
   public static OI oi;
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
@@ -59,7 +59,7 @@ public class Robot extends IterativeRobot {
     oi = new OI();
     autoProgram = new SendableChooser<>();
     autoProgram.addDefault("Default Autonomous", new AutonomousCommand());
-    //autoProgram.addObject("Forward Autonomous", new DriveForward());
+    autoProgram.addObject("Forward Autonomous", new DriveForward());
     SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
     autonomousLocation = new SendableChooser<>();
     autonomousLocation.addObject("Left",1);
@@ -67,14 +67,7 @@ public class Robot extends IterativeRobot {
     autonomousLocation.addObject("Right",3);
     SmartDashboard.putData("Autonomous Location Chooser", autonomousLocation);
     SmartDashboard.putBoolean("Reversed", false);
-    SmartDashboard.putNumber("Arm", 0);
-    SmartDashboard.putNumber("Wrist",0);
-    SmartDashboard.putNumber("DLeft",0);
-    SmartDashboard.putNumber("DRight",0);
-    SmartDashboard.putNumber("NVAngle", 0);
-    SmartDashboard.putNumber("NVYaw", 0);
-
-
+    SmartDashboard.putString("Current Gear","");
 
     vision.setPIPMode(2);
     driveTrain.resetEncoders();
@@ -93,7 +86,7 @@ public class Robot extends IterativeRobot {
    * This function is called when autonomous mode is started.
    */
   public void autonomousInit() {
-    AutonomousCommand auto = new AutonomousCommand();
+    CommandGroup auto = autoProgram.getSelected();
     auto.start();
   }
 

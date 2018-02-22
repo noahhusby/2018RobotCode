@@ -1,7 +1,7 @@
 /**
  * subsystems/DriveTrain.java
  *
- * @author Steven Wall
+ * @author Noah Husby
  * @since 1/27/18
  * @license BSD-3-Clause
  */

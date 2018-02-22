@@ -10,6 +10,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.Robot;
@@ -97,6 +98,11 @@ public class LiftArm extends Subsystem {
      grabber.set(DoubleSolenoid.Value.kForward);
     }
   }
+
+  /**
+   * Sets speed of the arm, as well as disabling the brake
+   * @param input -1 to 1 as speed for the arm
+   */
   public void setLiftArm(double input) {
     disableWinchBrake();
     winch1.set(input);
@@ -110,6 +116,7 @@ public class LiftArm extends Subsystem {
   {
     winch1.stopMotor();
     winch2.stopMotor();
+    Timer.delay(0.05);
     enableWinchBrake();
   }
   /**
@@ -131,14 +138,12 @@ public class LiftArm extends Subsystem {
   public void stopWrist()
   {
     wrist.stopMotor();
-    enableWristBrake();
   }
   /**
    * Sets speed of wrist motor, automatically disables brake
    * @param speed to set wrist motor
    */
   public void setWrist(double speed) {
-    disableWristBrake();
     wrist.set(speed);
   }
   /**

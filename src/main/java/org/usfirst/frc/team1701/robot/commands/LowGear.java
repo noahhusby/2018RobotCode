@@ -1,3 +1,10 @@
+/**
+ * LowGear.java
+ *
+ * @author Noah Husby
+ * @since 2/22/18
+ * @license BSD-3-Clause
+ */
 package org.usfirst.frc.team1701.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -13,7 +20,6 @@ public class LowGear extends Command {
     protected void initialize() {
     }
     protected void execute() {
-        Robot.driveTrain.setAutoGear(false);
         Robot.driveTrain.setLowGear();
     }
     protected boolean isFinished() {
