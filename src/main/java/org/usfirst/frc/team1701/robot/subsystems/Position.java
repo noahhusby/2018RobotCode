@@ -34,7 +34,6 @@ public class Position extends Subsystem {
      */
     public double wallToCube = 2;
     public double centerToSide = 5.1;
-    public double leftTurn = 90;
     public double turnToSwitch = 5.1;
     public double wallToScale = 22.75;
     public double wallToPlatformZone = 15.69;

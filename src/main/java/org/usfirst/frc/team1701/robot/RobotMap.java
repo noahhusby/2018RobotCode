@@ -42,6 +42,7 @@ public class RobotMap {
   public static Spark _led1;
   public static AHRS _navx;
   public static int encPidIdx;
+  
   /**
    * Initialize the public values above.
    */

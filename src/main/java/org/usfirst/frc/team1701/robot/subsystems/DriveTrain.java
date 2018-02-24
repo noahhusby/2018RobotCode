@@ -122,7 +122,6 @@ public class DriveTrain extends Subsystem {
   }
   /**
    * Set status of reverse mode.
-   * @param reverse Reverse mode; true or false.
    */
   public void toggleReverse() {
     this.reversed = !this.reversed;
