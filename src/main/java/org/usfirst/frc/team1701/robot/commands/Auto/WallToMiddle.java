@@ -8,6 +8,7 @@
 package org.usfirst.frc.team1701.robot.commands.Auto;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.Robot;
 
 public class WallToMiddle extends Command {
@@ -19,6 +20,7 @@ public class WallToMiddle extends Command {
     }
     protected void initialize() {
         Robot.driveTrain.resetEncoders();
+        SmartDashboard.putBoolean("Init",true);
     }
     protected void execute() {
         if(Robot.driveTrain.getRightDistance() < Robot.position.wallToCube) {

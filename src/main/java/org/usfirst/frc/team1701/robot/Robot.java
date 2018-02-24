@@ -68,6 +68,7 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putData("Autonomous Location Chooser", autonomousLocation);
     SmartDashboard.putBoolean("Reversed", false);
     SmartDashboard.putString("Current Gear","");
+    SmartDashboard.putBoolean("Init",false);
 
     vision.setPIPMode(2);
     driveTrain.resetEncoders();

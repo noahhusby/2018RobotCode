@@ -86,7 +86,6 @@ public class OI {
     manualWristDown = new JoystickButton(drive_FB,4);
     manualWristDown.whenPressed(new WristDown());
     manualWristDown.whenReleased(new WristStop());
-
   }
 
 }
