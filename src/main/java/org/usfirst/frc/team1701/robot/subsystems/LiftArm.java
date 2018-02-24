@@ -105,8 +105,8 @@ public class LiftArm extends Subsystem {
    */
   public void setLiftArm(double input) {
     disableWinchBrake();
-    winch1.set(checkArmZone(input));
-    winch2.set(checkArmZone(input));
+    winch1.set(input);
+    winch2.set(input);
 
   }
   /**
