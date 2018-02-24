@@ -89,7 +89,7 @@ public class LiftArm extends Subsystem {
   }
   /**
    * Set the clamp position.
-   * @param state true for enabled, false for disabled.
+   * @param State true for enabled, false for disabled.
    */
   public void setGrabber(boolean State) {
     if(State) {
@@ -105,8 +105,8 @@ public class LiftArm extends Subsystem {
    */
   public void setLiftArm(double input) {
     disableWinchBrake();
-    winch1.set(input);
-    winch2.set(input);
+    winch1.set(checkArmZone(input));
+    winch2.set(checkArmZone(input));
 
   }
   /**
@@ -153,6 +153,16 @@ public class LiftArm extends Subsystem {
   public boolean getCubeSensor()
   {
     return RobotMap.cubeSensor.get();
+  }
+  public double checkArmZone(double speed) {
+    if(Robot.position.armSafetyMin >= Robot.liftArm.getArmAngle()) {
+      return 0;
+    }
+
+    if(Robot.position.armSafetyMax <= Robot.liftArm.getArmAngle()) {
+      return 0;
+    }
+    return speed;
   }
   public void initDefaultCommand() {}
 }
