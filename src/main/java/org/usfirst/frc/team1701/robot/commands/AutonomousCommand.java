@@ -90,10 +90,10 @@ public class AutonomousCommand extends CommandGroup {
               switch(switchPosition) {
                   case 'L':
                       addSequential(new WallToMiddle());
-                      addParallel(new StowPosition());
+                      addSequential(new StowPosition());
                       addSequential(new TurnLeft());
-                      addSequential(new MiddleToSwitchTurn());
-                      addSequential(new TurnRight());
+                      //addSequential(new MiddleToSwitchTurn());
+                      //addSequential(new TurnRight());
                       addSequential(new SwitchPosition());
                       addSequential(new TurnToSwitch());
                       addSequential(new ReleaseAndPunch());
@@ -101,12 +101,12 @@ public class AutonomousCommand extends CommandGroup {
 
                   case 'R':
                       addSequential(new WallToMiddle());
-                      addParallel(new StowPosition());
+                      addSequential(new StowPosition());
                       addSequential(new TurnRight());
-                      addSequential(new MiddleToSwitchTurn());
-                      addSequential(new TurnLeft());
-                      addParallel(new SwitchPosition());
-                      addSequential(new TurnToSwitch());
+                      //addSequential(new MiddleToSwitchTurn());
+                      //addSequential(new TurnLeft());
+                      addSequential(new SwitchPosition());
+                      addSequential(new TurnToSwitchRight());
                       addSequential(new ReleaseAndPunch());
                       break;
               }

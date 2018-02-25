@@ -21,6 +21,7 @@ public class OI {
   public static Joystick drive_FB;
   public static Joystick drive_T;
   public static Joystick operation;
+  public static Joystick testButton;
 
   public static JoystickButton grabCube;
   public static JoystickButton releaseCube;
@@ -31,6 +32,7 @@ public class OI {
   public static JoystickButton switchPosition;
   public static JoystickButton switchShootPosition;
   public static JoystickButton stowPosition;
+  public static JoystickButton climbPosition;
   public static JoystickButton climb;
   public static JoystickButton manualWinchUp;
   public static JoystickButton manualWinchDown;
@@ -50,6 +52,7 @@ public class OI {
     operation = new Joystick(0); // UHID device
     drive_FB = new Joystick(1); // Left
     drive_T = new Joystick(2); // Right
+    testButton = new Joystick(3);
     /*
      * Assign commands to buttons.
      */
@@ -71,6 +74,8 @@ public class OI {
     switchShootPosition.whenPressed(new SwitchShootPosition());
     stowPosition = new JoystickButton(drive_FB,1);
     stowPosition.whenPressed(new StowPosition());
+    climbPosition = new JoystickButton(testButton, 1);
+    climbPosition.whenPressed(new ClimbPosition());
     climb = new JoystickButton(operation,2);
     climb.whenPressed(new Climb());
     climb.whenReleased(new StopClimb());

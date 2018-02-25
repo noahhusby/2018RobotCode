@@ -20,9 +20,9 @@ public class WallToMiddle extends Command {
     }
     protected void initialize() {
         Robot.driveTrain.resetEncoders();
-        SmartDashboard.putBoolean("Init",true);
     }
     protected void execute() {
+        isFinshed = false;
         if(Robot.driveTrain.getRightDistance() < Robot.position.wallToCube) {
             Robot.driveTrain.teleopControl(-1,0);
         } else  {

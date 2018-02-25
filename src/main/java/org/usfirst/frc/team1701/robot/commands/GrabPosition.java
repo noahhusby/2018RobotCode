@@ -19,7 +19,7 @@ public class GrabPosition extends CommandGroup {
 
         addSequential(new StowPosition());
         addSequential(new GrabPositionArm());
-        addSequential(new GrabPositionWrist());
+        //addSequential(new GrabPositionWrist());
     }
 
 }

@@ -21,7 +21,7 @@ public class TurnRight extends Command {
         navxStart = Robot.driveTrain.getNavxAngle();
     }
     protected void execute() {
-        if(Robot.driveTrain.getNavxAngle() > navxStart - 90) {
+        if(Robot.driveTrain.getNavxAngle() > navxStart - Robot.position.rightAngle) {
             Robot.driveTrain.teleopControl(0,-0.75);
         } else {
             isFinshed = true;
@@ -30,6 +30,8 @@ public class TurnRight extends Command {
     protected boolean isFinished() {
         return isFinshed;
     }
-    protected void end() {}
+    protected void end() {
+        Robot.driveTrain.resetEncoders();
+    }
     protected void interrupted() {}
 }

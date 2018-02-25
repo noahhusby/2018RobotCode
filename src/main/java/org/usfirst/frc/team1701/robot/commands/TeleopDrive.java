@@ -26,7 +26,8 @@ public class TeleopDrive extends Command {
   protected void execute() {
 
     SmartDashboard.putBoolean("Reversed", Robot.driveTrain.getReverse());
-    SmartDashboard.putString("Current Gear", Robot.driveTrain.getGear());
+    SmartDashboard.putNumber("Arm",Robot.liftArm.getArmAngle());
+    SmartDashboard.putNumber("Wrist", Robot.liftArm.getWristAngle());
 
     if(Robot.liftArm.getCubeSensor())
     {
@@ -36,7 +37,7 @@ public class TeleopDrive extends Command {
 
     double deadConst = .10;
     double fBInput = checkDeadZone(OI.drive_FB.getY(), deadConst);
-    double tInput = -1 *.75 * checkDeadZone(OI.drive_T.getX(), deadConst);
+    double tInput = -1 * checkDeadZone(OI.drive_T.getX(), deadConst);
     Robot.driveTrain.teleopControl(fBInput, tInput);
 
   }

@@ -29,6 +29,6 @@ public class Climb extends Command {
         //Robot.liftArm.stopLiftArm();
     }
     protected void interrupted() {
-        Robot.liftArm.stopLiftArm();
+        //Robot.liftArm.stopLiftArm();
     }
 }

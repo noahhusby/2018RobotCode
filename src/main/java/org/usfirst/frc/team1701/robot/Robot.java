@@ -69,6 +69,7 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putBoolean("Reversed", false);
     SmartDashboard.putString("Current Gear","");
     SmartDashboard.putBoolean("Init",false);
+    SmartDashboard.putNumber("Arm",0);
 
     vision.setPIPMode(2);
     driveTrain.resetEncoders();
