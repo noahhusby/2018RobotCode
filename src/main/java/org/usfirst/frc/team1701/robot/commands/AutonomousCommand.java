@@ -27,20 +27,10 @@ public class AutonomousCommand extends CommandGroup {
      * distance = X - 38 (Robot Length)
      */
 
- private static String gameCode;
-  private static Double defaultPosition = 2.0;
+  private static String gameCode;
 
-  private static final double robotPosition = SmartDashboard.getNumber("Position", defaultPosition);
   private static char switchPosition;
   private static char scalePosition;
-  private static boolean targets = Robot.vision.getTarget();
-  private boolean isFinished = false;
-
-  private AHRS navx = RobotMap._navx;
-
-
-
-
 
 
   public AutonomousCommand() {
@@ -91,9 +81,7 @@ public class AutonomousCommand extends CommandGroup {
                   case 'L':
                       addSequential(new WallToMiddle());
                       addSequential(new StowPosition());
-                      addSequential(new TurnLeft());
-                      //addSequential(new MiddleToSwitchTurn());
-                      //addSequential(new TurnRight());
+                      addSequential(new SlightLeft());
                       addSequential(new SwitchPosition());
                       addSequential(new TurnToSwitch());
                       addSequential(new ReleaseAndPunch());
@@ -102,9 +90,7 @@ public class AutonomousCommand extends CommandGroup {
                   case 'R':
                       addSequential(new WallToMiddle());
                       addSequential(new StowPosition());
-                      addSequential(new TurnRight());
-                      //addSequential(new MiddleToSwitchTurn());
-                      //addSequential(new TurnLeft());
+                      addSequential(new SlightRight());
                       addSequential(new SwitchPosition());
                       addSequential(new TurnToSwitchRight());
                       addSequential(new ReleaseAndPunch());

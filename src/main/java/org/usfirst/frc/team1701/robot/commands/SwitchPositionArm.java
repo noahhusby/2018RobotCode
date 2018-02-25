@@ -58,11 +58,11 @@ public class SwitchPositionArm extends Command {
         Robot.liftArm.setGrabber(true);
 
         if(Robot.liftArm.getArmAngle()> Robot.position.armSwitch + 40) {
-            Robot.liftArm.setLiftArm(0.70);
+            Robot.liftArm.setLiftArm(0.90);
             stowWrist();
         }
         else if(Robot.liftArm.getArmAngle()< Robot.position.armSwitch - 40) {
-            Robot.liftArm.setLiftArm(-0.70);
+            Robot.liftArm.setLiftArm(-0.90);
             stowWrist();
         }
         else {

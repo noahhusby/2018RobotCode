@@ -44,8 +44,10 @@ public class Position extends Subsystem {
     public double autonomousSpeed = 0.90;
     public double crossPlatformZone = 13.93;
     public double platformToScale = 2.1;
-    public double leftAngle = 20;
-    public double rightAngle = 20;
+    public double leftAngle = 81;
+    public double rightAngle = 81;
+    public double slightLeftAngle = 20;
+    public double slightRightAngle = 19;
 
     public boolean brakeReleased = false;
 
