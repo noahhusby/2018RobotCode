@@ -8,9 +8,7 @@
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-/*import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;*/
-import org.usfirst.frc.team1701.robot.commands.*; // Should be eventually replaced with absolute imports.
+import org.usfirst.frc.team1701.robot.commands.*;
 /*
  * This class sets up and enables the Joysticks and Buttons on your console.
  */
@@ -22,7 +20,6 @@ public class OI {
   public static Joystick drive_T;
   public static Joystick operation;
   public static Joystick testButton;
-
   public static JoystickButton grabCube;
   public static JoystickButton releaseCube;
   public static JoystickButton releasePunchCube;
@@ -38,9 +35,6 @@ public class OI {
   public static JoystickButton manualWinchDown;
   public static JoystickButton manualWristUp;
   public static JoystickButton manualWristDown;
-
-
-  //private static final Logger logger = LogManager.getLogger();
   /**
    * Instead of an init() function, we call this on OI startup.
    */
@@ -92,5 +86,4 @@ public class OI {
     manualWristDown.whenPressed(new WristDown());
     manualWristDown.whenReleased(new WristStop());
   }
-
 }

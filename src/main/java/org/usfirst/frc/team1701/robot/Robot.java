@@ -16,7 +16,6 @@ import org.usfirst.frc.team1701.robot.commands.DriveForward;
 import org.usfirst.frc.team1701.robot.subsystems.*;
 import org.usfirst.frc.team1701.robot.commands.AutonomousCommand;
 import org.usfirst.frc.team1701.robot.commands.Auto.DriveForwardCommand;
-
 /*
   _____   ________  ________    _____
  / __  \ |\_____  \|\   __  \  / __  \
@@ -70,7 +69,6 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putString("Current Gear","");
     SmartDashboard.putBoolean("Init",false);
     SmartDashboard.putNumber("Arm",0);
-
     vision.setPIPMode(2);
     driveTrain.resetEncoders();
   }
@@ -91,7 +89,6 @@ public class Robot extends IterativeRobot {
     CommandGroup auto = autoProgram.getSelected();
     auto.start();
   }
-
   /*
    * This function is called periodically during autonomous mode.
    */

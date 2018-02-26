@@ -6,15 +6,11 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.commands.Auto;
-
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.Robot;
-
 public class WallToMiddle extends Command {
-
-    boolean isFinshed = false;
-
+    boolean isFinished = false;
     public WallToMiddle() {
         requires(Robot.driveTrain);
     }
@@ -26,11 +22,11 @@ public class WallToMiddle extends Command {
         if(Robot.driveTrain.getRightDistance() < Robot.position.wallToCube) {
             Robot.driveTrain.teleopControl(-1,0);
         } else  {
-            isFinshed = true;
+            isFinished = true;
         }
     }
     protected boolean isFinished() {
-        return isFinshed;
+        return isFinished;
     }
     protected void end() {}
     protected void interrupted() {}

@@ -6,15 +6,11 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.commands.Auto;
-
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
-
 public class TurnLeft extends Command {
-    boolean isFinshed = false;
-
+    boolean isFinished = false;
     public double navxStart;
-
     public TurnLeft() {
         requires(Robot.driveTrain);
     }
@@ -25,11 +21,11 @@ public class TurnLeft extends Command {
         if(Robot.driveTrain.getNavxAngle() < navxStart + Robot.position.leftAngle) {
             Robot.driveTrain.teleopControl(0,0.75);
         } else {
-            isFinshed = true;
+            isFinished = true;
         }
     }
     protected boolean isFinished() {
-        return isFinshed;
+        return isFinished;
     }
     protected void end() {
         Robot.driveTrain.resetEncoders();

@@ -13,9 +13,7 @@ public class AutoGear extends Command {
         requires(Robot.driveTrain);
     }
     protected void initialize() {}
-    protected void execute() {
-        //
-    }
+    protected void execute() {}
     protected boolean isFinished() {
         return true;
     }

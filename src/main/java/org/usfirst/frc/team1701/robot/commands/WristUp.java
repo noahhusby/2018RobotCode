@@ -6,12 +6,9 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.commands;
-
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
-import org.usfirst.frc.team1701.robot.RobotMap;
-
-public class WristUp extends Command{
+public class WristUp extends Command {
     protected void execute() {
         Robot.liftArm.setWrist(-0.80);
     }

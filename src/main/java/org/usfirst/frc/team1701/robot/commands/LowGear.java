@@ -16,9 +16,7 @@ public class LowGear extends Command {
     public LowGear() {
         requires(Robot.driveTrain);
     }
-
-    protected void initialize() {
-    }
+    protected void initialize() {}
     protected void execute() {
         Robot.driveTrain.setLowGear();
     }
