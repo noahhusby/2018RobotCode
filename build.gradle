@@ -31,11 +31,12 @@ deploy {
 // Defining my dependencies. In this case, WPILib (+ friends), CTRE Toolsuite (Talon SRX)
 // and NavX.
 dependencies {
+    //noinspection GroovyAssignabilityCheck
     compile wpilib()
+    //noinspection GroovyAssignabilityCheck,GroovyAssignabilityCheck
     compile ctre()
+    //noinspection GroovyAssignabilityCheck
     compile navx()
-    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.10.0'
-    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.10.0'
 }
 
 // Setting up my Jar File. In this case, adding all libraries into the main jar ('fat jar')

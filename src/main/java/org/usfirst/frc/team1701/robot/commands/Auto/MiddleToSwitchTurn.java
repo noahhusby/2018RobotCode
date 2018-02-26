@@ -7,7 +7,6 @@
  */
 package org.usfirst.frc.team1701.robot.commands.Auto;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.Robot;
 public class MiddleToSwitchTurn extends Command {
     boolean isFinished = false;

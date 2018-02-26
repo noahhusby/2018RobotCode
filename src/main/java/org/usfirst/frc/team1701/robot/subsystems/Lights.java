@@ -9,9 +9,10 @@ package org.usfirst.frc.team1701.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Spark;
 import org.usfirst.frc.team1701.robot.RobotMap;
+@SuppressWarnings("ALL")
 public class Lights extends Subsystem {
-  private Spark led0 = RobotMap._led0;
-  private Spark led1 = RobotMap._led1;
+  private final Spark led0 = RobotMap._led0;
+  private final Spark led1 = RobotMap._led1;
   /**
    * State of the LEDs running off of the Blinkin LED Driver (REV-11-1105-UM).
    * @see https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf page 14

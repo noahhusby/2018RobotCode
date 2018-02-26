@@ -7,7 +7,6 @@
  */
 package org.usfirst.frc.team1701.robot.commands.Auto;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.Robot;
 public class WallToMiddle extends Command {
     boolean isFinished = false;
@@ -18,7 +17,7 @@ public class WallToMiddle extends Command {
         Robot.driveTrain.resetEncoders();
     }
     protected void execute() {
-        isFinshed = false;
+        isFinished = false;
         if(Robot.driveTrain.getRightDistance() < Robot.position.wallToCube) {
             Robot.driveTrain.teleopControl(-1,0);
         } else  {

@@ -7,7 +7,6 @@
  */
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -15,7 +14,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import org.usfirst.frc.team1701.robot.commands.DriveForward;
 import org.usfirst.frc.team1701.robot.subsystems.*;
 import org.usfirst.frc.team1701.robot.commands.AutonomousCommand;
-import org.usfirst.frc.team1701.robot.commands.Auto.DriveForwardCommand;
 /*
   _____   ________  ________    _____
  / __  \ |\_____  \|\   __  \  / __  \
@@ -38,12 +36,11 @@ public class Robot extends IterativeRobot {
    * Initialize the various subsystems on the robot.
    */
   private SendableChooser<CommandGroup> autoProgram;
-  public static SendableChooser<Number> autonomousLocation;
-  public static OI oi;
+  private static OI oi;
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
-  public static Vision vision;
-  public static Lights lights;
+  private static Vision vision;
+  private static Lights lights;
   public static Position position;
   /*
    * This function is run when the robot is first started up.
@@ -60,7 +57,7 @@ public class Robot extends IterativeRobot {
     autoProgram.addDefault("Default Autonomous", new AutonomousCommand());
     autoProgram.addObject("Forward Autonomous", new DriveForward());
     SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
-    autonomousLocation = new SendableChooser<>();
+    SendableChooser<Number> autonomousLocation = new SendableChooser<>();
     autonomousLocation.addObject("Left",1);
     autonomousLocation.addDefault("Middle",2);
     autonomousLocation.addObject("Right",3);

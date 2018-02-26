@@ -9,13 +9,11 @@ package org.usfirst.frc.team1701.robot.commands.Auto;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 public class DriveForwardCommand extends Command {
-  //distance to switch - length of robot / wheel circ
-  //private double forwardDistance = (168 - 38) / (4 * Math.PI);
-  private double forwardDistance = 11;
   private boolean isFinished = false;
   public DriveForwardCommand() {}
   protected void initialize() {}
   protected void execute() {
+    double forwardDistance = 11;
     if(Robot.driveTrain.getRightDistance() < forwardDistance) {
       Robot.driveTrain.setLowGear();
       Robot.driveTrain.leftDriveControl(-0.6);

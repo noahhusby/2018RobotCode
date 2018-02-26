@@ -8,6 +8,7 @@
 package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
+@SuppressWarnings("Duplicates")
 public class GrabPositionWrist extends Command{
     boolean isFinished= false;
     public GrabPositionWrist() {

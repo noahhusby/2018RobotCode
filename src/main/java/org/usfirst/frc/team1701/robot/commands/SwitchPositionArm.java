@@ -8,7 +8,7 @@
 package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
-import org.usfirst.frc.team1701.robot.RobotMap;
+
 public class SwitchPositionArm extends Command {
     public SwitchPositionArm() {
         requires(Robot.liftArm);

@@ -11,7 +11,7 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Subsystem;
 public class Vision extends Subsystem {
-    private NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+    private final NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
     /**
      * Get targeting status.
      * @return boolean: true if target found, false if not
