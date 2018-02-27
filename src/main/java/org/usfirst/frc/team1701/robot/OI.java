@@ -1,4 +1,4 @@
-/**
+/*
  * OI.java
  *
  * @author Noah Husby
@@ -18,23 +18,7 @@ public class OI {
    */
   public static Joystick drive_FB;
   public static Joystick drive_T;
-  public static Joystick operation;
-  public static Joystick testButton;
-  public static JoystickButton grabCube;
-  public static JoystickButton releaseCube;
-  public static JoystickButton releasePunchCube;
-  public static JoystickButton reverse;
-  public static JoystickButton scalePosition;
-  public static JoystickButton grabPosition;
-  public static JoystickButton switchPosition;
-  public static JoystickButton switchShootPosition;
-  public static JoystickButton stowPosition;
-  public static JoystickButton climbPosition;
-  public static JoystickButton climb;
-  public static JoystickButton manualWinchUp;
-  public static JoystickButton manualWinchDown;
-  public static JoystickButton manualWristUp;
-  public static JoystickButton manualWristDown;
+
   /**
    * Instead of an init() function, we call this on OI startup.
    */
@@ -43,46 +27,46 @@ public class OI {
     /*
      * Enable the physical joysticks.
      */
-    operation = new Joystick(0); // UHID device
+    Joystick operation = new Joystick(0);
     drive_FB = new Joystick(1); // Left
     drive_T = new Joystick(2); // Right
-    testButton = new Joystick(3);
+    Joystick testButton = new Joystick(3);
     /*
      * Assign commands to buttons.
      */
-    releaseCube = new JoystickButton(operation,4);
+    JoystickButton releaseCube = new JoystickButton(operation, 4);
     releaseCube.whenPressed(new ReleaseCube());
-    releasePunchCube = new JoystickButton(operation,3);
+    JoystickButton releasePunchCube = new JoystickButton(operation, 3);
     releasePunchCube.whenPressed(new ReleaseAndPunch());
-    grabCube = new JoystickButton(operation,6);
+    JoystickButton grabCube = new JoystickButton(operation, 6);
     grabCube.whenPressed(new GrabCube());
-    reverse = new JoystickButton(operation, 7);
+    JoystickButton reverse = new JoystickButton(operation, 7);
     reverse.whenPressed(new ToggleReverse());
-    scalePosition = new JoystickButton(operation,8);
+    JoystickButton scalePosition = new JoystickButton(operation, 8);
     scalePosition.whenPressed(new ScalePosition());
-    grabPosition = new JoystickButton(operation,10);
+    JoystickButton grabPosition = new JoystickButton(operation, 10);
     grabPosition.whenPressed(new GrabPosition());
-    switchPosition = new JoystickButton(drive_FB,2);
+    JoystickButton switchPosition = new JoystickButton(drive_FB, 2);
     switchPosition.whenPressed(new SwitchPosition());
-    switchShootPosition = new JoystickButton(operation,1);
+    JoystickButton switchShootPosition = new JoystickButton(operation, 1);
     switchShootPosition.whenPressed(new SwitchShootPosition());
-    stowPosition = new JoystickButton(drive_FB,1);
+    JoystickButton stowPosition = new JoystickButton(drive_FB, 1);
     stowPosition.whenPressed(new StowPosition());
-    climbPosition = new JoystickButton(testButton, 1);
+    JoystickButton climbPosition = new JoystickButton(testButton, 1);
     climbPosition.whenPressed(new ClimbPosition());
-    climb = new JoystickButton(operation,2);
+    JoystickButton climb = new JoystickButton(operation, 2);
     climb.whenPressed(new Climb());
     climb.whenReleased(new StopClimb());
-    manualWinchUp = new JoystickButton(drive_FB,5);
+    JoystickButton manualWinchUp = new JoystickButton(drive_FB, 5);
     manualWinchUp.whenPressed(new WinchUp());
     manualWinchUp.whenReleased(new WinchStop());
-    manualWinchDown = new JoystickButton(drive_FB, 6);
+    JoystickButton manualWinchDown = new JoystickButton(drive_FB, 6);
     manualWinchDown.whenPressed(new WinchDown());
     manualWinchDown.whenReleased(new WinchStop());
-    manualWristUp = new JoystickButton(drive_FB,3);
+    JoystickButton manualWristUp = new JoystickButton(drive_FB, 3);
     manualWristUp.whenPressed(new WristUp());
     manualWristUp.whenReleased(new WristStop());
-    manualWristDown = new JoystickButton(drive_FB,4);
+    JoystickButton manualWristDown = new JoystickButton(drive_FB, 4);
     manualWristDown.whenPressed(new WristDown());
     manualWristDown.whenReleased(new WristStop());
   }

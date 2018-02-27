@@ -1,4 +1,4 @@
-/**
+/*
  * ReleaseAndPunch.java
  *
  * @author Noah Husby

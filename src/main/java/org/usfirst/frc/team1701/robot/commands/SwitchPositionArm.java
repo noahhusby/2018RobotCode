@@ -1,4 +1,4 @@
-/**
+/*
  * SwitchPositionArm.java
  *
  * @author Noah Husby
@@ -9,7 +9,7 @@ package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
-public class SwitchPositionArm extends Command {
+class SwitchPositionArm extends Command {
     public SwitchPositionArm() {
         requires(Robot.liftArm);
     }

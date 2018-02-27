@@ -1,4 +1,4 @@
-/**
+/*
  * Robot.java
  *
  * @author Noah Husby
@@ -31,15 +31,18 @@ import org.usfirst.frc.team1701.robot.commands.AutonomousCommand;
  * The VM on the RoboRIO is automatically configured to run this class. If you change the name of
  * this class or the package, change it in Gradle and here.
  */
+@SuppressWarnings({"ALL", "unused"})
 public class Robot extends IterativeRobot {
   /*
    * Initialize the various subsystems on the robot.
    */
   private SendableChooser<CommandGroup> autoProgram;
+  @SuppressWarnings("unused")
   private static OI oi;
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
   private static Vision vision;
+  @SuppressWarnings("unused")
   private static Lights lights;
   public static Position position;
   /*

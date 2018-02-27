@@ -1,4 +1,4 @@
-/**
+/*
  * DriveForward.java
  *
  * @author Noah Husby

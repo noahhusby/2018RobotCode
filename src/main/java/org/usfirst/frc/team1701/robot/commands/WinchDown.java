@@ -1,4 +1,4 @@
-/**
+/*
  * WinchDown.java
  *
  * @author Noah Husby

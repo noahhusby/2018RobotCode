@@ -1,4 +1,4 @@
-/**
+/*
  * WristUp.java
  *
  * @author Noah Husby

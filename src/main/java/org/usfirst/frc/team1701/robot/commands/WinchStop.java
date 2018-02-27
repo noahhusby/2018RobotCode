@@ -1,4 +1,4 @@
-/**
+/*
  * WinchStop.java
  *
  * @author Noah Husby

@@ -1,4 +1,4 @@
-/**
+/*
  * SwitchPosition.java
  *
  * @author Noah Husby

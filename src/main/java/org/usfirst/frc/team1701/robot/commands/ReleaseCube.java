@@ -1,4 +1,4 @@
-/**
+/*
  * ReleaseCube.java
  *
  * @author Noah Husby

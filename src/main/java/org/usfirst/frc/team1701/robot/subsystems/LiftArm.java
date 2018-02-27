@@ -1,4 +1,4 @@
-/**
+/*
  * subsystems/LiftArm.java
  *
  * @author Noah Husby & Steven Wall
@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team1701.robot.Robot;
 import org.usfirst.frc.team1701.robot.RobotMap;
+@SuppressWarnings("unused")
 public class LiftArm extends Subsystem {
   /*
    * Hardware references.
@@ -34,12 +35,14 @@ public class LiftArm extends Subsystem {
   /**
    * Sets the winches to brake mode
    */
+  @SuppressWarnings("WeakerAccess")
   public void enableWinchBrake() {
     winchBrake.set(DoubleSolenoid.Value.kForward);
   }
   /**
    * Disables winch brake
    */
+  @SuppressWarnings("WeakerAccess")
   public void disableWinchBrake() {
     winchBrake.set(DoubleSolenoid.Value.kReverse);
   }

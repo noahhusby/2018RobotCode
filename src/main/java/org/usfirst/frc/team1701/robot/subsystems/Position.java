@@ -1,5 +1,6 @@
 package org.usfirst.frc.team1701.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
+@SuppressWarnings("unused")
 public class Position extends Subsystem {
     /*
      * Minimum and maximum traveling distance for wrist and arm

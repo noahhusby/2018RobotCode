@@ -1,4 +1,4 @@
-/**
+/*
  * WallToScale.java
  *
  * @author Noah Husby
@@ -9,7 +9,7 @@ package org.usfirst.frc.team1701.robot.commands.Auto;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 public class WallToScale extends Command {
-    boolean isFinished = false;
+    private boolean isFinished = false;
     public WallToScale() {
         requires(Robot.driveTrain);
     }

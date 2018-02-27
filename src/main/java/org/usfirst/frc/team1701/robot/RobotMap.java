@@ -1,4 +1,4 @@
-/**
+/*
  * RobotMap.java
  *
  * @author Nicholas Hubbard
@@ -10,6 +10,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX; // Replaced wildcard impo
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+@SuppressWarnings("WeakerAccess")
 public class RobotMap {
   /*
    * Create all static variables, most (exception of logger) filled
@@ -46,24 +47,24 @@ public class RobotMap {
     _leftBackMotor = new WPI_TalonSRX(1); //1
     _rightFrontMotor = new WPI_TalonSRX(15); //15
     _rightBackMotor = new WPI_TalonSRX(14); //14
-    /**
+    /*
      * Encoder PID index.
      * @value 0 for primary closed-loop, 1 for cascaded closed-loop.
      */
     encPidIdx = 0;
-    /**
+    /*
      * Initialize all analog and digital objects
      */
     liftArmEncoder = new AnalogInput(0);
     cubeSensor = new DigitalInput(0);
 
-    /**
+    /*
      * Initialize all non-drivetrain motors/objects.
      */
     winch1 = new WPI_TalonSRX(12);
     winch2 = new WPI_TalonSRX(13);
     wrist = new WPI_TalonSRX(2);
-    /**
+    /*
      * Initialize all pneumatic controllers
      */
     driveShift = new DoubleSolenoid(0,7,0);
@@ -72,17 +73,17 @@ public class RobotMap {
     puncher = new DoubleSolenoid(0,4,3);
     winchBrake = new DoubleSolenoid(1,7,0);
     wristBrake = new DoubleSolenoid(1,6,1);
-    /**
+    /*
      * Create 4-wheel drivetrain object using DifferentialDrive and SpeedControllerGroups.
      */
     _leftMotors = new SpeedControllerGroup(_leftFrontMotor, _leftBackMotor);
     _rightMotors = new SpeedControllerGroup(_rightFrontMotor, _rightBackMotor);
     driveTrain = new DifferentialDrive(_leftMotors, _rightMotors);
-    /**
+    /*
      * Instantiate NavX.
      */
     _navx = new AHRS(SerialPort.Port.kUSB1);
-    /**
+    /*
      * LED controllers, follows Spark motor controller pattern.
      * @see https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf, page 7
      */

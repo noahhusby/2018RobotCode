@@ -1,4 +1,4 @@
-/**
+/*
  * commands/AutonomousCommand.java
  *
  * @author Noah Husby

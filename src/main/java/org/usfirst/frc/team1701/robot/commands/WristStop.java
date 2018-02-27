@@ -1,4 +1,4 @@
-/**
+/*
  * WristStop.java
  *
  * @author Noah Husby

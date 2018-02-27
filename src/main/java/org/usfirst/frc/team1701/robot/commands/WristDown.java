@@ -1,4 +1,4 @@
-/**
+/*
  * WristDown.java
  *
  * @author Noah Husby

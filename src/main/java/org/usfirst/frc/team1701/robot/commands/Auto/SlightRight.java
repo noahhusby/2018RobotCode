@@ -4,8 +4,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
 public class SlightRight extends Command{
-    boolean isFinshed = false;
-    public double navxStart;
+    private boolean isFinshed = false;
+    private double navxStart;
 
     public SlightRight() {
         requires(Robot.driveTrain);

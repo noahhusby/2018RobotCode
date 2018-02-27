@@ -1,4 +1,4 @@
-/**
+/*
  * Climb.java
  *
  * @author Noah Husby

@@ -1,4 +1,4 @@
-/**
+/*
  * WinchUp.java
  *
  * @author Noah Husby

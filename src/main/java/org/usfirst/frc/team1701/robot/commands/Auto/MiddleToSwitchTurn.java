@@ -1,4 +1,4 @@
-/**
+/*
  * MiddleToSwitchTurn.java
  *
  * @author Noah Husby
@@ -8,9 +8,10 @@
 package org.usfirst.frc.team1701.robot.commands.Auto;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
-public class MiddleToSwitchTurn extends Command {
-    boolean isFinished = false;
-    int count;
+@SuppressWarnings("unused")
+class MiddleToSwitchTurn extends Command {
+    private boolean isFinished = false;
+    private int count;
     public MiddleToSwitchTurn() {
         requires(Robot.driveTrain);
     }

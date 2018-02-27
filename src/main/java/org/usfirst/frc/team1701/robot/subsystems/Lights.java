@@ -1,4 +1,4 @@
-/**
+/*
  * subsystems/Lights.java
  *
  * @author Nicholas Hubbard

@@ -1,4 +1,4 @@
-/**
+/*
  * StopClimb.java
  *
  * @author Noah Husby

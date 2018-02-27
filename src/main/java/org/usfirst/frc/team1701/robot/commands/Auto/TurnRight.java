@@ -1,4 +1,4 @@
-/**
+/*
  * TurnRight.java
  *
  * @author Noah Husby
@@ -8,9 +8,10 @@
 package org.usfirst.frc.team1701.robot.commands.Auto;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
+@SuppressWarnings("WeakerAccess")
 public class TurnRight extends Command {
-    boolean isFinished = false;
-    public double navxStart;
+    private boolean isFinished = false;
+    private double navxStart;
     public TurnRight() {
         requires(Robot.driveTrain);
     }

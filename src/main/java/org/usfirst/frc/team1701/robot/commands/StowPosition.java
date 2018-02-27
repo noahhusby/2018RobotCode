@@ -1,4 +1,4 @@
-/**
+/*
  * StowPosition.java
  *
  * @author Noah Husby

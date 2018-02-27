@@ -1,4 +1,4 @@
-/**
+/*
  * LowGear.java
  *
  * @author Noah Husby
@@ -10,7 +10,8 @@ package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
-public class LowGear extends Command {
+class LowGear extends Command {
+    @SuppressWarnings("unused")
     public LowGear() {
         requires(Robot.driveTrain);
     }

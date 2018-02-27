@@ -1,4 +1,4 @@
-/**
+/*
  * ScalePosition.java
  *
  * @author Noah Husby

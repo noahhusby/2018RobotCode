@@ -1,4 +1,4 @@
-/**
+/*
  * TurnToSwitch.java
  *
  * @author Noah Husby
@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
 public class TurnToSwitchRight extends Command {
-    boolean isFinshed = false;
+    private boolean isFinshed = false;
 
     public TurnToSwitchRight() {
         requires(Robot.driveTrain);

@@ -1,4 +1,4 @@
-/**
+/*
  * subsystems/DriveTrain.java
  *
  * @author Noah Husby
@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import org.usfirst.frc.team1701.robot.commands.TeleopDrive;
 import com.kauailabs.navx.frc.AHRS;
+@SuppressWarnings("unused")
 public class DriveTrain extends Subsystem {
   /*
    * Set of motors.
@@ -53,6 +54,7 @@ public class DriveTrain extends Subsystem {
   /**
    * Reset left side encoder.
    */
+  @SuppressWarnings("WeakerAccess")
   public void resetLeftEncoder() {
     leftEncTalon.setSelectedSensorPosition(0, encPidIdx, 0);
   }
@@ -76,6 +78,7 @@ public class DriveTrain extends Subsystem {
   /**
    * Reset right side encoder.
    */
+  @SuppressWarnings("WeakerAccess")
   public void resetRightEncoder() {
     rightEncTalon.setSelectedSensorPosition(0, encPidIdx, 0);
   }
@@ -163,8 +166,4 @@ public class DriveTrain extends Subsystem {
   public void setLowGear() {
     driveShift.set(DoubleSolenoid.Value.kReverse);
   }
-  /**
-   * Set state of autoGear
-   * @param autoGear Set Boolean
-   */
 }

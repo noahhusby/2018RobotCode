@@ -1,4 +1,4 @@
-/**
+/*
  * WallToMiddle.java
  *
  * @author Noah Husby
@@ -9,7 +9,7 @@ package org.usfirst.frc.team1701.robot.commands.Auto;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 public class WallToMiddle extends Command {
-    boolean isFinished = false;
+    private boolean isFinished = false;
     public WallToMiddle() {
         requires(Robot.driveTrain);
     }

@@ -3,7 +3,7 @@ package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
-public class ClimbPositionArm extends Command {
+class ClimbPositionArm extends Command {
     public ClimbPositionArm() {
         requires(Robot.liftArm);
     }

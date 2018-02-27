@@ -1,4 +1,4 @@
-/**
+/*
  * subsystems/DriveTrain.java
  *
  * @author Noah Husby
@@ -10,7 +10,7 @@ package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
-public class ScalePositionArm extends Command {
+class ScalePositionArm extends Command {
     public ScalePositionArm() {
         requires(Robot.liftArm);
     }

@@ -1,4 +1,4 @@
-/**
+/*
  * SwitchShootPosition.java
  *
  * @author Noah Husby

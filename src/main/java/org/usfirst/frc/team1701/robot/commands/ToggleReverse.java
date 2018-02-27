@@ -1,4 +1,4 @@
-/**
+/*
  * ToggleReverse.java
  *
  * @author Noah Husby

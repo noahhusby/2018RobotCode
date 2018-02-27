@@ -1,4 +1,4 @@
-/**
+/*
  * GrabPositionWrist.java
  *
  * @author Noah Husby
@@ -8,7 +8,8 @@
 package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
-public class GrabPositionWrist extends Command {
+@SuppressWarnings("ALL")
+class GrabPositionWrist extends Command {
     private boolean isFinished = false;
     public GrabPositionWrist() {
         requires(Robot.driveTrain);

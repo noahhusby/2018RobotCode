@@ -17,11 +17,13 @@ def ROBOT_CLASS = "org.usfirst.frc.team1701.robot.Robot"
 // This is added by GradleRIO's backing project EmbeddedTools.
 deploy {
     targets {
+        //noinspection UnnecessaryQualifiedReference
         target("roborio", jaci.openrio.gradle.frc.RoboRIO) {
             team = TEAM
         }
     }
     artifacts {
+        //noinspection UnnecessaryQualifiedReference
         artifact('frcJava', jaci.openrio.gradle.frc.FRCJavaArtifact) {
             targets << "roborio"
         }
@@ -44,6 +46,7 @@ dependencies {
 // knows where to look for our Robot Class.
 jar {
     from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    //noinspection UnnecessaryQualifiedReference
     manifest jaci.openrio.gradle.GradleRIOPlugin.javaManifest(ROBOT_CLASS)
 }
 

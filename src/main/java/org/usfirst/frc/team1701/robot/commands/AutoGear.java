@@ -1,4 +1,4 @@
-/**
+/*
  * AutoGear.java
  *
  * @author Noah Husby
@@ -8,6 +8,7 @@
 package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
+@SuppressWarnings("unused")
 public class AutoGear extends Command {
     public AutoGear() {
         requires(Robot.driveTrain);

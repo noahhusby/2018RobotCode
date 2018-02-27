@@ -1,4 +1,4 @@
-/**
+/*
  * GrabCube.java
  *
  * @author Noah Husby

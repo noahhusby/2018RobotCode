@@ -1,4 +1,4 @@
-/**
+/*
  * subsystems/Vision.java
  *
  * @author Nicholas Hubbard
@@ -10,6 +10,7 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Subsystem;
+@SuppressWarnings("unused")
 public class Vision extends Subsystem {
     private final NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
     /**
@@ -19,7 +20,7 @@ public class Vision extends Subsystem {
     public boolean getTarget() {
         NetworkTableEntry tv_key = table.getEntry("tv");
         double tv = tv_key.getDouble(-1);
-      return !(tv == 0);
+        return !(tv == 0);
     }
     /**
      * Get horizontal offset.

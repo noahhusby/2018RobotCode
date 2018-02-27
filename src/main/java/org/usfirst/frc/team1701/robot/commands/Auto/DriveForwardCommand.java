@@ -1,4 +1,4 @@
-/**
+/*
  * commands/DriveForwardCommand.java
  *
  * @author Nicholas Hubbard

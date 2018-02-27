@@ -1,4 +1,4 @@
-/**
+/*
  * GrabPosition.java
  *
  * @author Noah Husby
