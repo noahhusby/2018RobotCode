@@ -28,15 +28,8 @@ public class GrabPositionArm extends Command {
         } else {
             Robot.liftArm.stopLiftArm();
             Robot.liftArm.disableWristBrake();
-            if(Robot.liftArm.getWristAngle() > Robot.position.wristGrab + 50) {
-                Robot.liftArm.setWrist(0.50);
-            } else if(Robot.liftArm.getWristAngle() < Robot.position.wristGrab - 50) {
-                Robot.liftArm.setWrist(-0.50);
-            } else {
-                Robot.liftArm.stopWrist();
-                Robot.liftArm.setGrabber(false);
-                isFinished = true;
-            }
+            Robot.liftArm.grabCube();
+            isFinished = true;
         }
     }
     protected boolean isFinished() {

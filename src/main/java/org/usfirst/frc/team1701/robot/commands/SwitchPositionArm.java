@@ -14,26 +14,6 @@ public class SwitchPositionArm extends Command {
         requires(Robot.liftArm);
     }
     private boolean isFinished;
-    private void stowWrist() {
-        Robot.liftArm.setGrabber(true);
-        if(Robot.liftArm.getWristAngle() > Robot.position.wristStow + 50) {
-            Robot.liftArm.setWrist(0.50);
-        } else if(Robot.liftArm.getWristAngle() < Robot.position.wristStow - 50) {
-            Robot.liftArm.setWrist(-0.50);
-        } else {
-            Robot.liftArm.stopWrist();
-        }
-    }
-    private void grabWrist() {
-        if(Robot.liftArm.getWristAngle() > Robot.position.wristSwitch + 50) {
-            Robot.liftArm.setWrist(0.50);
-        } else if(Robot.liftArm.getWristAngle() < Robot.position.wristSwitch - 50) {
-            Robot.liftArm.setWrist(-0.50);
-        } else {
-            Robot.liftArm.stopWrist();
-            isFinished = true;
-        }
-    }
     protected void initialize() {}
     protected void execute() {
         Robot.liftArm.disableWristBrake();
@@ -42,13 +22,14 @@ public class SwitchPositionArm extends Command {
         Robot.liftArm.setGrabber(true);
         if(Robot.liftArm.getArmAngle()> Robot.position.armSwitch + 40) {
             Robot.liftArm.setLiftArm(0.90);
-            stowWrist();
+            Robot.liftArm.stowWrist();
         } else if(Robot.liftArm.getArmAngle()< Robot.position.armSwitch - 40) {
             Robot.liftArm.setLiftArm(-0.90);
-            stowWrist();
+            Robot.liftArm.stowWrist();
         } else {
             Robot.liftArm.stopLiftArm();
-            grabWrist();
+            Robot.liftArm.grabWrist();
+            isFinished = true;
         }
     }
     protected boolean isFinished() {
