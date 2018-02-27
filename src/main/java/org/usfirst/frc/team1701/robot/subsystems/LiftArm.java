@@ -162,5 +162,32 @@ public class LiftArm extends Subsystem {
     }
     return speed;
   }
+
+  /**
+   * Stow the arm in the correct position.
+   */
+  public void stowWrist() {
+    Robot.liftArm.setGrabber(true);
+    if(Robot.liftArm.getWristAngle() > Robot.position.wristStow + 50) {
+      Robot.liftArm.setWrist(0.50);
+    } else if(Robot.liftArm.getWristAngle() < Robot.position.wristStow - 50) {
+      Robot.liftArm.setWrist(-0.50);
+    } else {
+      Robot.liftArm.stopWrist();
+    }
+  }
+
+  /**
+   * Grab the wrist? IDK.
+   */
+  public void grabWrist() {
+    if (Robot.liftArm.getWristAngle() > Robot.position.wristScale + 50) {
+      Robot.liftArm.setWrist(0.50);
+    } else if (Robot.liftArm.getWristAngle() < Robot.position.wristScale - 50) {
+      Robot.liftArm.setWrist(-0.50);
+    } else {
+      Robot.liftArm.stopWrist();
+    }
+  }
   public void initDefaultCommand() {}
 }

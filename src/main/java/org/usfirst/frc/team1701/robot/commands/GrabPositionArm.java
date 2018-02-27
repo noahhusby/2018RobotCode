@@ -21,7 +21,6 @@ public class GrabPositionArm extends Command {
         Robot.liftArm.winchHighGear();
         isFinished = false;
         Robot.liftArm.setGrabber(true);
-
         if(Robot.liftArm.getArmAngle()> Robot.position.armGrab + 100) {
             Robot.liftArm.setLiftArm(0.90);
         } else if(Robot.liftArm.getArmAngle()< Robot.position.armGrab - 100) {
@@ -34,9 +33,9 @@ public class GrabPositionArm extends Command {
             } else if(Robot.liftArm.getWristAngle() < Robot.position.wristGrab - 50) {
                 Robot.liftArm.setWrist(-0.50);
             } else {
-                isFinished = true;
                 Robot.liftArm.stopWrist();
                 Robot.liftArm.setGrabber(false);
+                isFinished = true;
             }
         }
     }
