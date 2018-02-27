@@ -7,22 +7,14 @@
  */
 
 package org.usfirst.frc.team1701.robot.commands;
-
-import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.Encoder;
 import org.usfirst.frc.team1701.robot.Robot;
-import org.usfirst.frc.team1701.robot.RobotMap;
-import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
 
 public class GrabPositionArm extends Command {
     public GrabPositionArm() {
         requires(Robot.liftArm);
     }
-
     private boolean isFinished;
-
-
     protected void initialize() {}
     protected void execute() {
         Robot.liftArm.disableWristBrake();
@@ -31,23 +23,17 @@ public class GrabPositionArm extends Command {
         Robot.liftArm.setGrabber(true);
 
         if(Robot.liftArm.getArmAngle()> Robot.position.armGrab + 100) {
-            Robot.liftArm.setLiftArm(0.90); }
-        else if(Robot.liftArm.getArmAngle()< Robot.position.armGrab - 100) {
+            Robot.liftArm.setLiftArm(0.90);
+        } else if(Robot.liftArm.getArmAngle()< Robot.position.armGrab - 100) {
             Robot.liftArm.setLiftArm(-0.90);
-        }
-        else {
+        } else {
             Robot.liftArm.stopLiftArm();
             Robot.liftArm.disableWristBrake();
-            if(Robot.liftArm.getWristAngle() > Robot.position.wristGrab + 50)
-            {
+            if(Robot.liftArm.getWristAngle() > Robot.position.wristGrab + 50) {
                 Robot.liftArm.setWrist(0.50);
-            }
-            else if(Robot.liftArm.getWristAngle() < Robot.position.wristGrab - 50)
-            {
+            } else if(Robot.liftArm.getWristAngle() < Robot.position.wristGrab - 50) {
                 Robot.liftArm.setWrist(-0.50);
-            }
-            else
-            {
+            } else {
                 isFinished = true;
                 Robot.liftArm.stopWrist();
                 Robot.liftArm.setGrabber(false);

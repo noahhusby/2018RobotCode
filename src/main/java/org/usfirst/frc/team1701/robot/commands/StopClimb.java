@@ -14,8 +14,7 @@ public class StopClimb extends Command {
     public StopClimb() {
         requires(Robot.driveTrain);
     }
-    protected void initialize() {
-    }
+    protected void initialize() {}
     protected void execute() {
         Robot.liftArm.stopLiftArm();
     }
