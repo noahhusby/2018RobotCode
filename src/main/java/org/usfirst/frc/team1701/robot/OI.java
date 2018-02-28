@@ -18,12 +18,10 @@ public class OI {
    */
   public static Joystick drive_FB;
   public static Joystick drive_T;
-
   /**
    * Instead of an init() function, we call this on OI startup.
    */
   public OI() {
-    //logger.info("Assigning joystick values...");
     /*
      * Enable the physical joysticks.
      */

@@ -38,7 +38,6 @@ public class RobotMap {
   public static Spark _led1;
   public static AHRS _navx;
   public static int encPidIdx;
-  
   /**
    * Initialize the public values above.
    */
@@ -57,7 +56,6 @@ public class RobotMap {
      */
     liftArmEncoder = new AnalogInput(0);
     cubeSensor = new DigitalInput(0);
-
     /*
      * Initialize all non-drivetrain motors/objects.
      */
@@ -67,12 +65,12 @@ public class RobotMap {
     /*
      * Initialize all pneumatic controllers
      */
-    driveShift = new DoubleSolenoid(0,7,0);
-    winchShift = new DoubleSolenoid(0,6,1);
+    driveShift = new DoubleSolenoid(0, 7, 0);
+    winchShift = new DoubleSolenoid(0, 6, 1);
     grabber = new DoubleSolenoid(0, 5, 2);
-    puncher = new DoubleSolenoid(0,4,3);
-    winchBrake = new DoubleSolenoid(1,7,0);
-    wristBrake = new DoubleSolenoid(1,6,1);
+    puncher = new DoubleSolenoid(0, 4, 3);
+    winchBrake = new DoubleSolenoid(1, 7, 0);
+    wristBrake = new DoubleSolenoid(1, 6, 1);
     /*
      * Create 4-wheel drivetrain object using DifferentialDrive and SpeedControllerGroups.
      */

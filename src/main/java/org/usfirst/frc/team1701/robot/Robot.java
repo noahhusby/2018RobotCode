@@ -1,8 +1,14 @@
-/*
- * Robot.java
+/*  __ ______ ___  __
+ * /_ |____  / _ \/_ |
+ *  | |   / / | | || |
+ *  | |  / /| | | || |
+ *  | | / / | |_| || |
+ *  |_|/_/   \___/ |_|
  *
- * @author Noah Husby
- * @since 12/21/17
+ * Team 1701 The Robocubs
+ *
+ * @author Noah Husby and Nicholas Hubbard
+ * @created 01-06-2018
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot;
@@ -15,19 +21,6 @@ import org.usfirst.frc.team1701.robot.commands.DriveForward;
 import org.usfirst.frc.team1701.robot.subsystems.*;
 import org.usfirst.frc.team1701.robot.commands.AutonomousCommand;
 /*
-  _____   ________  ________    _____
- / __  \ |\_____  \|\   __  \  / __  \
-|\/_|\  \ \|___/  /\ \  \|\  \|\/_|\  \
-\|/ \ \  \    /  / /\ \  \\\  \|/ \ \  \
-     \ \  \  /  / /  \ \  \\\  \   \ \  \
-      \ \__\/__/ /    \ \_______\   \ \__\
-       \|__||__|/      \|_______|    \|__|
-
-  Team 1701 The Robocubs
-  Code by Noah Husby and Nick Hubbard
- */
-
-/*
  * The VM on the RoboRIO is automatically configured to run this class. If you change the name of
  * this class or the package, change it in Gradle and here.
  */
@@ -37,13 +30,11 @@ public class Robot extends IterativeRobot {
    * Initialize the various subsystems on the robot.
    */
   private SendableChooser<CommandGroup> autoProgram;
-  @SuppressWarnings("unused")
   private static OI oi;
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
-  private static Vision vision;
-  @SuppressWarnings("unused")
-  private static Lights lights;
+  public static Vision vision;
+  public static Lights lights;
   public static Position position;
   /*
    * This function is run when the robot is first started up.
@@ -61,9 +52,9 @@ public class Robot extends IterativeRobot {
     autoProgram.addObject("Forward Autonomous", new DriveForward());
     SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
     SendableChooser<Number> autonomousLocation = new SendableChooser<>();
-    autonomousLocation.addObject("Left",1);
-    autonomousLocation.addDefault("Middle",2);
-    autonomousLocation.addObject("Right",3);
+    autonomousLocation.addObject("Left", 1);
+    autonomousLocation.addDefault("Middle", 2);
+    autonomousLocation.addObject("Right", 3);
     SmartDashboard.putData("Autonomous Location Chooser", autonomousLocation);
     SmartDashboard.putBoolean("Reversed", false);
     SmartDashboard.putString("Current Gear","");
@@ -92,15 +83,13 @@ public class Robot extends IterativeRobot {
   /*
    * This function is called periodically during autonomous mode.
    */
-
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
   }
   /*
    * This function is called on start of teleop.
    */
-  public void teleopInit() {
-  }
+  public void teleopInit() {}
   /*
    * This function is called periodically during teleop.
    */

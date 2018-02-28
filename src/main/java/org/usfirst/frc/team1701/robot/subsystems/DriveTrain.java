@@ -38,12 +38,14 @@ public class DriveTrain extends Subsystem {
    * Special math stuffs.
    */
   private final int encPidIdx = RobotMap.encPidIdx;
-
-
   /*
    * Motor state variables.
    */
   private boolean reversed = false;
+  /*
+   * Distance traveled.
+   */
+  public double distanceTraveled = (getLeftDistance() + getRightDistance()) / 2;
   /**
    * Return left distance.
    * @return double of left side distance.

@@ -1,7 +1,7 @@
 package org.usfirst.frc.team1701.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 @SuppressWarnings("unused")
-public class Position extends Subsystem {
+public class Position extends Subsystem { // This doesn't have to be a Subsystem... but ok.
     /*
      * Minimum and maximum traveling distance for wrist and arm
      */
@@ -9,7 +9,6 @@ public class Position extends Subsystem {
     public final double armSafetyMax = 2202;
     public final double wristSafetyMin = 0;
     public final double wristSafetyMax = 0;
-
     /*
      * Wrist values for positions
      */
