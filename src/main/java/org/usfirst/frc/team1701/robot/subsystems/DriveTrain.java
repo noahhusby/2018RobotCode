@@ -42,6 +42,7 @@ public class DriveTrain extends Subsystem {
    * Motor state variables.
    */
   private boolean reversed = false;
+  private boolean isAutogearEnabled = false;
   /*
    * Distance traveled.
    */
@@ -174,5 +175,13 @@ public class DriveTrain extends Subsystem {
     } else if(!reversedState) {
       reversed = false;
     }
+  }
+  public void runAutoGear(double currentSpeed) {
+    if(isAutogearEnabled) {
+
+    }
+  }
+  public void setAutoGear(boolean gearState) {
+    this.isAutogearEnabled = gearState;
   }
 }
