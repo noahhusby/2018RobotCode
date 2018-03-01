@@ -168,4 +168,11 @@ public class DriveTrain extends Subsystem {
   public void setLowGear() {
     driveShift.set(DoubleSolenoid.Value.kReverse);
   }
+  public void setReversed(boolean reversedState) {
+    if(reversedState) {
+      reversed = true;
+    } else if(!reversedState) {
+      reversed = false;
+    }
+  }
 }
