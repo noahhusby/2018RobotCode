@@ -16,6 +16,24 @@ public class OI {
   /*
    * Create initial values.
    */
+
+  public static JoystickButton grabCube;
+  public static JoystickButton releaseCube;
+  public static JoystickButton releasePunchCube;
+  public static JoystickButton reverse;
+  public static JoystickButton scalePosition;
+  public static JoystickButton grabPosition;
+  public static JoystickButton switchPosition;
+  public static JoystickButton switchShootPosition;
+  public static JoystickButton stowPosition;
+  public static JoystickButton climbPosition;
+  public static JoystickButton climb;
+  public static JoystickButton manualWinchUp;
+  public static JoystickButton manualWinchDown;
+  public static JoystickButton manualWristUp;
+  public static JoystickButton manualWristDown;
+
+  public static Joystick operation;
   public static Joystick drive_FB;
   public static Joystick drive_T;
   /**
@@ -25,46 +43,46 @@ public class OI {
     /*
      * Enable the physical joysticks.
      */
-    Joystick operation = new Joystick(0);
+    operation = new Joystick(0);
     drive_FB = new Joystick(1); // Left
     drive_T = new Joystick(2); // Right
     /*
      * Assign commands to buttons.
      */
-    JoystickButton releaseCube = new JoystickButton(operation, 4);
+    releaseCube = new JoystickButton(operation, 4);
     releaseCube.whenPressed(new ReleaseCube());
-    JoystickButton releasePunchCube = new JoystickButton(operation, 2);
+    releasePunchCube = new JoystickButton(operation, 2);
     releasePunchCube.whenPressed(new ReleaseAndPunch());
-    JoystickButton grabCube = new JoystickButton(operation, 9);
+    grabCube = new JoystickButton(operation, 9);
     grabCube.whenPressed(new GrabCube());
-    JoystickButton reverse = new JoystickButton(operation, 6);
+    reverse = new JoystickButton(drive_FB, 6);
     reverse.whenPressed(new ReverseOn());
     reverse.whenReleased(new ReverseOff());
-    JoystickButton scalePosition = new JoystickButton(operation, 8);
+    scalePosition = new JoystickButton(operation, 16);
     scalePosition.whenPressed(new ScalePosition());
-    JoystickButton grabPosition = new JoystickButton(operation, 9);
+    grabPosition = new JoystickButton(operation, 12);
     grabPosition.whenPressed(new GrabPosition());
-    JoystickButton switchPosition = new JoystickButton(drive_FB, 8);
+    switchPosition = new JoystickButton(operation, 8);
     switchPosition.whenPressed(new SwitchPosition());
-    JoystickButton switchShootPosition = new JoystickButton(operation, 1);
+    switchShootPosition = new JoystickButton(operation, 1);
     switchShootPosition.whenPressed(new SwitchShootPosition());
-    JoystickButton stowPosition = new JoystickButton(drive_FB, 14);
+    stowPosition = new JoystickButton(operation, 14);
     stowPosition.whenPressed(new StowPosition());
-    JoystickButton climbPosition = new JoystickButton(operation, 6);
+    climbPosition = new JoystickButton(operation, 6);
     climbPosition.whenPressed(new ClimbPosition());
-    JoystickButton climb = new JoystickButton(operation, 5);
+    climb = new JoystickButton(operation, 5);
     climb.whenPressed(new Climb());
     climb.whenReleased(new StopClimb());
-    JoystickButton manualWinchUp = new JoystickButton(drive_FB, 3);
+    manualWinchUp = new JoystickButton(operation, 3);
     manualWinchUp.whenPressed(new WinchUp());
     manualWinchUp.whenReleased(new WinchStop());
-    JoystickButton manualWinchDown = new JoystickButton(drive_FB, 10);
+    manualWinchDown = new JoystickButton(operation, 10);
     manualWinchDown.whenPressed(new WinchDown());
     manualWinchDown.whenReleased(new WinchStop());
-    JoystickButton manualWristUp = new JoystickButton(drive_FB, 7);
+    manualWristUp = new JoystickButton(operation, 7);
     manualWristUp.whenPressed(new WristUp());
     manualWristUp.whenReleased(new WristStop());
-    JoystickButton manualWristDown = new JoystickButton(drive_FB, 13);
+    manualWristDown = new JoystickButton(operation, 13);
     manualWristDown.whenPressed(new WristDown());
     manualWristDown.whenReleased(new WristStop());
   }
