@@ -49,7 +49,6 @@ public class Position extends Subsystem {
     public double slightLeftAngle = 20;
     public double slightRightAngle = 19;
 
-    public boolean brakeReleased = false;
 
 
     @Override

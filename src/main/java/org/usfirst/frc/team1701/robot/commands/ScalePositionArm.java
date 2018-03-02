@@ -57,11 +57,11 @@ public class ScalePositionArm extends Command {
         Robot.liftArm.setGrabber(true);
 
         if(Robot.liftArm.getArmAngle()> Robot.position.armScale + 100) {
-            Robot.liftArm.setLiftArm(0.70);
+            Robot.liftArm.setLiftArm(0.80);
             stowWrist();
         }
         else if(Robot.liftArm.getArmAngle()< Robot.position.armScale - 100) {
-            Robot.liftArm.setLiftArm(-0.70);
+            Robot.liftArm.setLiftArm(-0.80);
             stowWrist();
         }
         else {
