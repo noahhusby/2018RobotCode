@@ -33,6 +33,8 @@ public class OI {
   public static JoystickButton manualWristUp;
   public static JoystickButton manualWristDown;
 
+  public static JoystickButton manualWristReset;
+
   public static Joystick operation;
   public static Joystick drive_FB;
   public static Joystick drive_T;
@@ -56,8 +58,8 @@ public class OI {
     grabCube = new JoystickButton(operation, 9);
     grabCube.whenPressed(new GrabCube());
     reverse = new JoystickButton(drive_FB, 6);
-    //reverse.whenPressed(new ReverseOn());
-    //reverse.whenReleased(new ReverseOff());
+    reverse.whenPressed(new ReverseOn());
+    reverse.whenReleased(new ReverseOff());
     scalePosition = new JoystickButton(operation, 16);
     scalePosition.whenPressed(new ScalePosition());
     grabPosition = new JoystickButton(operation, 12);
@@ -85,5 +87,8 @@ public class OI {
     manualWristDown = new JoystickButton(operation, 13);
     manualWristDown.whenPressed(new WristUp());
     manualWristDown.whenReleased(new WristStop());
+
+    manualWristReset = new JoystickButton(operation,15);
+    manualWristReset.whenPressed(new ResetWrist());
   }
 }

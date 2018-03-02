@@ -167,4 +167,7 @@ public class DriveTrain extends Subsystem {
    * Set state of autoGear
    * @param autoGear Set Boolean
    */
+  public void setReverse(boolean reversedValue) {
+      this.reversed = reversedValue;
+  }
 }

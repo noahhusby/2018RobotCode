@@ -25,7 +25,7 @@ public class Position extends Subsystem {
     /*
      * Arm value for positions
      */
-    public double armGrab = 120;
+    public double armGrab = 312;
     public double armScale = 2145;
     public double armClimb = 2396;
     public double armSwitch = 1373;
