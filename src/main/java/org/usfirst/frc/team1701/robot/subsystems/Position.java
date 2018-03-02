@@ -46,8 +46,8 @@ public class Position extends Subsystem {
     public double platformToScale = 2.1;
     public double leftAngle = 81;
     public double rightAngle = 81;
-    public double slightLeftAngle = 20;
-    public double slightRightAngle = 19;
+    public double slightLeftAngle = 30;
+    public double slightRightAngle = 29;
 
 
 

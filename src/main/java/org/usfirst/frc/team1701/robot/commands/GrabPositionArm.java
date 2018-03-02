@@ -44,9 +44,9 @@ public class GrabPositionArm extends Command {
             }
             else
             {
-                isFinished = true;
                 Robot.liftArm.stopWrist();
                 Robot.liftArm.setGrabber(false);
+                isFinished = true;
             }
         }
     }
