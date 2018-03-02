@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+/**
+=======
 /*
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
  * TurnToSwitch.java
  *
  * @author Noah Husby
@@ -11,7 +15,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
 public class TurnToSwitchRight extends Command {
+<<<<<<< HEAD
+    boolean isFinshed = false;
+=======
     private boolean isFinshed = false;
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
 
     public TurnToSwitchRight() {
         requires(Robot.driveTrain);

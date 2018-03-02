@@ -4,8 +4,13 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
 public class SlightLeft extends Command {
+<<<<<<< HEAD
+    boolean isFinshed = false;
+    public double navxStart;
+=======
     private boolean isFinshed = false;
     private double navxStart;
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
 
     public SlightLeft() {
         requires(Robot.driveTrain);

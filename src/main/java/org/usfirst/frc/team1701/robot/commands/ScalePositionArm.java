@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+/**
+=======
 /*
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
  * subsystems/DriveTrain.java
  *
  * @author Noah Husby
@@ -7,6 +11,54 @@
  */
 
 package org.usfirst.frc.team1701.robot.commands;
+<<<<<<< HEAD
+
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.Encoder;
+import org.usfirst.frc.team1701.robot.Robot;
+import org.usfirst.frc.team1701.robot.RobotMap;
+import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
+
+public class ScalePositionArm extends Command {
+    public ScalePositionArm() {
+        requires(Robot.liftArm);
+    }
+
+    private boolean isFinshed;
+    private void stowWrist() {
+
+        Robot.liftArm.setGrabber(true);
+
+        if(Robot.liftArm.getWristAngle() > Robot.position.wristStow + 50)
+        {
+            Robot.liftArm.setWrist(0.50);
+        }
+        else if(Robot.liftArm.getWristAngle() < Robot.position.wristStow - 50)
+        {
+            Robot.liftArm.setWrist(-0.50);
+        }
+        else
+        {
+            Robot.liftArm.stopWrist();
+        }
+    }
+    private void grabWrist() {
+        if(Robot.liftArm.getWristAngle() > Robot.position.wristScale + 50)
+        {
+            Robot.liftArm.setWrist(0.50);
+        }
+        else if(Robot.liftArm.getWristAngle() < Robot.position.wristScale - 50)
+        {
+            Robot.liftArm.setWrist(-0.50);
+        }
+        else
+        {
+            Robot.liftArm.stopWrist();
+            isFinshed = true;
+        }
+    }
+=======
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
@@ -15,10 +67,31 @@ class ScalePositionArm extends Command {
         requires(Robot.liftArm);
     }
     private boolean isFinished;
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
     protected void initialize() {}
     protected void execute() {
         Robot.liftArm.disableWristBrake();
         Robot.liftArm.winchHighGear();
+<<<<<<< HEAD
+        isFinshed = false;
+        Robot.liftArm.setGrabber(true);
+
+        if(Robot.liftArm.getArmAngle()> Robot.position.armScale + 100) {
+            Robot.liftArm.setLiftArm(0.70);
+            stowWrist();
+        }
+        else if(Robot.liftArm.getArmAngle()< Robot.position.armScale - 100) {
+            Robot.liftArm.setLiftArm(-0.70);
+            stowWrist();
+        }
+        else {
+            Robot.liftArm.stopLiftArm();
+            grabWrist();
+        }
+    }
+    protected boolean isFinished() {
+        return isFinshed;
+=======
         isFinished = false;
         Robot.liftArm.setGrabber(true);
         if(Robot.liftArm.getArmAngle()> Robot.position.armScale + 100) {
@@ -35,6 +108,7 @@ class ScalePositionArm extends Command {
     }
     protected boolean isFinished() {
         return isFinished;
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
     }
     protected void end() {
         Robot.liftArm.enableWristBrake();

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+/**
+=======
 /*
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
  * Climb.java
  *
  * @author Noah Husby

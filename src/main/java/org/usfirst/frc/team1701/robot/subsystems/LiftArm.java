@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+/**
+=======
 /*
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
  * subsystems/LiftArm.java
  *
  * @author Noah Husby & Steven Wall
@@ -6,14 +10,24 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.subsystems;
+<<<<<<< HEAD
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+=======
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
+<<<<<<< HEAD
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team1701.robot.Robot;
+import org.usfirst.frc.team1701.robot.RobotMap;
+=======
 import org.usfirst.frc.team1701.robot.Robot;
 import org.usfirst.frc.team1701.robot.RobotMap;
 @SuppressWarnings("unused")
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
 public class LiftArm extends Subsystem {
   /*
    * Hardware references.
@@ -35,14 +49,20 @@ public class LiftArm extends Subsystem {
   /**
    * Sets the winches to brake mode
    */
+<<<<<<< HEAD
+=======
   @SuppressWarnings("WeakerAccess")
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
   public void enableWinchBrake() {
     winchBrake.set(DoubleSolenoid.Value.kForward);
   }
   /**
    * Disables winch brake
    */
+<<<<<<< HEAD
+=======
   @SuppressWarnings("WeakerAccess")
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
   public void disableWinchBrake() {
     winchBrake.set(DoubleSolenoid.Value.kReverse);
   }
@@ -165,6 +185,8 @@ public class LiftArm extends Subsystem {
     }
     return speed;
   }
+<<<<<<< HEAD
+=======
 
   /**
    * Stow the arm in the correct position.
@@ -206,5 +228,6 @@ public class LiftArm extends Subsystem {
       Robot.liftArm.setGrabber(false);
     }
   }
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
   public void initDefaultCommand() {}
 }

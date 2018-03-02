@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+/**
+=======
 /*
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
  * RobotMap.java
  *
  * @author Nicholas Hubbard
@@ -6,16 +10,30 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot;
+<<<<<<< HEAD
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+=======
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX; // Replaced wildcard import.
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+<<<<<<< HEAD
+/*import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;*/
+
+=======
 @SuppressWarnings("WeakerAccess")
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
 public class RobotMap {
   /*
    * Create all static variables, most (exception of logger) filled
    * by the init() method below.
    */
+<<<<<<< HEAD
+  //private static final Logger logger = LogManager.getLogger();
+=======
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
   public static WPI_TalonSRX _leftFrontMotor;
   public static WPI_TalonSRX _leftBackMotor;
   public static WPI_TalonSRX _rightFrontMotor;
@@ -38,6 +56,10 @@ public class RobotMap {
   public static Spark _led1;
   public static AHRS _navx;
   public static int encPidIdx;
+<<<<<<< HEAD
+  
+=======
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
   /**
    * Initialize the public values above.
    */
@@ -46,22 +68,47 @@ public class RobotMap {
     _leftBackMotor = new WPI_TalonSRX(1); //1
     _rightFrontMotor = new WPI_TalonSRX(15); //15
     _rightBackMotor = new WPI_TalonSRX(14); //14
+<<<<<<< HEAD
+    /**
+=======
     /*
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
      * Encoder PID index.
      * @value 0 for primary closed-loop, 1 for cascaded closed-loop.
      */
     encPidIdx = 0;
+<<<<<<< HEAD
+    /**
+=======
     /*
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
      * Initialize all analog and digital objects
      */
     liftArmEncoder = new AnalogInput(0);
     cubeSensor = new DigitalInput(0);
+<<<<<<< HEAD
+
+    /**
+=======
     /*
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
      * Initialize all non-drivetrain motors/objects.
      */
     winch1 = new WPI_TalonSRX(12);
     winch2 = new WPI_TalonSRX(13);
     wrist = new WPI_TalonSRX(2);
+<<<<<<< HEAD
+    /**
+     * Initialize all pneumatic controllers
+     */
+    driveShift = new DoubleSolenoid(0,7,0);
+    winchShift = new DoubleSolenoid(0,6,1);
+    grabber = new DoubleSolenoid(0, 5, 2);
+    puncher = new DoubleSolenoid(0,4,3);
+    winchBrake = new DoubleSolenoid(1,7,0);
+    wristBrake = new DoubleSolenoid(1,6,1);
+    /**
+=======
     /*
      * Initialize all pneumatic controllers
      */
@@ -72,20 +119,33 @@ public class RobotMap {
     winchBrake = new DoubleSolenoid(1, 7, 0);
     wristBrake = new DoubleSolenoid(1, 6, 1);
     /*
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
      * Create 4-wheel drivetrain object using DifferentialDrive and SpeedControllerGroups.
      */
     _leftMotors = new SpeedControllerGroup(_leftFrontMotor, _leftBackMotor);
     _rightMotors = new SpeedControllerGroup(_rightFrontMotor, _rightBackMotor);
     driveTrain = new DifferentialDrive(_leftMotors, _rightMotors);
+<<<<<<< HEAD
+    /**
+     * Instantiate NavX.
+     */
+    _navx = new AHRS(SerialPort.Port.kUSB1);
+    /**
+=======
     /*
      * Instantiate NavX.
      */
     _navx = new AHRS(SerialPort.Port.kUSB1);
     /*
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
      * LED controllers, follows Spark motor controller pattern.
      * @see https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf, page 7
      */
     _led0 = new Spark(0);
     _led1 = new Spark(1);
+<<<<<<< HEAD
+
+=======
+>>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
   }
 }
