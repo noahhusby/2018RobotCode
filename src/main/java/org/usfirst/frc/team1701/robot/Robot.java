@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Timer;
 import org.usfirst.frc.team1701.robot.commands.AutoCommandGroup;
-import org.usfirst.frc.team1701.robot.commands.DriveForward;
 import org.usfirst.frc.team1701.robot.subsystems.*;
 
 /*
@@ -38,11 +37,10 @@ public class Robot extends IterativeRobot {
   /*
    * Initialize the various subsystems on the robot.
    */
-  private CommandGroup selectedAutoProgram;
-  private SendableChooser<CommandGroup> autoProgram;
   private DriverStation ds = DriverStation.getInstance();
   private String gameCode = "";
   public static SendableChooser<Number> autonomousLocation;
+  public static SendableChooser<Number> action;
   public static OI oi;
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
@@ -60,19 +58,19 @@ public class Robot extends IterativeRobot {
     liftArm = new LiftArm();
     position = new Position();
     oi = new OI();
-    //autoProgram = new SendableChooser<>();
-    //autoProgram.addObject("Default Autonomous", new AutoCommandGroup());
-    //autoProgram.addObject("Forward Autonomous", new DriveForward());
-    //SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
     autonomousLocation = new SendableChooser<>();
     autonomousLocation.addObject("Left",1);
     autonomousLocation.addDefault("Middle",2);
     autonomousLocation.addObject("Right",3);
-    SmartDashboard.putData("Autonomous Location Chooser", autonomousLocation);
+    SmartDashboard.putData("Autonomous Location", autonomousLocation);
+    action = new SendableChooser<>();
+    action.addDefault("Defualt Autonomous", 1);
+    action.addObject("Forward Autonomous", 2);
+    SmartDashboard.putData("Autonomous Chooser",action);
     SmartDashboard.putBoolean("Reversed", false);
     SmartDashboard.putString("Current Gear","");
-    SmartDashboard.putBoolean("Init",false);
     SmartDashboard.putNumber("Arm",0);
+    SmartDashboard.putBoolean("Arm Down", false);
 
     vision.setPIPMode(2);
     driveTrain.resetEncoders();
@@ -100,7 +98,7 @@ public class Robot extends IterativeRobot {
    */
   public void autonomousInit() {
     if(gameCode.length() == 3) {
-      CommandGroup autonomousCommand = new AutoCommandGroup(gameCode);
+      CommandGroup autonomousCommand = new AutoCommandGroup(gameCode,action.getSelected(),autonomousLocation.getSelected());
       autonomousCommand.start();
     }
   }

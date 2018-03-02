@@ -25,55 +25,70 @@ public class AutoCommandGroup extends CommandGroup {
      */
   private static char switchPosition;
   private static char scalePosition;
-  public AutoCommandGroup(String gameCode) {
+  public AutoCommandGroup(String gameCode, Number action, Number autoLocation) {
       switchPosition = gameCode.charAt(0);
       scalePosition = gameCode.charAt(1);
-      double autoLocation = SmartDashboard.getNumber("Autonomous Location Chooser", 2);
-          if(autoLocation == 1) {
-              switch(scalePosition) {
-                  case 'L':
-                      addSequential(new WallToScale());
-                      addSequential(new StowPosition());
-                      addSequential(new TurnLeft());
-                      addSequential(new ScalePosition());
-                      addSequential(new ReverseScale());
-                      addSequential(new ReleaseAndPunch());
-                      break;
-                  case 'R':
-                      addSequential(new WallToPlatformZone());
-                      addParallel(new StowPosition());
-                      addSequential(new TurnRight());
-                      addSequential(new CrossPlatformZone());
-                      addSequential(new TurnLeft());
-                      addParallel(new ScalePosition());
-                      addSequential(new PlatformToScale());
-                      addSequential(new ReleaseAndPunch());
-                      break;
-              }
-          } else if (autoLocation == 2) {
-              switch(switchPosition) {
-                  case 'L':
-                      addSequential(new WallToMiddle());
-                      addSequential(new StowPosition());
-                      addSequential(new SlightLeft());
-                      addSequential(new SwitchPosition());
-                      addSequential(new TurnToSwitch());
-                      addSequential(new ReleaseAndPunch());
-                      break;
-                  case 'R':
-                      addSequential(new WallToMiddle());
-                      addSequential(new StowPosition());
-                      addSequential(new SlightRight());
-                      addSequential(new SwitchPosition());
-                      addSequential(new TurnToSwitchRight());
-                      addSequential(new ReleaseAndPunch());
-                      break;
-              }
-          } else if (autoLocation == 3) {
 
-          }
+      switch((int) action) {
+          case 1:
+              placeCubeAutonomous(2);
+              break;
+
+          case 2:
+              addSequential(new DriveForwardCommand());
+              break;
       }
+
   }
+
+    private void placeCubeAutonomous(int autoLocation) {
+        if(autoLocation == 1) {
+            switch(scalePosition) {
+                case 'L':
+                    addSequential(new WallToScale());
+                    addSequential(new StowPosition());
+                    addSequential(new TurnLeft());
+                    addSequential(new ScalePosition());
+                    addSequential(new ReverseScale());
+                    addSequential(new ReleaseAndPunch());
+                    break;
+                case 'R':
+                    addSequential(new WallToPlatformZone());
+                    addParallel(new StowPosition());
+                    addSequential(new TurnRight());
+                    addSequential(new CrossPlatformZone());
+                    addSequential(new TurnLeft());
+                    addParallel(new ScalePosition());
+                    addSequential(new PlatformToScale());
+                    addSequential(new ReleaseAndPunch());
+                    break;
+            }
+        } else if (autoLocation == 2) {
+            switch(switchPosition) {
+                case 'L':
+                    /*
+                    addSequential(new WallToMiddle());
+                    addSequential(new StowPosition());
+                    addSequential(new SlightLeft());
+                    addSequential(new SwitchPosition());
+                    addSequential(new TurnToSwitch());
+                    addSequential(new ReleaseAndPunch());
+                    */
+                    break;
+                case 'R':
+                    addSequential(new WallToMiddle());
+                    addSequential(new StowPosition());
+                    addSequential(new SlightRight());
+                    addSequential(new SwitchPosition());
+                    addSequential(new TurnToSwitchRight());
+                    addSequential(new ReleaseAndPunch());
+                    break;
+            }
+        } else if (autoLocation == 3) {
+
+        }
+    }
+}
 
 
 

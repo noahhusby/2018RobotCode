@@ -37,6 +37,7 @@ public class RobotMap {
   public static DoubleSolenoid wristBrake;
   public static AnalogInput liftArmEncoder;
   public static DigitalInput cubeSensor;
+  public static DigitalInput armSensor;
   public static Spark _led0;
   public static Spark _led1;
   public static AHRS _navx;
@@ -60,6 +61,7 @@ public class RobotMap {
      */
     liftArmEncoder = new AnalogInput(0);
     cubeSensor = new DigitalInput(0);
+    armSensor = new DigitalInput(1);
 
     /**
      * Initialize all non-drivetrain motors/objects.

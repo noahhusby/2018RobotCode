@@ -14,7 +14,7 @@ public class SlightLeft extends Command {
         navxStart = Robot.driveTrain.getNavxAngle();
     }
     protected void execute() {
-        if(Robot.driveTrain.getNavxAngle() > navxStart - Robot.position.slightLeftAngle) {
+        if(Robot.driveTrain.getNavxAngle() > navxStart + Robot.position.slightLeftAngle) {
             Robot.driveTrain.teleopControl(0,-0.75);
         } else {
             isFinshed = true;

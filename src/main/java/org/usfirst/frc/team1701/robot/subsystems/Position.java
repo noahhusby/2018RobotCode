@@ -25,8 +25,8 @@ public class Position extends Subsystem {
     /*
      * Arm value for positions
      */
-    public double armGrab = 312;
-    public double armScale = 2145;
+    public double armGrab = 439;
+    public double armScale = 2400;
     public double armClimb = 2396;
     public double armSwitch = 1373;
     public double armSwitchShoot = 563;
@@ -34,10 +34,10 @@ public class Position extends Subsystem {
     /*
      * Values for autonomous
      */
-    public double wallToCube = 2;
+    public double wallToCube = 0.1;
     public double centerToSide = 5.00;
     public double turnToSwitch = 4.2;
-    public double turnToSwitchRight = 3.8;
+    public double turnToSwitchRight = 4.4;
     public double wallToScale = 22.75;
     public double wallToPlatformZone = 15.69;
     public double scaleReverse = 0.31;
@@ -47,7 +47,7 @@ public class Position extends Subsystem {
     public double leftAngle = 81;
     public double rightAngle = 81;
     public double slightLeftAngle = 30;
-    public double slightRightAngle = 29;
+    public double slightRightAngle = 40;
 
 
 

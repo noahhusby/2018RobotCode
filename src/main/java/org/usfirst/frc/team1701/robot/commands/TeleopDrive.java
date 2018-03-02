@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.OI;
 import org.usfirst.frc.team1701.robot.Robot;
+import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class TeleopDrive extends Command {
 
@@ -24,6 +25,7 @@ public class TeleopDrive extends Command {
     SmartDashboard.putBoolean("Reversed", Robot.driveTrain.getReverse());
     SmartDashboard.putNumber("Arm",Robot.liftArm.getArmAngle());
     SmartDashboard.putNumber("Wrist", Robot.liftArm.getWristAngle());
+    SmartDashboard.putBoolean("Arm Down", RobotMap.armSensor.get());
 
     if(Robot.liftArm.getCubeSensor())
     {
