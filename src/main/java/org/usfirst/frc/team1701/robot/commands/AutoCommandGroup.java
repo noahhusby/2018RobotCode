@@ -1,5 +1,5 @@
 /**
- * commands/AutonomousCommand.java
+ * commands/AutoCommandGroup.java
  *
  * @author Noah Husby
  * @since 12/29/17
@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.apache.logging.log4j.Logger;*/
 import org.usfirst.frc.team1701.robot.commands.Auto.*;
 
-public class AutonomousCommand extends CommandGroup {
+public class AutoCommandGroup extends CommandGroup {
   //private static final Logger logger = LogManager.getLogger();
 
     /**
@@ -26,7 +26,7 @@ public class AutonomousCommand extends CommandGroup {
   private static String gameCode;
   private static char switchPosition;
   private static char scalePosition;
-  public AutonomousCommand() {
+  public AutoCommandGroup() {
       gameCode = DriverStation.getInstance().getGameSpecificMessage();
       if (gameCode == null) {
           gameCode = "LRL";
