@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 /**
-=======
-/*
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
  * subsystems/DriveTrain.java
  *
  * @author Noah Husby
@@ -11,7 +7,6 @@
  */
 
 package org.usfirst.frc.team1701.robot.commands;
-<<<<<<< HEAD
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.command.Command;
@@ -28,23 +23,12 @@ public class GrabPositionArm extends Command {
     private boolean isFinished;
 
 
-=======
-import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc.team1701.robot.Robot;
-
-class GrabPositionArm extends Command {
-    public GrabPositionArm() {
-        requires(Robot.liftArm);
-    }
-    private boolean isFinished;
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
     protected void initialize() {}
     protected void execute() {
         Robot.liftArm.disableWristBrake();
         Robot.liftArm.winchHighGear();
         isFinished = false;
         Robot.liftArm.setGrabber(true);
-<<<<<<< HEAD
 
         if(Robot.liftArm.getArmAngle()> Robot.position.armGrab + 100) {
             Robot.liftArm.setLiftArm(0.90); }
@@ -68,17 +52,6 @@ class GrabPositionArm extends Command {
                 Robot.liftArm.stopWrist();
                 Robot.liftArm.setGrabber(false);
             }
-=======
-        if(Robot.liftArm.getArmAngle()> Robot.position.armGrab + 100) {
-            Robot.liftArm.setLiftArm(0.90);
-        } else if(Robot.liftArm.getArmAngle()< Robot.position.armGrab - 100) {
-            Robot.liftArm.setLiftArm(-0.90);
-        } else {
-            Robot.liftArm.stopLiftArm();
-            Robot.liftArm.disableWristBrake();
-            Robot.liftArm.grabCube();
-            isFinished = true;
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
         }
     }
     protected boolean isFinished() {

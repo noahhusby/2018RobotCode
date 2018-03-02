@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 /**
-=======
-/*
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
  * GrabPosition.java
  *
  * @author Noah Husby
@@ -10,7 +6,6 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.commands;
-<<<<<<< HEAD
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -22,19 +17,11 @@ public class GrabPosition extends CommandGroup {
 
     public GrabPosition() {
 
-=======
-import edu.wpi.first.wpilibj.command.CommandGroup;
-public class GrabPosition extends CommandGroup {
-    public GrabPosition() {
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
         addSequential(new StowPosition());
         addSequential(new GrabPositionArm());
         //addSequential(new GrabPositionWrist());
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
 }
 
 

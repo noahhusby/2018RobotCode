@@ -3,11 +3,7 @@ package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
-<<<<<<< HEAD
 public class ClimbPositionArm extends Command {
-=======
-class ClimbPositionArm extends Command {
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
     public ClimbPositionArm() {
         requires(Robot.liftArm);
     }

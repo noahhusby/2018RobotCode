@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 /**
-=======
-/*
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
  * subsystems/DriveTrain.java
  *
  * @author Noah Husby
@@ -10,7 +6,6 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.subsystems;
-<<<<<<< HEAD
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -19,15 +14,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import org.usfirst.frc.team1701.robot.commands.TeleopDrive;
 import com.kauailabs.navx.frc.AHRS;
-=======
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.command.Subsystem;
-import org.usfirst.frc.team1701.robot.RobotMap;
-import org.usfirst.frc.team1701.robot.commands.TeleopDrive;
-import com.kauailabs.navx.frc.AHRS;
-@SuppressWarnings("unused")
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
 public class DriveTrain extends Subsystem {
   /*
    * Set of motors.
@@ -53,23 +39,12 @@ public class DriveTrain extends Subsystem {
    * Special math stuffs.
    */
   private final int encPidIdx = RobotMap.encPidIdx;
-<<<<<<< HEAD
 
 
-=======
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
   /*
    * Motor state variables.
    */
   private boolean reversed = false;
-<<<<<<< HEAD
-=======
-  private boolean isAutogearEnabled = false;
-  /*
-   * Distance traveled.
-   */
-  public double distanceTraveled = (getLeftDistance() + getRightDistance()) / 2;
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
   /**
    * Return left distance.
    * @return double of left side distance.
@@ -80,10 +55,6 @@ public class DriveTrain extends Subsystem {
   /**
    * Reset left side encoder.
    */
-<<<<<<< HEAD
-=======
-  @SuppressWarnings("WeakerAccess")
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
   public void resetLeftEncoder() {
     leftEncTalon.setSelectedSensorPosition(0, encPidIdx, 0);
   }
@@ -107,10 +78,6 @@ public class DriveTrain extends Subsystem {
   /**
    * Reset right side encoder.
    */
-<<<<<<< HEAD
-=======
-  @SuppressWarnings("WeakerAccess")
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
   public void resetRightEncoder() {
     rightEncTalon.setSelectedSensorPosition(0, encPidIdx, 0);
   }
@@ -198,26 +165,8 @@ public class DriveTrain extends Subsystem {
   public void setLowGear() {
     driveShift.set(DoubleSolenoid.Value.kReverse);
   }
-<<<<<<< HEAD
   /**
    * Set state of autoGear
    * @param autoGear Set Boolean
    */
-=======
-  public void setReversed(boolean reversedState) {
-    if(reversedState) {
-      reversed = true;
-    } else if(!reversedState) {
-      reversed = false;
-    }
-  }
-  public void runAutoGear(double currentSpeed) {
-    if(isAutogearEnabled) {
-
-    }
-  }
-  public void setAutoGear(boolean gearState) {
-    this.isAutogearEnabled = gearState;
-  }
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
 }

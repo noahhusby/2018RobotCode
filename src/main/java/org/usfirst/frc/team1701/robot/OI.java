@@ -56,13 +56,8 @@ public class OI {
     grabCube = new JoystickButton(operation, 9);
     grabCube.whenPressed(new GrabCube());
     reverse = new JoystickButton(drive_FB, 6);
-<<<<<<< HEAD
     //reverse.whenPressed(new ReverseOn());
     //reverse.whenReleased(new ReverseOff());
-=======
-    reverse.whenPressed(new ReverseOn());
-    reverse.whenReleased(new ReverseOff());
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
     scalePosition = new JoystickButton(operation, 16);
     scalePosition.whenPressed(new ScalePosition());
     grabPosition = new JoystickButton(operation, 12);
@@ -91,8 +86,4 @@ public class OI {
     manualWristDown.whenPressed(new WristDown());
     manualWristDown.whenReleased(new WristStop());
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35

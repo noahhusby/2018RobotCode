@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 /**
-=======
-/*
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
  * StopClimb.java
  *
  * @author Noah Husby
@@ -18,12 +14,8 @@ public class StopClimb extends Command {
     public StopClimb() {
         requires(Robot.driveTrain);
     }
-<<<<<<< HEAD
     protected void initialize() {
     }
-=======
-    protected void initialize() {}
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
     protected void execute() {
         Robot.liftArm.stopLiftArm();
     }

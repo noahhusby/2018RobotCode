@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 /**
-=======
-/*
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
  * SwitchShootPositionArm.java
  *
  * @author Noah Husby
@@ -14,7 +10,6 @@ package org.usfirst.frc.team1701.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
-<<<<<<< HEAD
 public class SwitchShootPositionArm extends Command {
 
     public SwitchShootPositionArm() {
@@ -55,18 +50,10 @@ public class SwitchShootPositionArm extends Command {
             isFinshed = true;
         }
     }
-=======
-class SwitchShootPositionArm extends Command {
-    public SwitchShootPositionArm() {
-        requires(Robot.liftArm);
-    }
-    private boolean isFinished;
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
     protected void initialize() {}
     protected void execute() {
         Robot.liftArm.winchHighGear();
         Robot.liftArm.disableWristBrake();
-<<<<<<< HEAD
         isFinshed = false;
         Robot.liftArm.setGrabber(true);
 
@@ -85,24 +72,6 @@ class SwitchShootPositionArm extends Command {
     }
     protected boolean isFinished() {
         return isFinshed;
-=======
-        isFinished = false;
-        Robot.liftArm.setGrabber(true);
-        if(Robot.liftArm.getArmAngle()> Robot.position.armSwitchShoot + 40) {
-            Robot.liftArm.setLiftArm(0.70);
-            Robot.liftArm.stowWrist();
-        } else if(Robot.liftArm.getArmAngle()< Robot.position.armSwitchShoot - 40) {
-            Robot.liftArm.setLiftArm(-0.70);
-            Robot.liftArm.stowWrist();
-        } else {
-            Robot.liftArm.stopLiftArm();
-            Robot.liftArm.grabWrist();
-            isFinished = true;
-        }
-    }
-    protected boolean isFinished() {
-        return isFinished;
->>>>>>> d8c94137a66a342903c541bf881dd28b67a06d35
     }
     protected void end() {
         Robot.liftArm.enableWristBrake();
