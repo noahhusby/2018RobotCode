@@ -7,14 +7,10 @@
  */
 package org.usfirst.frc.team1701.robot.commands;
 
-import com.sun.javafx.geom.transform.SingularMatrixException;
-import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.OI;
 import org.usfirst.frc.team1701.robot.Robot;
-import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class TeleopDrive extends Command {
 

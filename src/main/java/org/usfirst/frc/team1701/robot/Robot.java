@@ -7,7 +7,6 @@
  */
 package org.usfirst.frc.team1701.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -15,7 +14,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import org.usfirst.frc.team1701.robot.commands.DriveForward;
 import org.usfirst.frc.team1701.robot.subsystems.*;
 import org.usfirst.frc.team1701.robot.commands.AutonomousCommand;
-import org.usfirst.frc.team1701.robot.commands.Auto.DriveForwardCommand;
 
 /*
   _____   ________  ________    _____

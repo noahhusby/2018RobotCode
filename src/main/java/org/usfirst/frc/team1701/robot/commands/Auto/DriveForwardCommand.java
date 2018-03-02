@@ -6,9 +6,7 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.commands.Auto;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.Robot;
 
 public class DriveForwardCommand extends Command {

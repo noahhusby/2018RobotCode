@@ -8,12 +8,8 @@
 
 package org.usfirst.frc.team1701.robot.commands;
 
-import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.Encoder;
 import org.usfirst.frc.team1701.robot.Robot;
-import org.usfirst.frc.team1701.robot.RobotMap;
-import org.usfirst.frc.team1701.robot.subsystems.LiftArm;
 
 public class ScalePositionArm extends Command {
     public ScalePositionArm() {

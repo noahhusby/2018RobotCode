@@ -6,7 +6,6 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX; // Replaced wildcard import.
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.*;
