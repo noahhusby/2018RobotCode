@@ -80,10 +80,10 @@ public class OI {
     manualWinchDown.whenPressed(new WinchDown());
     manualWinchDown.whenReleased(new WinchStop());
     manualWristUp = new JoystickButton(operation, 7);
-    manualWristUp.whenPressed(new WristUp());
+    manualWristUp.whenPressed(new WristDown());
     manualWristUp.whenReleased(new WristStop());
     manualWristDown = new JoystickButton(operation, 13);
-    manualWristDown.whenPressed(new WristDown());
+    manualWristDown.whenPressed(new WristUp());
     manualWristDown.whenReleased(new WristStop());
   }
 }

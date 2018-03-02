@@ -11,9 +11,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Timer;
+import org.usfirst.frc.team1701.robot.commands.AutoCommandGroup;
 import org.usfirst.frc.team1701.robot.commands.DriveForward;
 import org.usfirst.frc.team1701.robot.subsystems.*;
-import org.usfirst.frc.team1701.robot.commands.AutonomousCommand;
 
 /*
   _____   ________  ________    _____
@@ -36,7 +38,10 @@ public class Robot extends IterativeRobot {
   /*
    * Initialize the various subsystems on the robot.
    */
+  private CommandGroup selectedAutoProgram;
   private SendableChooser<CommandGroup> autoProgram;
+  private DriverStation ds = DriverStation.getInstance();
+  private String gameCode = "";
   public static SendableChooser<Number> autonomousLocation;
   public static OI oi;
   public static DriveTrain driveTrain;
@@ -55,10 +60,10 @@ public class Robot extends IterativeRobot {
     liftArm = new LiftArm();
     position = new Position();
     oi = new OI();
-    autoProgram = new SendableChooser<>();
-    autoProgram.addDefault("Default Autonomous", new AutonomousCommand());
-    autoProgram.addObject("Forward Autonomous", new DriveForward());
-    SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
+    //autoProgram = new SendableChooser<>();
+    //autoProgram.addObject("Default Autonomous", new AutoCommandGroup());
+    //autoProgram.addObject("Forward Autonomous", new DriveForward());
+    //SmartDashboard.putData("Autonomous Mode Chooser", autoProgram);
     autonomousLocation = new SendableChooser<>();
     autonomousLocation.addObject("Left",1);
     autonomousLocation.addDefault("Middle",2);
@@ -71,30 +76,42 @@ public class Robot extends IterativeRobot {
 
     vision.setPIPMode(2);
     driveTrain.resetEncoders();
+
+
   }
   /*
    * This function is called when the robot has been disabled.
    */
-  public void disabledInit() {}
+  public void disabledInit() {
+
+  }
   /*
    * Periodically run this when the robot is disabled.
    */
   public void disabledPeriodic() {
     Scheduler.getInstance().run();
+    while(gameCode.length() < 2) {
+      gameCode = ds.getGameSpecificMessage();
+      Timer.delay(0.5);
+    }
   }
   /*
    * This function is called when autonomous mode is started.
    */
   public void autonomousInit() {
-    CommandGroup auto = autoProgram.getSelected();
-    auto.start();
+    if(gameCode.length() == 3) {
+      CommandGroup autonomousCommand = new AutoCommandGroup(gameCode);
+      autonomousCommand.start();
+    }
   }
+
 
   /*
    * This function is called periodically during autonomous mode.
    */
 
   public void autonomousPeriodic() {
+
     Scheduler.getInstance().run();
   }
   /*

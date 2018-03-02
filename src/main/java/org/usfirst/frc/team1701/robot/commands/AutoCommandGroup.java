@@ -23,14 +23,9 @@ public class AutoCommandGroup extends CommandGroup {
      * wheel_circumference = 4 * pi
      * distance = X - 38 (Robot Length)
      */
-  private static String gameCode;
   private static char switchPosition;
   private static char scalePosition;
-  public AutoCommandGroup() {
-      gameCode = DriverStation.getInstance().getGameSpecificMessage();
-      if (gameCode == null) {
-          gameCode = "LRL";
-      }
+  public AutoCommandGroup(String gameCode) {
       switchPosition = gameCode.charAt(0);
       scalePosition = gameCode.charAt(1);
       double autoLocation = SmartDashboard.getNumber("Autonomous Location Chooser", 2);
@@ -74,7 +69,9 @@ public class AutoCommandGroup extends CommandGroup {
                       addSequential(new ReleaseAndPunch());
                       break;
               }
-          } else if (autoLocation == 3) {}
+          } else if (autoLocation == 3) {
+
+          }
       }
   }
 
