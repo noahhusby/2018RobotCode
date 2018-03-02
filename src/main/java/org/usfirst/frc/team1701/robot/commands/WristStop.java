@@ -14,6 +14,7 @@ import org.usfirst.frc.team1701.robot.RobotMap;
 public class WristStop extends Command{
     protected void execute() {
         Robot.liftArm.stopWrist();
+        Robot.liftArm.enableWristBrake();
     }
     protected boolean isFinished() {
         return true;

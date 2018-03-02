@@ -29,8 +29,7 @@ public class DriveForwardCommand extends Command {
       Robot.driveTrain.setLowGear();
       Robot.driveTrain.leftDriveControl(-0.6);
       Robot.driveTrain.rightDriveControl(0.6);
-  }
-    else {
+  } else {
       Robot.driveTrain.stopMotors();
       isFinished = true;
     }

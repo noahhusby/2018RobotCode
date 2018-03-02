@@ -13,6 +13,7 @@ import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class WristUp extends Command{
     protected void execute() {
+        Robot.liftArm.enableWristBrake();
         Robot.liftArm.setWrist(-0.80);
     }
     protected boolean isFinished() {
