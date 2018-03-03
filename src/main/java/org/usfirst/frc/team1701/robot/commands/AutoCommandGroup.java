@@ -14,36 +14,37 @@ import org.apache.logging.log4j.Logger;*/
 import org.usfirst.frc.team1701.robot.commands.Auto.*;
 
 public class AutoCommandGroup extends CommandGroup {
-  //private static final Logger logger = LogManager.getLogger();
+    //private static final Logger logger = LogManager.getLogger();
 
     /**
      * distance = wheel_circumference * wheel_rotations
      * wheel_rotations = distance / wheel_circumference
-     *
+     * <p>
      * wheel_circumference = 4 * pi
      * distance = X - 38 (Robot Length)
      */
-  private static char switchPosition;
-  private static char scalePosition;
-  public AutoCommandGroup(String gameCode, Number action, Number autoLocation) {
-      switchPosition = gameCode.charAt(0);
-      scalePosition = gameCode.charAt(1);
+    private static char switchPosition;
+    private static char scalePosition;
 
-      switch((int) action) {
-          case 1:
-              placeCubeAutonomous(2);
-              break;
+    public AutoCommandGroup(String gameCode, Number action, Number autoLocation) {
+        switchPosition = gameCode.charAt(0);
+        scalePosition = gameCode.charAt(1);
 
-          case 2:
-              addSequential(new DriveForwardCommand());
-              break;
-      }
+        switch ((int) action) {
+            case 1:
+                placeCubeAutonomous(2);
+                break;
 
-  }
+            case 2:
+                addSequential(new DriveForwardCommand());
+                break;
+        }
+
+    }
 
     private void placeCubeAutonomous(int autoLocation) {
-        if(autoLocation == 1) {
-            switch(scalePosition) {
+        if (autoLocation == 1) {
+            switch (scalePosition) {
                 case 'L':
                     addSequential(new WallToScale());
                     addSequential(new StowPosition());
@@ -64,7 +65,7 @@ public class AutoCommandGroup extends CommandGroup {
                     break;
             }
         } else if (autoLocation == 2) {
-            switch(switchPosition) {
+            switch (switchPosition) {
                 case 'L':
                     addSequential(new WallToMiddleLeft());
                     addSequential(new StowPosition());
@@ -84,6 +85,32 @@ public class AutoCommandGroup extends CommandGroup {
             }
         } else if (autoLocation == 3) {
 
+        } else if (autoLocation == 4) {
+            //Left-Switch
+            switch (switchPosition) {
+                case 'L':
+                    addSequential(new SwitchPosition());
+                    addSequential(new WallToStraightSwitch());
+                    addSequential(new ReleaseCube());
+                    break;
+                case 'R':
+                    addSequential(new SwitchPosition());
+                    addSequential(new WallToStraightSwitch());
+                    break;
+            }
+        } else if (autoLocation == 5) {
+            //Right-Switch
+            switch (switchPosition) {
+                case 'L':
+                    addSequential(new SwitchPosition());
+                    addSequential(new WallToStraightSwitch());
+                    break;
+                case 'R':
+                    addSequential(new SwitchPosition());
+                    addSequential(new WallToStraightSwitch());
+                    addSequential(new ReleaseCube());
+                    break;
+            }
         }
     }
 }

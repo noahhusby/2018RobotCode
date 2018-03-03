@@ -60,7 +60,9 @@ public class Robot extends IterativeRobot {
     oi = new OI();
     autonomousLocation = new SendableChooser<>();
     autonomousLocation.addObject("Left",1);
+    autonomousLocation.addObject("Left-Switch",4);
     autonomousLocation.addDefault("Middle",2);
+    autonomousLocation.addObject("Right-Switch",5);
     autonomousLocation.addObject("Right",3);
     SmartDashboard.putData("Autonomous Location", autonomousLocation);
     action = new SendableChooser<>();

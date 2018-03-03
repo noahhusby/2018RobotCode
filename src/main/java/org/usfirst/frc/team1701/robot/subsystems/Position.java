@@ -48,7 +48,8 @@ public class Position extends Subsystem {
     public double leftAngle = 81;
     public double rightAngle = 81;
     public double slightLeftAngle = 55;
-    public double slightRightAngle = 40;
+    public double slightRightAngle = 32;
+    public double wallToStraightSwitch = 0;
 
     public boolean isReleasePressed = false;
 
