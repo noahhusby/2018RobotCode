@@ -26,6 +26,8 @@ public class TeleopDrive extends Command {
     SmartDashboard.putNumber("Arm",Robot.liftArm.getArmAngle());
     SmartDashboard.putNumber("Wrist", Robot.liftArm.getWristAngle());
     SmartDashboard.putBoolean("Arm Down", RobotMap.armSensor.get());
+    SmartDashboard.putNumber("D", Robot.driveTrain.getRightDistance());
+
 
     if(Robot.liftArm.getCubeSensor() && !Robot.position.isReleasePressed)
     {

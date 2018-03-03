@@ -25,7 +25,7 @@ public class Position extends Subsystem {
     /*
      * Arm value for positions
      */
-    public double armGrab = 439;
+    public double armGrab = 355;
     public double armScale = 2400;
     public double armClimb = 2396;
     public double armSwitch = 1373;
@@ -49,7 +49,7 @@ public class Position extends Subsystem {
     public double rightAngle = 81;
     public double slightLeftAngle = 55;
     public double slightRightAngle = 32;
-    public double wallToStraightSwitch = 0;
+    public double wallToStraightSwitch = 7;
 
     public boolean isReleasePressed = false;
 

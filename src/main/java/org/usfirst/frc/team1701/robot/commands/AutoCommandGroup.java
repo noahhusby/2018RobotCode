@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /*import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;*/
+import org.usfirst.frc.team1701.robot.Robot;
 import org.usfirst.frc.team1701.robot.commands.Auto.*;
 
 public class AutoCommandGroup extends CommandGroup {
@@ -32,7 +33,7 @@ public class AutoCommandGroup extends CommandGroup {
 
         switch ((int) action) {
             case 1:
-                placeCubeAutonomous(2);
+                placeCubeAutonomous((int) Robot.autonomousLocation.getSelected());
                 break;
 
             case 2:
