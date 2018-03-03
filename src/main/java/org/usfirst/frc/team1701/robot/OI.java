@@ -54,6 +54,7 @@ public class OI {
      */
     releaseCube = new JoystickButton(operation, 4);
     releaseCube.whenPressed(new ReleaseCube());
+    releaseCube.whenReleased(new ResetReleaseCube());
     releasePunchCube = new JoystickButton(operation, 2);
     releasePunchCube.whenPressed(new ReleaseAndPunch());
     grabCube = new JoystickButton(operation, 9);

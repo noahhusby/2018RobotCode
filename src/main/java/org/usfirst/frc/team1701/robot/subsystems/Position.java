@@ -34,7 +34,8 @@ public class Position extends Subsystem {
     /*
      * Values for autonomous
      */
-    public double wallToCube = 0.1;
+    public double wallToCubeRight = 0.1;
+    public double wallToCubeLeft = 0.1;
     public double centerToSide = 5.00;
     public double turnToSwitch = 4.2;
     public double turnToSwitchRight = 4.4;
@@ -46,8 +47,10 @@ public class Position extends Subsystem {
     public double platformToScale = 2.1;
     public double leftAngle = 81;
     public double rightAngle = 81;
-    public double slightLeftAngle = 30;
+    public double slightLeftAngle = 55;
     public double slightRightAngle = 40;
+
+    public boolean isReleasePressed = false;
 
 
 

@@ -66,17 +66,15 @@ public class AutoCommandGroup extends CommandGroup {
         } else if (autoLocation == 2) {
             switch(switchPosition) {
                 case 'L':
-                    /*
-                    addSequential(new WallToMiddle());
+                    addSequential(new WallToMiddleLeft());
                     addSequential(new StowPosition());
                     addSequential(new SlightLeft());
                     addSequential(new SwitchPosition());
                     addSequential(new TurnToSwitch());
                     addSequential(new ReleaseAndPunch());
-                    */
                     break;
                 case 'R':
-                    addSequential(new WallToMiddle());
+                    addSequential(new WallToMiddleRight());
                     addSequential(new StowPosition());
                     addSequential(new SlightRight());
                     addSequential(new SwitchPosition());

@@ -27,7 +27,7 @@ public class TeleopDrive extends Command {
     SmartDashboard.putNumber("Wrist", Robot.liftArm.getWristAngle());
     SmartDashboard.putBoolean("Arm Down", RobotMap.armSensor.get());
 
-    if(Robot.liftArm.getCubeSensor())
+    if(Robot.liftArm.getCubeSensor() && !Robot.position.isReleasePressed)
     {
       Robot.liftArm.setGrabber(true);
     }

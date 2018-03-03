@@ -1,5 +1,5 @@
 /**
- * WallToMiddle.java
+ * WallToMiddleRight.java
  *
  * @author Noah Husby
  * @since 2/22/18
@@ -10,11 +10,11 @@ package org.usfirst.frc.team1701.robot.commands.Auto;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
-public class WallToMiddle extends Command {
+public class WallToMiddleLeft extends Command {
 
     boolean isFinshed = false;
 
-    public WallToMiddle() {
+    public WallToMiddleLeft() {
         requires(Robot.driveTrain);
     }
     protected void initialize() {
@@ -22,7 +22,7 @@ public class WallToMiddle extends Command {
     }
     protected void execute() {
         isFinshed = false;
-        if(Robot.driveTrain.getRightDistance() < Robot.position.wallToCube) {
+        if(Robot.driveTrain.getRightDistance() < Robot.position.wallToCubeLeft) {
             Robot.driveTrain.teleopControl(-1,0);
         } else  {
             isFinshed = true;
