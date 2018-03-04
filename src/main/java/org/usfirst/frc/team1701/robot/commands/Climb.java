@@ -20,7 +20,7 @@ public class Climb extends Command {
     protected void execute() {
         Robot.liftArm.disableWristBrake();
         Robot.liftArm.winchLowGear();
-      Robot.liftArm.setLiftArm(1);
+        Robot.liftArm.setLiftArm(1);
     }
     protected boolean isFinished() {
         return true;

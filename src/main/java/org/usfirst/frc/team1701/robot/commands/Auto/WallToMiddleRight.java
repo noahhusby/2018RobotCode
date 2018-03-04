@@ -12,7 +12,7 @@ import org.usfirst.frc.team1701.robot.Robot;
 
 public class WallToMiddleRight extends Command {
 
-    boolean isFinshed = false;
+    boolean isFinished = false;
 
     public WallToMiddleRight() {
         requires(Robot.driveTrain);
@@ -21,15 +21,15 @@ public class WallToMiddleRight extends Command {
         Robot.driveTrain.resetEncoders();
     }
     protected void execute() {
-        isFinshed = false;
+        isFinished = false;
         if(Robot.driveTrain.getRightDistance() < Robot.position.wallToCubeRight) {
             Robot.driveTrain.teleopControl(-1,0);
         } else  {
-            isFinshed = true;
+            isFinished = true;
         }
     }
     protected boolean isFinished() {
-        return isFinshed;
+        return isFinished;
     }
     protected void end() {}
     protected void interrupted() {}

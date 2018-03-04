@@ -23,20 +23,16 @@ public class ClimbPositionArm extends Command {
             Robot.liftArm.setLiftArm(0.90); }
         else if(Robot.liftArm.getArmAngle()< Robot.position.armClimb - 100) {
             Robot.liftArm.setLiftArm(-0.90);
-        }
-        else {
+        } else {
             Robot.liftArm.stopLiftArm();
             Robot.liftArm.disableWristBrake();
-            if(Robot.liftArm.getWristAngle() > Robot.position.wristClimb + 50)
-            {
+            if(Robot.liftArm.getWristAngle() > Robot.position.wristClimb + 50) {
                 Robot.liftArm.setWrist(0.50);
             }
-            else if(Robot.liftArm.getWristAngle() < Robot.position.wristClimb - 50)
-            {
+            else if(Robot.liftArm.getWristAngle() < Robot.position.wristClimb - 50) {
                 Robot.liftArm.setWrist(-0.50);
             }
-            else
-            {
+            else {
                 isFinished = true;
                 Robot.liftArm.stopWrist();
             }

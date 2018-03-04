@@ -14,29 +14,24 @@ public class StowPosition extends Command{
     public StowPosition() {
         requires(Robot.liftArm);
     }
-    private boolean isFinshed;
+    private boolean isFinished;
     protected void initialize() {}
     protected void execute() {
         Robot.liftArm.disableWristBrake();
-        isFinshed = false;
+        isFinished = false;
         Robot.liftArm.setGrabber(true);
 
-        if(Robot.liftArm.getWristAngle() > Robot.position.wristStow + 50)
-        {
+        if(Robot.liftArm.getWristAngle() > Robot.position.wristStow + 50) {
             Robot.liftArm.setWrist(0.75);
-        }
-        else if(Robot.liftArm.getWristAngle() < Robot.position.wristStow - 50)
-        {
+        } else if(Robot.liftArm.getWristAngle() < Robot.position.wristStow - 50) {
             Robot.liftArm.setWrist(-0.75);
-        }
-        else
-        {
-            isFinshed = true;
+        } else {
+            isFinished = true;
             Robot.liftArm.stopWrist();
         }
     }
     protected boolean isFinished() {
-        return isFinshed;
+        return isFinished;
     }
     protected void end() {
         Robot.liftArm.enableWristBrake();

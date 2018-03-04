@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
 
 public class SlightLeft extends Command {
-    boolean isFinshed = false;
+    boolean isFinished = false;
     public double navxStart;
 
     public SlightLeft() {
@@ -17,11 +17,11 @@ public class SlightLeft extends Command {
         if(Robot.driveTrain.getNavxAngle() > navxStart + Robot.position.slightLeftAngle) {
             Robot.driveTrain.teleopControl(0,0.75);
         } else {
-            isFinshed = true;
+            isFinished = true;
         }
     }
     protected boolean isFinished() {
-        return isFinshed;
+        return isFinished;
     }
     protected void end() {
         Robot.driveTrain.resetEncoders();
