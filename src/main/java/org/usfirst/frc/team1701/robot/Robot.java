@@ -45,7 +45,6 @@ public class Robot extends IterativeRobot {
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
   public static Vision vision;
-  public static Lights lights;
   public static Position position;
   /*
    * This function is run when the robot is first started up.
@@ -53,7 +52,6 @@ public class Robot extends IterativeRobot {
   public void robotInit() {
     RobotMap.init(); // Initialize our RobotMap.
     driveTrain = new DriveTrain();
-    lights = new Lights();
     vision = new Vision();
     liftArm = new LiftArm();
     position = new Position();
