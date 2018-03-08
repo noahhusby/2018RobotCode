@@ -186,18 +186,18 @@ public class DriveTrain extends Subsystem {
       if (tInput > 0) {
         if (deadConst >= tInput) {
           this.deadStick = true;
-        } else if (deadConst <= tInput) {
-          this.deadStick = false;
           resetEncoders();
           setLowGear();
+        } else if (deadConst <= tInput) {
+          this.deadStick = false;
         }
       } else {
         if (-deadConst <= tInput) {
           this.deadStick = true;
-        } else if (-deadConst >= tInput) {
-          this.deadStick = false;
           resetEncoders();
           setLowGear();
+        } else if (-deadConst >= tInput) {
+          this.deadStick = false;
         }
       }
 
