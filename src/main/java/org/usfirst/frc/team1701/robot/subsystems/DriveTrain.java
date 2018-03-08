@@ -9,6 +9,7 @@ package org.usfirst.frc.team1701.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc.team1701.robot.Robot;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import org.usfirst.frc.team1701.robot.commands.TeleopDrive;
 import com.kauailabs.navx.frc.AHRS;
@@ -43,6 +44,9 @@ public class DriveTrain extends Subsystem {
    * Motor state variables.
    */
   private boolean reversed = false;
+  private boolean deadStick = false;
+  public boolean autoGear = false;
+
   /**
    * Return left distance.
    * @return double of left side distance.
@@ -163,11 +167,49 @@ public class DriveTrain extends Subsystem {
   public void setLowGear() {
     driveShift.set(DoubleSolenoid.Value.kReverse);
   }
-  /**
-   * Set state of autoGear
-   * @param autoGear Set Boolean
-   */
+
   public void setReverse(boolean reversedValue) {
       this.reversed = reversedValue;
+  }
+
+  /**
+   * Set state of autoGear
+   * @param value Set Boolean
+   */
+  public void setAutoGear(boolean value) {
+    this.autoGear = value;
+  }
+  public void autoGear(double tInput, double deadConst, double encoderValue, double distanceTrigger) {
+    if(autoGear) {
+
+
+      if (tInput > 0) {
+        if (deadConst >= tInput) {
+          this.deadStick = true;
+        } else if (deadConst <= tInput) {
+          this.deadStick = false;
+          resetEncoders();
+          setLowGear();
+        }
+      } else {
+        if (-deadConst <= tInput) {
+          this.deadStick = true;
+        } else if (-deadConst >= tInput) {
+          this.deadStick = false;
+          resetEncoders();
+          setLowGear();
+        }
+      }
+
+      if(encoderValue > distanceTrigger) {
+        setHighGear();
+      }
+
+
+    }
+  }
+
+  public boolean getDeadStick() {
+    return this.deadStick;
   }
 }
