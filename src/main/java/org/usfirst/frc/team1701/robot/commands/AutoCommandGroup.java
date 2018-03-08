@@ -33,7 +33,7 @@ public class AutoCommandGroup extends CommandGroup {
 
         switch ((int) action) {
             case 1:
-                placeCubeAutonomous((int) Robot.autonomousLocation.getSelected());
+                placeCubeAutonomous((int) Robot.shuffleboard.autonomousLocation.getSelected());
                 break;
 
             case 2:

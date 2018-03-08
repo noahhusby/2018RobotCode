@@ -22,18 +22,11 @@ public class TeleopDrive extends Command {
   }
   protected void execute() {
 
-    SmartDashboard.putBoolean("Reversed", Robot.driveTrain.getReverse());
-    SmartDashboard.putNumber("Arm",Robot.liftArm.getArmAngle());
-    SmartDashboard.putNumber("Wrist", Robot.liftArm.getWristAngle());
-    SmartDashboard.putBoolean("Arm Down", RobotMap.armSensor.get());
-    SmartDashboard.putNumber("Drive Train", Robot.driveTrain.getRightDistance());
-
-
     if(Robot.liftArm.getCubeSensor() && !Robot.position.isReleasePressed) {
       Robot.liftArm.setGrabber(true);
     }
 
-
+    Robot.shuffleboard.updateDashboard();
     double deadConst = .10;
     double fBInput = checkDeadZone(OI.drive_FB.getY(), deadConst);
     double tInput =  -1 * checkDeadZone(OI.drive_T.getX(), deadConst);

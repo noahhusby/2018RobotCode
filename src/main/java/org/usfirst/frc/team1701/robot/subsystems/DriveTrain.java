@@ -9,7 +9,6 @@ package org.usfirst.frc.team1701.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.usfirst.frc.team1701.robot.Robot;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import org.usfirst.frc.team1701.robot.commands.TeleopDrive;
 import com.kauailabs.navx.frc.AHRS;
@@ -31,13 +30,14 @@ public class DriveTrain extends Subsystem {
    */
   private final DoubleSolenoid driveShift = RobotMap.driveShift;
   /*
-   * NavX.
+   * NavX. 
    */
   private final AHRS navx = RobotMap._navx;
   /*
    * Special math stuffs.
    */
   private final int encPidIdx = RobotMap.encPidIdx;
+  private final int rawToRotation = 22000;
 
 
   /*
@@ -52,7 +52,7 @@ public class DriveTrain extends Subsystem {
    * @return double of left side distance.
    */
   public double getLeftDistance() {
-    return -leftEncTalon.getSelectedSensorPosition(encPidIdx) / 22000;
+    return -leftEncTalon.getSelectedSensorPosition(encPidIdx) / rawToRotation;
   }
   /**
    * Reset left side encoder.
@@ -75,7 +75,7 @@ public class DriveTrain extends Subsystem {
    * @return double of right side distance.
    */
   public double getRightDistance() {
-    return rightEncTalon.getSelectedSensorPosition(encPidIdx) / 22000;
+    return rightEncTalon.getSelectedSensorPosition(encPidIdx) / rawToRotation;
   }
   /**
    * Reset right side encoder.
@@ -114,19 +114,12 @@ public class DriveTrain extends Subsystem {
   {
     return -navx.getAngle();
   }
-
   /**
    * Checks current reverse boolean
    * @return State of reversed
    */
   public boolean getReverse() {
     return reversed;
-  }
-  /**
-   * Set status of reverse mode.
-   */
-  public void toggleReverse() {
-    this.reversed = !this.reversed;
   }
   /**
    * Initialize teleoperated control.
@@ -168,17 +161,29 @@ public class DriveTrain extends Subsystem {
     driveShift.set(DoubleSolenoid.Value.kReverse);
   }
 
+  /**
+   * Sets the drive train's thrust to move in the opposite direction
+   * @param reversedValue Enables/Disables reversed status
+   */
   public void setReverse(boolean reversedValue) {
       this.reversed = reversedValue;
   }
 
   /**
-   * Set state of autoGear
-   * @param value Set Boolean
+   * Enables/Disables auto gear. This is helpful for a manual switch where you can turn auto gear on and off
+   * @param value Sets state of auto gear
    */
   public void setAutoGear(boolean value) {
     this.autoGear = value;
   }
+
+  /**
+   * Automatically shifts the gear after a set distance from when the drive stick last went to dead stick
+   * @param tInput Forward/Backwards Speed from Joystick
+   * @param deadConst The value that sets where and when dead stick should enable. BY DEFAULT: 0.1 or -10 % to 10%
+   * @param encoderValue The raw input that will deliver the current distance
+   * @param distanceTrigger The value that determines the distance that high gear is set
+   */
   public void autoGear(double tInput, double deadConst, double encoderValue, double distanceTrigger) {
     if(autoGear) {
 
@@ -200,15 +205,16 @@ public class DriveTrain extends Subsystem {
           this.deadStick = false;
         }
       }
-
       if(encoderValue > distanceTrigger) {
         setHighGear();
       }
-
-
     }
   }
 
+  /**
+   * Checks current deadStick boolean that is determine by autoGear()
+   * @return Checks weather the thrust joystick is moving or not
+   */
   public boolean getDeadStick() {
     return this.deadStick;
   }
