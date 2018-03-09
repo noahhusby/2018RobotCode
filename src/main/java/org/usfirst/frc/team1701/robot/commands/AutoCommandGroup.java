@@ -91,12 +91,13 @@ public class AutoCommandGroup extends CommandGroup {
             switch (switchPosition) {
                 case 'L':
                     addSequential(new SwitchPosition());
-                    addSequential(new WallToStraightSwitch());
+                    addSequential(new Drive(Robot.position.wallToStraightSwitch,Robot.position.autonomousSpeed));
+                    //addSequential(new WallToStraightSwitch());
                     addSequential(new ReleaseCube());
                     break;
                 case 'R':
                     addSequential(new SwitchPosition());
-                    addSequential(new WallToStraightSwitch());
+                    addSequential(new Drive(Robot.position.wallToStraightSwitch,Robot.position.autonomousSpeed));
                     break;
             }
         } else if (autoLocation == 5) {
@@ -104,11 +105,11 @@ public class AutoCommandGroup extends CommandGroup {
             switch (switchPosition) {
                 case 'L':
                     addSequential(new SwitchPosition());
-                    addSequential(new WallToStraightSwitch());
+                    addSequential(new Drive(Robot.position.wallToStraightSwitch,Robot.position.autonomousSpeed));
                     break;
                 case 'R':
                     addSequential(new SwitchPosition());
-                    addSequential(new WallToStraightSwitch());
+                    addSequential(new Drive(Robot.position.wallToStraightSwitch,Robot.position.autonomousSpeed));
                     addSequential(new ReleaseCube());
                     break;
             }

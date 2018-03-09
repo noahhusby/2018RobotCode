@@ -18,7 +18,14 @@ public class Shuffleboard extends Subsystem {
     public static SendableChooser<Number> autonomousLocation;
     public static SendableChooser<Number> action;
 
+    /**
+     * Creates our shuffleboard objects
+     */
     public static void init() {
+        /*
+         * Initialize Autonomous Location Chooser;
+         * Allows operator/technician to select robot start position before match
+         */
         autonomousLocation = new SendableChooser<>();
         autonomousLocation.addObject("Left",1);
         autonomousLocation.addObject("Left-Switch",4);
@@ -26,17 +33,28 @@ public class Shuffleboard extends Subsystem {
         autonomousLocation.addObject("Right-Switch",5);
         autonomousLocation.addObject("Right",3);
         SmartDashboard.putData("Autonomous Location", autonomousLocation);
+        /*
+         * Initialize Autonomous Chooser
+         * Allows operator/technician to select type of autonomous to be run
+         */
         action = new SendableChooser<>();
         action.addDefault("Defualt Autonomous", 1);
         action.addObject("Forward Autonomous", 2);
         SmartDashboard.putData("Autonomous Chooser",action);
+
+        /*
+         * Shuffleboard elements to be updated during teleop period
+         */
         SmartDashboard.putBoolean("Reversed", false);
         SmartDashboard.putString("Current Gear","");
         SmartDashboard.putNumber("Arm",0);
-        SmartDashboard.putBoolean("Arm Down", false);
-        SmartDashboard.putNumber("D", 0);
+        SmartDashboard.putBoolean("Arm Trigger", false);
+        SmartDashboard.putNumber("Drive Train", 0);
     }
 
+    /**
+     * Method called during teleop to update shuffleboard elements live
+     */
     public static void updateDashboard() {
         SmartDashboard.putBoolean("Reversed", Robot.driveTrain.getReverse());
         SmartDashboard.putNumber("Arm",Robot.liftArm.getArmAngle());

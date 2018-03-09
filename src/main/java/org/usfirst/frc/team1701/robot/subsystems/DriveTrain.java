@@ -8,11 +8,15 @@
 package org.usfirst.frc.team1701.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.PIDOutput;
+import edu.wpi.first.wpilibj.command.PIDCommand;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team1701.robot.RobotMap;
 import org.usfirst.frc.team1701.robot.commands.TeleopDrive;
 import com.kauailabs.navx.frc.AHRS;
-public class DriveTrain extends Subsystem {
+public class DriveTrain extends PIDSubsystem {
   /*
    * Set of motors.
    */
@@ -46,6 +50,33 @@ public class DriveTrain extends Subsystem {
   private boolean reversed = false;
   private boolean deadStick = false;
   public boolean autoGear = false;
+
+  public DriveTrain() {
+    super(0.03,0,0);
+    this.setInputRange(-180,180);
+    this.setOutputRange(-1,1);
+    this.setAbsoluteTolerance(2);
+    this.getPIDController().setContinuous(true);
+  }
+
+  /**
+   * Sets angle for robot to turn to using PIDSubsystem
+   * @param startAngle angle to turn to
+   */
+  public void setAngle(double startAngle) {
+    this.setSetpoint(startAngle);
+  }
+
+  public void startPID() {
+    this.getPIDController().enable();
+  }
+
+  public void stopPID() {
+    this.getPIDController().disable();
+  }
+
+
+
 
   /**
    * Return left distance.
@@ -217,5 +248,17 @@ public class DriveTrain extends Subsystem {
    */
   public boolean getDeadStick() {
     return this.deadStick;
+  }
+
+
+
+  @Override
+  protected double returnPIDInput() {
+    return -navx.getAngle();
+  }
+
+  @Override
+  protected void usePIDOutput(double output) {
+    teleopControl(0,output);
   }
 }
