@@ -254,7 +254,7 @@ public class DriveTrain extends PIDSubsystem {
 
   @Override
   protected double returnPIDInput() {
-    return -navx.getAngle();
+    return navx.getAngle();
   }
 
   @Override

@@ -78,10 +78,10 @@ public class OI {
     climb.whenPressed(new Climb());
     climb.whenReleased(new StopClimb());
     manualWinchUp = new JoystickButton(operation, 3);
-    manualWinchUp.whileHeld(new WinchDown());
+    manualWinchUp.whenPressed(new WinchDown());
     manualWinchUp.whenReleased(new WinchStop());
     manualWinchDown = new JoystickButton(operation, 10);
-    manualWinchDown.whileHeld(new WinchUp());
+    manualWinchDown.whenPressed(new WinchUp());
     manualWinchDown.whenReleased(new WinchStop());
     manualWristUp = new JoystickButton(operation, 7);
     manualWristUp.whenPressed(new WristDown());
@@ -90,7 +90,7 @@ public class OI {
     manualWristDown.whenPressed(new WristUp());
     manualWristDown.whenReleased(new WristStop());
     gear = new JoystickButton(drive_FB,3);
-    gear.whenPressed(new HighGear());
+    gear.whenPressed(new AutoGear());
     gear.whenReleased(new LowGear());
 
     manualWristReset = new JoystickButton(operation,15);
