@@ -236,9 +236,11 @@ public class DriveTrain extends PIDSubsystem {
           this.deadStick = false;
         }
       }
-      if(encoderValue > distanceTrigger) {
+
+      if(Math.abs(encoderValue) > distanceTrigger) {
         setHighGear();
       }
+
     }
   }
 

@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1701.robot.Robot;
 import org.usfirst.frc.team1701.robot.RobotMap;
 
-public class Shuffleboard extends Subsystem {
+public class Shuffleboard {
 
     public static SendableChooser<Number> autonomousLocation;
     public static SendableChooser<Number> action;
@@ -67,8 +67,5 @@ public class Shuffleboard extends Subsystem {
 
 
 
-    @Override
-    protected void initDefaultCommand() {
 
-    }
 }
