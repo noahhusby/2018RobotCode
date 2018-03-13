@@ -79,7 +79,19 @@ public class AutoCommandGroup extends CommandGroup {
             }
         } else if (autoLocation == 3) {
 
-
+            switch (scalePosition) {
+                case 'L':
+                    addSequential(new Drive(10,0.8));
+                    break;
+                case 'R':
+                    Robot.driveTrain.setAutoGear(false);
+                    Robot.driveTrain.setLowGear();
+                    addSequential(new Drive(19,0.82));
+                    addSequential(new Turn(-135));
+                    addSequential(new ScalePosition());
+                    addSequential(new ReleaseAndPunch());
+                    break;
+            }
 
         } else if (autoLocation == 4) {
             //Left-Switch
