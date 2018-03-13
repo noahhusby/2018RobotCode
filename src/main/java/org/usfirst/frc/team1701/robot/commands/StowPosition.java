@@ -15,6 +15,11 @@ public class StowPosition extends Command{
         requires(Robot.liftArm);
     }
     private boolean isFinished;
+
+    public void finish() {
+        isFinished = true;
+    }
+
     protected void initialize() {}
     protected void execute() {
         Robot.liftArm.disableWristBrake();

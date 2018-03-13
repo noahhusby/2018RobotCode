@@ -33,6 +33,7 @@ public class OI {
   public static JoystickButton manualWristUp;
   public static JoystickButton manualWristDown;
   public static JoystickButton gear;
+  public static JoystickButton cancel;
 
   public static JoystickButton manualWristReset;
 
@@ -75,13 +76,13 @@ public class OI {
     climbPosition = new JoystickButton(operation, 6);
     climbPosition.whenPressed(new ClimbPosition());
     climb = new JoystickButton(operation, 5);
-    climb.whenPressed(new Climb());
+    climb.whileHeld(new Climb());
     climb.whenReleased(new StopClimb());
     manualWinchUp = new JoystickButton(operation, 3);
-    manualWinchUp.whenPressed(new WinchDown());
+    manualWinchUp.whileHeld(new WinchUp());
     manualWinchUp.whenReleased(new WinchStop());
     manualWinchDown = new JoystickButton(operation, 10);
-    manualWinchDown.whenPressed(new WinchUp());
+    manualWinchDown.whileHeld(new WinchDown());
     manualWinchDown.whenReleased(new WinchStop());
     manualWristUp = new JoystickButton(operation, 7);
     manualWristUp.whenPressed(new WristDown());
@@ -92,6 +93,9 @@ public class OI {
     gear = new JoystickButton(drive_FB,3);
     gear.whenPressed(new AutoGear());
     gear.whenReleased(new LowGear());
+    cancel = new JoystickButton(operation,17);
+    cancel.whenPressed(new Cancel());
+    //cancel.whenReleased(new UnCancel());
 
     manualWristReset = new JoystickButton(operation,15);
     manualWristReset.whenPressed(new ResetWrist());

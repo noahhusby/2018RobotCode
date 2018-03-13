@@ -38,7 +38,9 @@ public class RobotMap {
   public static DigitalInput armSensor;
   public static AHRS _navx;
   public static int encPidIdx;
-  
+  public static boolean cancelAll = false;
+  public static double armSpeed = 1.0;
+
   /**
    * Initialize the public values above.
    */
@@ -85,4 +87,5 @@ public class RobotMap {
      */
     _navx = new AHRS(SerialPort.Port.kUSB1);
   }
+
 }

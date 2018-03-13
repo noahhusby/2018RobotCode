@@ -15,7 +15,7 @@ public class Position extends Subsystem {
     /*
      * Wrist values for positions
      */
-    public double wristStow = -201;
+    public double wristStow = -44;
     public double wristGrab = 1119;
     public double wristScale = 911;
     public double wristClimb = 1289;
@@ -25,7 +25,7 @@ public class Position extends Subsystem {
     /*
      * Arm value for positions
      */
-    public double armGrab = 355;
+    public double armGrab = 275;
     public double armScale = 2400;
     public double armClimb = 2396;
     public double armSwitch = 1373;

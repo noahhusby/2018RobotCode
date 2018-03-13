@@ -47,44 +47,39 @@ public class AutoCommandGroup extends CommandGroup {
         if (autoLocation == 1) {
             switch (scalePosition) {
                 case 'L':
-                    addSequential(new WallToScale());
-                    addSequential(new StowPosition());
-                    addSequential(new TurnLeft());
+                    //addSequential(new SwitchPosition());
+                    Robot.driveTrain.setAutoGear(false);
+                    Robot.driveTrain.setLowGear();
+                    addSequential(new Drive(19,0.82));
+                    addSequential(new Turn(135));
                     addSequential(new ScalePosition());
-                    addSequential(new ReverseScale());
                     addSequential(new ReleaseAndPunch());
                     break;
                 case 'R':
-                    addSequential(new WallToPlatformZone());
-                    addParallel(new StowPosition());
-                    addSequential(new TurnRight());
-                    addSequential(new CrossPlatformZone());
-                    addSequential(new TurnLeft());
-                    addParallel(new ScalePosition());
-                    addSequential(new PlatformToScale());
-                    addSequential(new ReleaseAndPunch());
+                    addSequential(new Drive(10,0.8));
                     break;
             }
         } else if (autoLocation == 2) {
             switch (switchPosition) {
                 case 'L':
-                    addSequential(new WallToMiddleLeft());
-                    addSequential(new StowPosition());
-                    addSequential(new SlightLeft());
                     addSequential(new SwitchPosition());
-                    addSequential(new TurnToSwitch());
+                    addSequential(new Drive(1,0.7));
+                    addSequential(new Turn(29));
+                    addSequential(new Drive(9,.9));
                     addSequential(new ReleaseAndPunch());
                     break;
                 case 'R':
-                    addSequential(new WallToMiddleRight());
-                    addSequential(new StowPosition());
-                    addSequential(new SlightRight());
                     addSequential(new SwitchPosition());
-                    addSequential(new TurnToSwitchRight());
+                    addSequential(new Drive(1,0.7));
+                    addSequential(new Turn(-27));
+                    addSequential(new Drive(9,.9));
                     addSequential(new ReleaseAndPunch());
+
                     break;
             }
         } else if (autoLocation == 3) {
+
+
 
         } else if (autoLocation == 4) {
             //Left-Switch
@@ -113,6 +108,8 @@ public class AutoCommandGroup extends CommandGroup {
                     addSequential(new ReleaseCube());
                     break;
             }
+        } else if (autoLocation == 6) {
+            addSequential(new Turn(-90));
         }
     }
 }

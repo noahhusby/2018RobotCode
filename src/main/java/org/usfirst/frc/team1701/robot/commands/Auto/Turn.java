@@ -10,10 +10,12 @@ public class Turn extends Command {
 
     public Turn(double angle) {
         requires(Robot.driveTrain);
-        this.startAngle = angle;
+        this.startAngle = angle + Robot.driveTrain.getNavxAngle();
     }
-    protected void initialize() {}
+    protected void initialize() {
+    }
     protected void execute() {
+        Robot.driveTrain.driveSpeed = 0;
         Robot.driveTrain.setAngle(startAngle);
         Robot.driveTrain.startPID();
         if(Robot.driveTrain.onTarget()) {

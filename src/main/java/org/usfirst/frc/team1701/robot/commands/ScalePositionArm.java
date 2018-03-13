@@ -10,6 +10,7 @@ package org.usfirst.frc.team1701.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
+import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class ScalePositionArm extends Command {
     public ScalePositionArm() {
@@ -17,6 +18,9 @@ public class ScalePositionArm extends Command {
     }
 
     private boolean isFinished;
+
+
+
     private void stowWrist() {
 
         Robot.liftArm.setGrabber(true);
@@ -41,16 +45,23 @@ public class ScalePositionArm extends Command {
     }
     protected void initialize() {}
     protected void execute() {
+        if(RobotMap.cancelAll) {
+            RobotMap.cancelAll = false;
+            Robot.liftArm.stopLiftArm();
+            Robot.liftArm.stopWrist();
+            isFinished = true;
+            return;
+        }
         Robot.liftArm.disableWristBrake();
         Robot.liftArm.winchHighGear();
         isFinished = false;
         Robot.liftArm.setGrabber(true);
 
         if(Robot.liftArm.getArmAngle()> Robot.position.armScale + 100) {
-            Robot.liftArm.setLiftArm(0.80);
+            Robot.liftArm.setLiftArm(RobotMap.armSpeed);
             stowWrist();
         } else if(Robot.liftArm.getArmAngle()< Robot.position.armScale - 100) {
-            Robot.liftArm.setLiftArm(-0.80);
+            Robot.liftArm.setLiftArm(-RobotMap.armSpeed);
             stowWrist();
         } else {
             Robot.liftArm.stopLiftArm();

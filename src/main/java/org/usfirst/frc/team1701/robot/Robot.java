@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Timer;
-import org.usfirst.frc.team1701.robot.commands.AutoCommandGroup;
+import org.usfirst.frc.team1701.robot.commands.*;
 import org.usfirst.frc.team1701.robot.subsystems.*;
 
 /*
@@ -59,6 +59,7 @@ public class Robot extends IterativeRobot {
 
     vision.setPIPMode(2);
     driveTrain.resetEncoders();
+    driveTrain.setBrakeMode();
   }
   /*
    * This function is called when the robot has been disabled.
@@ -110,4 +111,12 @@ public class Robot extends IterativeRobot {
    * This function is called periodically during test mode.
    */
   public void testPeriodic() {}
+
+  public void cancel() {
+    new ClimbPositionArm().cancel();
+    new GrabPositionArm().cancel();
+    new ScalePositionArm().cancel();
+    new SwitchPositionArm().cancel();
+    new SwitchShootPositionArm().cancel();
+  }
 }

@@ -9,6 +9,7 @@ package org.usfirst.frc.team1701.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
+import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class SwitchPositionArm extends Command {
     public SwitchPositionArm() {
@@ -16,6 +17,7 @@ public class SwitchPositionArm extends Command {
     }
 
     private boolean isFinished;
+
 
     private void stowWrist() {
 
@@ -41,16 +43,24 @@ public class SwitchPositionArm extends Command {
     }
     protected void initialize() {}
     protected void execute() {
+        if(RobotMap.cancelAll) {
+            RobotMap.cancelAll = false;
+            Robot.liftArm.stopLiftArm();
+            Robot.liftArm.stopWrist();
+            isFinished = true;
+            return;
+        }
+
         Robot.liftArm.disableWristBrake();
         Robot.liftArm.winchHighGear();
         isFinished = false;
         Robot.liftArm.setGrabber(true);
 
         if(Robot.liftArm.getArmAngle()> Robot.position.armSwitch + 40) {
-            Robot.liftArm.setLiftArm(0.90);
+            Robot.liftArm.setLiftArm(RobotMap.armSpeed);
             stowWrist();
         } else if(Robot.liftArm.getArmAngle()< Robot.position.armSwitch - 40) {
-            Robot.liftArm.setLiftArm(-0.90);
+            Robot.liftArm.setLiftArm(-RobotMap.armSpeed);
             stowWrist();
         } else {
             Robot.liftArm.stopLiftArm();

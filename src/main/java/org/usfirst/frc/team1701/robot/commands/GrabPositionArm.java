@@ -10,6 +10,7 @@ package org.usfirst.frc.team1701.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
+import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class GrabPositionArm extends Command {
     public GrabPositionArm() {
@@ -19,17 +20,26 @@ public class GrabPositionArm extends Command {
     private boolean isFinished;
 
 
+
     protected void initialize() {}
     protected void execute() {
+        if(RobotMap.cancelAll) {
+            RobotMap.cancelAll = false;
+            Robot.liftArm.stopLiftArm();
+            Robot.liftArm.stopWrist();
+            isFinished = true;
+            return;
+        }
+
         Robot.liftArm.disableWristBrake();
         Robot.liftArm.winchHighGear();
         isFinished = false;
         Robot.liftArm.setGrabber(true);
 
         if(Robot.liftArm.getArmAngle()> Robot.position.armGrab + 100) {
-            Robot.liftArm.setLiftArm(0.90); }
+            Robot.liftArm.setLiftArm(RobotMap.armSpeed); }
         else if(Robot.liftArm.getArmAngle()< Robot.position.armGrab - 100) {
-            Robot.liftArm.setLiftArm(-0.90);
+            Robot.liftArm.setLiftArm(-RobotMap.armSpeed);
         }
         else {
             Robot.liftArm.stopLiftArm();

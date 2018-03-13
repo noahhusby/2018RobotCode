@@ -6,6 +6,7 @@
  * @license BSD-3-Clause
  */
 package org.usfirst.frc.team1701.robot.subsystems;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PIDController;
@@ -50,12 +51,13 @@ public class DriveTrain extends PIDSubsystem {
   private boolean reversed = false;
   private boolean deadStick = false;
   public boolean autoGear = false;
+  public double driveSpeed = 0;
 
   public DriveTrain() {
-    super(0.03,0,0);
-    this.setInputRange(-180,180);
-    this.setOutputRange(-1,1);
-    this.setAbsoluteTolerance(2);
+    super(0.9,0,0);
+    this.setInputRange(-360,360);
+    this.setOutputRange(-0.9,0.9);
+    this.setAbsoluteTolerance(.5);
     this.getPIDController().setContinuous(true);
   }
 
@@ -256,11 +258,25 @@ public class DriveTrain extends PIDSubsystem {
 
   @Override
   protected double returnPIDInput() {
-    return navx.getAngle();
+    return -navx.getAngle();
   }
 
   @Override
   protected void usePIDOutput(double output) {
-    teleopControl(0,output);
+    teleopControl(driveSpeed,output);
+  }
+
+  public void setBrakeMode() {
+    left_1.setNeutralMode(NeutralMode.Brake);
+    left_2.setNeutralMode(NeutralMode.Brake);
+    right_1.setNeutralMode(NeutralMode.Brake);
+    right_2.setNeutralMode(NeutralMode.Brake);
+  }
+
+  public void setCoastMode() {
+    left_1.setNeutralMode(NeutralMode.Coast);
+    left_2.setNeutralMode(NeutralMode.Coast);
+    right_1.setNeutralMode(NeutralMode.Coast);
+    right_2.setNeutralMode(NeutralMode.Coast);
   }
 }
