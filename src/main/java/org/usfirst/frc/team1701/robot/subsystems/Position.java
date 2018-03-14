@@ -26,21 +26,8 @@ public class Position extends Subsystem {
     /*
      * Values for autonomous
      */
-    public double wallToCubeRight = 0.1;
-    public double wallToCubeLeft = 0.1;
-    public double centerToSide = 5.00;
-    public double turnToSwitch = 4.2;
-    public double turnToSwitchRight = 4.4;
-    public double wallToScale = 22.75;
-    public double wallToPlatformZone = 15.69;
-    public double scaleReverse = 0.31;
+
     public double autonomousSpeed = 0.90;
-    public double crossPlatformZone = 13.93;
-    public double platformToScale = 2.1;
-    public double leftAngle = 81;
-    public double rightAngle = 81;
-    public double slightLeftAngle = 45;
-    public double slightRightAngle = 30;
     public double wallToStraightSwitch = 7;
 
     public boolean isReleasePressed = false;
