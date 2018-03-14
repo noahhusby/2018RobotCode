@@ -45,9 +45,9 @@ public class AutoCommandGroup extends CommandGroup {
 
     private void placeCubeAutonomous(int autoLocation) {
         if (autoLocation == 1) {
+            //Left
             switch (scalePosition) {
                 case 'L':
-                    //addSequential(new SwitchPosition());
                     Robot.driveTrain.setAutoGear(false);
                     Robot.driveTrain.setLowGear();
                     addSequential(new Drive(19,0.82));
@@ -60,6 +60,7 @@ public class AutoCommandGroup extends CommandGroup {
                     break;
             }
         } else if (autoLocation == 2) {
+            //Middle
             switch (switchPosition) {
                 case 'L':
                     addSequential(new SwitchPosition());
@@ -78,7 +79,7 @@ public class AutoCommandGroup extends CommandGroup {
                     break;
             }
         } else if (autoLocation == 3) {
-
+            //Right
             switch (scalePosition) {
                 case 'L':
                     addSequential(new Drive(10,0.8));
@@ -99,7 +100,6 @@ public class AutoCommandGroup extends CommandGroup {
                 case 'L':
                     addSequential(new SwitchPosition());
                     addSequential(new Drive(Robot.position.wallToStraightSwitch,Robot.position.autonomousSpeed));
-                    //addSequential(new WallToStraightSwitch());
                     addSequential(new ReleaseCube());
                     break;
                 case 'R':
