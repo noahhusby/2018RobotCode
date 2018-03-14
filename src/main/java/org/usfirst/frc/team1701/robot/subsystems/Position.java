@@ -5,14 +5,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Position extends Subsystem {
 
     /*
-     * Minimum and maximum traveling distance for wrist and arm
-     */
-    public double armSafetyMin = 98;
-    public double armSafetyMax = 2202;
-    public double wristSafetyMin = 0;
-    public double wristSafetyMax = 0;
-
-    /*
      * Wrist values for positions
      */
     public double wristStow = -44;

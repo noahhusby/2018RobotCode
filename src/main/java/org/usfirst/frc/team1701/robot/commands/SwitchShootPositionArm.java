@@ -19,8 +19,6 @@ public class SwitchShootPositionArm extends Command {
 
     private boolean isFinished;
 
-
-
     private void stowWrist() {
 
         Robot.liftArm.setGrabber(true);
@@ -45,13 +43,6 @@ public class SwitchShootPositionArm extends Command {
     }
     protected void initialize() {}
     protected void execute() {
-        if(RobotMap.cancelAll) {
-            RobotMap.cancelAll = false;
-            Robot.liftArm.stopLiftArm();
-            Robot.liftArm.stopWrist();
-            isFinished = true;
-            return;
-        }
 
         Robot.liftArm.winchHighGear();
         Robot.liftArm.disableWristBrake();

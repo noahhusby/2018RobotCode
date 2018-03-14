@@ -51,8 +51,7 @@ public class Shuffleboard {
         SmartDashboard.putNumber("Arm",0);
         SmartDashboard.putBoolean("Arm Trigger", false);
         SmartDashboard.putNumber("Drive Train", 0);
-        SmartDashboard.putNumber("Magic",0);
-        SmartDashboard.putBoolean("JustinBrokeIt",false);
+
     }
 
     /**
@@ -64,9 +63,6 @@ public class Shuffleboard {
         SmartDashboard.putNumber("Wrist", Robot.liftArm.getWristAngle());
         SmartDashboard.putBoolean("Arm Trigger", RobotMap.armSensor.get());
         SmartDashboard.putNumber("Drive Train", Robot.driveTrain.getRightDistance());
-        SmartDashboard.putBoolean("JustinBrokeIt", RobotMap.cubeSensor.get());
-        SmartDashboard.putNumber("Magic", -Robot.driveTrain.getNavxAngle());
-
 
     }
 

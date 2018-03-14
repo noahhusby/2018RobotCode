@@ -45,13 +45,6 @@ public class ScalePositionArm extends Command {
     }
     protected void initialize() {}
     protected void execute() {
-        if(RobotMap.cancelAll) {
-            RobotMap.cancelAll = false;
-            Robot.liftArm.stopLiftArm();
-            Robot.liftArm.stopWrist();
-            isFinished = true;
-            return;
-        }
         Robot.liftArm.disableWristBrake();
         Robot.liftArm.winchHighGear();
         isFinished = false;

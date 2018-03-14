@@ -93,9 +93,7 @@ public class OI {
     gear = new JoystickButton(drive_FB,3);
     gear.whenPressed(new AutoGear());
     gear.whenReleased(new LowGear());
-    cancel = new JoystickButton(operation,17);
-    cancel.whenPressed(new Cancel());
-    //cancel.whenReleased(new UnCancel());
+
 
     manualWristReset = new JoystickButton(operation,15);
     manualWristReset.whenPressed(new ResetWrist());

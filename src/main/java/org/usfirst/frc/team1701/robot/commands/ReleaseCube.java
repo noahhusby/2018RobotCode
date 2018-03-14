@@ -19,7 +19,6 @@ public class ReleaseCube extends Command{
     protected void initialize() {
     }
     protected void execute() {
-        //RobotMap.cancelAll = true;
         Robot.position.isReleasePressed = true;
         Robot.liftArm.setGrabber(false);
 

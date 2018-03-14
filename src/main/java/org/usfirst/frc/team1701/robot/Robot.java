@@ -112,11 +112,5 @@ public class Robot extends IterativeRobot {
    */
   public void testPeriodic() {}
 
-  public void cancel() {
-    new ClimbPositionArm().cancel();
-    new GrabPositionArm().cancel();
-    new ScalePositionArm().cancel();
-    new SwitchPositionArm().cancel();
-    new SwitchShootPositionArm().cancel();
-  }
+
 }

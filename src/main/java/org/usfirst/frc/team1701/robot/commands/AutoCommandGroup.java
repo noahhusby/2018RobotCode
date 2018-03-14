@@ -37,7 +37,7 @@ public class AutoCommandGroup extends CommandGroup {
                 break;
 
             case 2:
-                addSequential(new DriveForwardCommand());
+                addSequential(new Drive(11,0.6));
                 break;
         }
 
