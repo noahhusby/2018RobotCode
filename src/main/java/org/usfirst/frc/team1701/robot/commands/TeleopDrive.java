@@ -20,6 +20,9 @@ public class TeleopDrive extends Command {
   }
   protected void initialize() {
     Robot.driveTrain.stopPID();
+    //Robot.driveTrain.setLowGear();
+    Robot.driveTrain.setCoastMode();
+
   }
   protected void execute() {
 
