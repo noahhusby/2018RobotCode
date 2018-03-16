@@ -51,6 +51,7 @@ public class Shuffleboard {
         SmartDashboard.putNumber("Arm",0);
         SmartDashboard.putBoolean("Arm Trigger", false);
         SmartDashboard.putNumber("Drive Train", 0);
+        SmartDashboard.putString("GameCode", "");
 
     }
 

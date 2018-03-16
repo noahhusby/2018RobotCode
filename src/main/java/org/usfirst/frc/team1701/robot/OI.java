@@ -33,8 +33,6 @@ public class OI {
   public static JoystickButton manualWristUp;
   public static JoystickButton manualWristDown;
   public static JoystickButton gear;
-  public static JoystickButton cancel;
-
   public static JoystickButton manualWristReset;
 
   public static Joystick operation;

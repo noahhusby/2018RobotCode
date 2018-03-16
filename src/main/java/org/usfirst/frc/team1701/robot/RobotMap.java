@@ -38,7 +38,6 @@ public class RobotMap {
   public static DigitalInput armSensor;
   public static AHRS _navx;
   public static int encPidIdx;
-  public static boolean cancelAll = false;
   public static double armSpeed = 1.0;
 
   /**

@@ -34,6 +34,7 @@ public class AutoCommandGroup extends CommandGroup {
         switch ((int) action) {
             case 1:
                 placeCubeAutonomous((int) Robot.shuffleboard.autonomousLocation.getSelected());
+                SmartDashboard.putString("GameCode", gameCode);
                 break;
 
             case 2:
