@@ -45,7 +45,7 @@ public class RobotMap {
    * Initialize the public values above.
    */
   public static void init() {
-    _leftFrontMotor = new WPI_TalonSRX(0); //0
+    _leftFrontMotor = new WPI_TalonSRX(3); //0
     _leftBackMotor = new WPI_TalonSRX(1); //1
     _rightFrontMotor = new WPI_TalonSRX(15); //15
     _rightBackMotor = new WPI_TalonSRX(14); //14

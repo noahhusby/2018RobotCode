@@ -19,6 +19,7 @@ public class TeleopDrive extends Command {
     requires(Robot.driveTrain);
   }
   protected void initialize() {
+    Robot.driveTrain.stopPID();
   }
   protected void execute() {
 
@@ -28,8 +29,8 @@ public class TeleopDrive extends Command {
 
     Robot.shuffleboard.updateDashboard();
     double deadConst = .10;
-    double fBInput = checkDeadZone(OI.drive_FB.getY(), deadConst);
-    double tInput =  -1 * checkDeadZone(OI.drive_T.getX(), deadConst);
+    double fBInput = 2 * checkDeadZone(OI.drive_FB.getY(), deadConst);
+    double tInput =  -1 * 2 * checkDeadZone(OI.drive_T.getX(), deadConst);
     Robot.driveTrain.teleopControl(fBInput, tInput);
     Robot.driveTrain.autoGear(OI.drive_FB.getY(),deadConst,Robot.driveTrain.getRightDistance(),3);
 

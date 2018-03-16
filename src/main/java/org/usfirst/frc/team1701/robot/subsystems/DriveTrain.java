@@ -54,7 +54,7 @@ public class DriveTrain extends PIDSubsystem {
   public double driveSpeed = 0;
 
   public DriveTrain() {
-    super(0.9,0,0);
+    super(1.1,0,0);
     this.setInputRange(-360,360);
     this.setOutputRange(-0.9,0.9);
     this.setAbsoluteTolerance(.5);
