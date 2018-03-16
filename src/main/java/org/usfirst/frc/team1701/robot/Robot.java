@@ -60,6 +60,7 @@ public class Robot extends IterativeRobot {
     vision.setPIPMode(2);
     driveTrain.resetEncoders();
     driveTrain.setBrakeMode();
+    driveTrain.setLowGear();
   }
   /*
    * This function is called when the robot has been disabled.

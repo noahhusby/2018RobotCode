@@ -65,16 +65,16 @@ public class AutoCommandGroup extends CommandGroup {
             switch (switchPosition) {
                 case 'L':
                     addSequential(new SwitchPosition());
-                    addSequential(new Drive(1,0.7));
+                    addSequential(new Drive(1,0.8));
                     addSequential(new Turn(29));
-                    addSequential(new Drive(9,.9));
+                    addSequential(new Drive(9,.7));
                     addSequential(new ReleaseAndPunch());
                     break;
                 case 'R':
                     addSequential(new SwitchPosition());
-                    addSequential(new Drive(1,0.7));
+                    addSequential(new Drive(1,0.8));
                     addSequential(new Turn(-27));
-                    addSequential(new Drive(9,.9));
+                    addSequential(new Drive(9,.7));
                     addSequential(new ReleaseAndPunch());
 
                     break;
