@@ -10,18 +10,18 @@ public class Position extends Subsystem {
     public double wristStow = -44;
     public double wristGrab = 1119;
     public double wristScale = 911;
-    public double wristClimb = 1289;
+    public double wristClimb = 1317;
     public double wristSwitch = -1512;
     public double wristSwitchShoot = 461;
 
     /*
      * Arm value for positions
      */
-    public double armGrab = 35;
-    public double armScale = 2160;
-    public double armClimb = 2156;
-    public double armSwitch = 1133;
-    public double armSwitchShoot = 323;
+    public double armGrab = 48;
+    public double armScale = 1994;
+    public double armClimb = 1645;
+    public double armSwitch = 1185;
+    public double armSwitchShoot = 224;
 
     /*
      * Values for autonomous

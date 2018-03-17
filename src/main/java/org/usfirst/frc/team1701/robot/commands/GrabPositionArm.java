@@ -27,9 +27,9 @@ public class GrabPositionArm extends Command {
         isFinished = false;
         Robot.liftArm.setGrabber(true);
 
-        if(Robot.liftArm.getArmAngle()> Robot.position.armGrab + 15) {
+        if(Robot.liftArm.getArmAngle()> Robot.position.armGrab + 8) {
             Robot.liftArm.setLiftArm(RobotMap.armSpeed); }
-        else if(Robot.liftArm.getArmAngle()< Robot.position.armGrab - 15) {
+        else if(Robot.liftArm.getArmAngle()< Robot.position.armGrab - 8) {
             Robot.liftArm.setLiftArm(-RobotMap.armSpeed);
         }
         else {
