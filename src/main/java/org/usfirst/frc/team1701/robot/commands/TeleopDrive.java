@@ -19,26 +19,23 @@ public class TeleopDrive extends Command {
     requires(Robot.driveTrain);
   }
   protected void initialize() {
+    Robot.driveTrain.stopPID();
+    //Robot.driveTrain.setLowGear();
+    Robot.driveTrain.setCoastMode();
+
   }
   protected void execute() {
-
-    SmartDashboard.putBoolean("Reversed", Robot.driveTrain.getReverse());
-    SmartDashboard.putNumber("Arm",Robot.liftArm.getArmAngle());
-    SmartDashboard.putNumber("Wrist", Robot.liftArm.getWristAngle());
-    SmartDashboard.putBoolean("Arm Down", RobotMap.armSensor.get());
-    SmartDashboard.putNumber("Drive Train", Robot.driveTrain.getRightDistance());
-
 
     if(Robot.liftArm.getCubeSensor() && !Robot.position.isReleasePressed) {
       Robot.liftArm.setGrabber(true);
     }
 
-
+    Robot.shuffleboard.updateDashboard();
     double deadConst = .10;
-    double fBInput = checkDeadZone(OI.drive_FB.getY(), deadConst);
-    double tInput =  -1 * checkDeadZone(OI.drive_T.getX(), deadConst);
+    double fBInput = 2 * checkDeadZone(OI.drive_FB.getY(), deadConst);
+    double tInput =  -1 * 2 * checkDeadZone(OI.drive_T.getX(), deadConst);
     Robot.driveTrain.teleopControl(fBInput, tInput);
-    Robot.driveTrain.autoGear(OI.drive_FB.getY(),deadConst,Robot.driveTrain.getRightDistance(),7);
+    Robot.driveTrain.autoGear(OI.drive_FB.getY(),deadConst,Robot.driveTrain.getRightDistance(),3);
 
   }
   protected boolean isFinished() {

@@ -10,6 +10,7 @@ package org.usfirst.frc.team1701.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
+import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class GrabPositionArm extends Command {
     public GrabPositionArm() {
@@ -18,27 +19,27 @@ public class GrabPositionArm extends Command {
 
     private boolean isFinished;
 
-
     protected void initialize() {}
     protected void execute() {
+
         Robot.liftArm.disableWristBrake();
         Robot.liftArm.winchHighGear();
         isFinished = false;
         Robot.liftArm.setGrabber(true);
 
-        if(Robot.liftArm.getArmAngle()> Robot.position.armGrab + 100) {
-            Robot.liftArm.setLiftArm(0.90); }
-        else if(Robot.liftArm.getArmAngle()< Robot.position.armGrab - 100) {
-            Robot.liftArm.setLiftArm(-0.90);
+        if(Robot.liftArm.getArmAngle()> Robot.position.armGrab + 8) {
+            Robot.liftArm.setLiftArm(RobotMap.armSpeed); }
+        else if(Robot.liftArm.getArmAngle()< Robot.position.armGrab - 8) {
+            Robot.liftArm.setLiftArm(-RobotMap.armSpeed);
         }
         else {
             Robot.liftArm.stopLiftArm();
             Robot.liftArm.disableWristBrake();
-            if(Robot.liftArm.getWristAngle() > Robot.position.wristGrab + 50)
+            if(Robot.liftArm.getWristAngle() > Robot.position.wristGrab + 15)
             {
                 Robot.liftArm.setWrist(0.50);
             }
-            else if(Robot.liftArm.getWristAngle() < Robot.position.wristGrab - 50)
+            else if(Robot.liftArm.getWristAngle() < Robot.position.wristGrab - 15)
             {
                 Robot.liftArm.setWrist(-0.50);
             }

@@ -9,6 +9,7 @@ package org.usfirst.frc.team1701.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
+import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class ReleaseCube extends Command{
 
@@ -20,10 +21,12 @@ public class ReleaseCube extends Command{
     protected void execute() {
         Robot.position.isReleasePressed = true;
         Robot.liftArm.setGrabber(false);
+
     }
     protected boolean isFinished() {
         return true;
     }
-    protected void end() {}
+    protected void end() {
+    }
     protected void interrupted() {}
 }

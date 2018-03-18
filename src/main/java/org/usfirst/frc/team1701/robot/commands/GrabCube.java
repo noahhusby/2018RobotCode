@@ -9,6 +9,7 @@ package org.usfirst.frc.team1701.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team1701.robot.Robot;
+import org.usfirst.frc.team1701.robot.RobotMap;
 
 public class GrabCube extends Command{
 
@@ -19,11 +20,14 @@ public class GrabCube extends Command{
 
     }
     protected void execute() {
+        //RobotMap.cancelAll = true;
         Robot.liftArm.setGrabber(true);
     }
     protected boolean isFinished() {
         return true;
     }
-    protected void end() {}
+    protected void end() {
+
+    }
     protected void interrupted() {}
 }

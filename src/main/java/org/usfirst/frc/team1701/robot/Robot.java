@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Timer;
-import org.usfirst.frc.team1701.robot.commands.AutoCommandGroup;
+import org.usfirst.frc.team1701.robot.commands.*;
 import org.usfirst.frc.team1701.robot.subsystems.*;
 
 /*
@@ -39,44 +39,28 @@ public class Robot extends IterativeRobot {
    */
   private DriverStation ds = DriverStation.getInstance();
   private String gameCode = "";
-  public static SendableChooser<Number> autonomousLocation;
-  public static SendableChooser<Number> action;
   public static OI oi;
   public static DriveTrain driveTrain;
   public static LiftArm liftArm;
   public static Vision vision;
   public static Position position;
+  public static Shuffleboard shuffleboard;
   /*
    * This function is run when the robot is first started up.
    */
   public void robotInit() {
     RobotMap.init(); // Initialize our RobotMap.
+    Shuffleboard.init();
     driveTrain = new DriveTrain();
     vision = new Vision();
     liftArm = new LiftArm();
     position = new Position();
     oi = new OI();
-    autonomousLocation = new SendableChooser<>();
-    autonomousLocation.addObject("Left",1);
-    autonomousLocation.addObject("Left-Switch",4);
-    autonomousLocation.addDefault("Middle",2);
-    autonomousLocation.addObject("Right-Switch",5);
-    autonomousLocation.addObject("Right",3);
-    SmartDashboard.putData("Autonomous Location", autonomousLocation);
-    action = new SendableChooser<>();
-    action.addDefault("Defualt Autonomous", 1);
-    action.addObject("Forward Autonomous", 2);
-    SmartDashboard.putData("Autonomous Chooser",action);
-    SmartDashboard.putBoolean("Reversed", false);
-    SmartDashboard.putString("Current Gear","");
-    SmartDashboard.putNumber("Arm",0);
-    SmartDashboard.putBoolean("Arm Down", false);
-    SmartDashboard.putNumber("D", 0);
 
     vision.setPIPMode(2);
     driveTrain.resetEncoders();
-
-
+    driveTrain.setBrakeMode();
+    driveTrain.setLowGear();
   }
   /*
    * This function is called when the robot has been disabled.
@@ -99,7 +83,7 @@ public class Robot extends IterativeRobot {
    */
   public void autonomousInit() {
     if(gameCode.length() == 3) {
-      CommandGroup autonomousCommand = new AutoCommandGroup(gameCode,action.getSelected(),autonomousLocation.getSelected());
+      CommandGroup autonomousCommand = new AutoCommandGroup(gameCode, Shuffleboard.action.getSelected(), Shuffleboard.autonomousLocation.getSelected());
       autonomousCommand.start();
     }
   }
@@ -128,4 +112,6 @@ public class Robot extends IterativeRobot {
    * This function is called periodically during test mode.
    */
   public void testPeriodic() {}
+
+
 }

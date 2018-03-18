@@ -15,15 +15,20 @@ public class StowPosition extends Command{
         requires(Robot.liftArm);
     }
     private boolean isFinished;
+
+    public void finish() {
+        isFinished = true;
+    }
+
     protected void initialize() {}
     protected void execute() {
         Robot.liftArm.disableWristBrake();
         isFinished = false;
         Robot.liftArm.setGrabber(true);
 
-        if(Robot.liftArm.getWristAngle() > Robot.position.wristStow + 50) {
+        if(Robot.liftArm.getWristAngle() > Robot.position.wristStow + 15) {
             Robot.liftArm.setWrist(0.75);
-        } else if(Robot.liftArm.getWristAngle() < Robot.position.wristStow - 50) {
+        } else if(Robot.liftArm.getWristAngle() < Robot.position.wristStow - 15) {
             Robot.liftArm.setWrist(-0.75);
         } else {
             isFinished = true;
