@@ -83,7 +83,8 @@ public class LiftArm extends Subsystem {
    * @return wrist angle as double.
    */
   public double getWristAngle() {
-    return wristEncoder.getSelectedSensorPosition(encPidIdx);
+    //return wristEncoder.getSelectedSensorPosition(encPidIdx);
+    return RobotMap.wristEncoder.getValue();
   }
   /**
    * Set the clamp position.
@@ -103,8 +104,8 @@ public class LiftArm extends Subsystem {
    */
   public void setLiftArm(double input) {
     disableWinchBrake();
-    winch1.set(input);
-    winch2.set(input);
+    winch1.set(checkArmZone(input));
+    winch2.set(checkArmZone(input));
 
   }
   /**
@@ -153,11 +154,7 @@ public class LiftArm extends Subsystem {
     return RobotMap.cubeSensor.get();
   }
   public double checkArmZone(double speed) {
-    if(Robot.position.armSafetyMin >= Robot.liftArm.getArmAngle()) {
-      return 0;
-    }
-
-    if(Robot.position.armSafetyMax <= Robot.liftArm.getArmAngle()) {
+    if(RobotMap.armSensor.get() && speed > 0) {
       return 0;
     }
     return speed;

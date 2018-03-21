@@ -10,15 +10,13 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX; // Replaced wildcard impo
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-/*import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;*/
+
 
 public class RobotMap {
   /*
    * Create all static variables, most (exception of logger) filled
    * by the init() method below.
    */
-  //private static final Logger logger = LogManager.getLogger();
   public static WPI_TalonSRX _leftFrontMotor;
   public static WPI_TalonSRX _leftBackMotor;
   public static WPI_TalonSRX _rightFrontMotor;
@@ -36,18 +34,18 @@ public class RobotMap {
   public static DoubleSolenoid winchBrake;
   public static DoubleSolenoid wristBrake;
   public static AnalogInput liftArmEncoder;
+  public static AnalogInput wristEncoder;
   public static DigitalInput cubeSensor;
   public static DigitalInput armSensor;
-  public static Spark _led0;
-  public static Spark _led1;
   public static AHRS _navx;
   public static int encPidIdx;
-  
+  public static double armSpeed = 1.0;
+
   /**
    * Initialize the public values above.
    */
   public static void init() {
-    _leftFrontMotor = new WPI_TalonSRX(0); //0
+    _leftFrontMotor = new WPI_TalonSRX(3); //0
     _leftBackMotor = new WPI_TalonSRX(1); //1
     _rightFrontMotor = new WPI_TalonSRX(15); //15
     _rightBackMotor = new WPI_TalonSRX(14); //14
@@ -60,6 +58,7 @@ public class RobotMap {
      * Initialize all analog and digital objects
      */
     liftArmEncoder = new AnalogInput(0);
+    wristEncoder = new AnalogInput(1);
     cubeSensor = new DigitalInput(0);
     armSensor = new DigitalInput(1);
 
@@ -88,12 +87,6 @@ public class RobotMap {
      * Instantiate NavX.
      */
     _navx = new AHRS(SerialPort.Port.kUSB1);
-    /**
-     * LED controllers, follows Spark motor controller pattern.
-     * @see https://www.revrobotics.com/content/docs/REV-11-1105-UM.pdf, page 7
-     */
-    _led0 = new Spark(0);
-    _led1 = new Spark(1);
-
   }
+
 }

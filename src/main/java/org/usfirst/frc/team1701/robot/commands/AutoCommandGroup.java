@@ -33,11 +33,12 @@ public class AutoCommandGroup extends CommandGroup {
 
         switch ((int) action) {
             case 1:
-                placeCubeAutonomous((int) Robot.autonomousLocation.getSelected());
+                placeCubeAutonomous((int) Robot.shuffleboard.autonomousLocation.getSelected());
+                SmartDashboard.putString("GameCode", gameCode);
                 break;
 
             case 2:
-                addSequential(new DriveForwardCommand());
+                addSequential(new Drive(11,0.6));
                 break;
         }
 
@@ -45,58 +46,66 @@ public class AutoCommandGroup extends CommandGroup {
 
     private void placeCubeAutonomous(int autoLocation) {
         if (autoLocation == 1) {
+            //Left
             switch (scalePosition) {
                 case 'L':
-                    addSequential(new WallToScale());
-                    addSequential(new StowPosition());
-                    addSequential(new TurnLeft());
+                    Robot.driveTrain.setAutoGear(false);
+                    Robot.driveTrain.setLowGear();
+                    addSequential(new Drive(20,0.82));
+                    addSequential(new Turn(135));
                     addSequential(new ScalePosition());
-                    addSequential(new ReverseScale());
                     addSequential(new ReleaseAndPunch());
                     break;
                 case 'R':
-                    addSequential(new WallToPlatformZone());
-                    addParallel(new StowPosition());
-                    addSequential(new TurnRight());
-                    addSequential(new CrossPlatformZone());
-                    addSequential(new TurnLeft());
-                    addParallel(new ScalePosition());
-                    addSequential(new PlatformToScale());
-                    addSequential(new ReleaseAndPunch());
+                    addSequential(new Drive(10,0.8));
                     break;
             }
         } else if (autoLocation == 2) {
+            //Middle
             switch (switchPosition) {
                 case 'L':
-                    addSequential(new WallToMiddleLeft());
-                    addSequential(new StowPosition());
-                    addSequential(new SlightLeft());
                     addSequential(new SwitchPosition());
-                    addSequential(new TurnToSwitch());
+                    addSequential(new Drive(1,0.8));
+                    addSequential(new Turn(29));
+                    addSequential(new Drive(7,.9));
                     addSequential(new ReleaseAndPunch());
                     break;
                 case 'R':
-                    addSequential(new WallToMiddleRight());
-                    addSequential(new StowPosition());
-                    addSequential(new SlightRight());
                     addSequential(new SwitchPosition());
-                    addSequential(new TurnToSwitchRight());
+                    addSequential(new Drive(1,0.8));
+                    addSequential(new Turn(-27));
+                    addSequential(new Drive(7,.9));
                     addSequential(new ReleaseAndPunch());
+
                     break;
             }
         } else if (autoLocation == 3) {
+            //Right
+            switch (scalePosition) {
+                case 'L':
+                    addSequential(new Drive(10,0.8));
+                    break;
+                case 'R':
+                    Robot.driveTrain.setAutoGear(false);
+                    Robot.driveTrain.setLowGear();
+                    addSequential(new Drive(20,0.82));
+                    addSequential(new Turn(-135));
+                    addSequential(new ScalePosition());
+                    addSequential(new ReleaseAndPunch());
+                    break;
+            }
 
         } else if (autoLocation == 4) {
             //Left-Switch
             switch (switchPosition) {
                 case 'L':
                     addSequential(new SwitchPosition());
-                    addSequential(new WallToStraightSwitch());
+                    addSequential(new Drive(Robot.position.wallToStraightSwitch,Robot.position.autonomousSpeed));
                     addSequential(new ReleaseCube());
                     break;
                 case 'R':
                     addSequential(new SwitchPosition());
-                    addSequential(new WallToStraightSwitch());
+                    addSequential(new Drive(Robot.position.wallToStraightSwitch,Robot.position.autonomousSpeed));
                     break;
             }
         } else if (autoLocation == 5) {
@@ -104,14 +113,16 @@ public class AutoCommandGroup extends CommandGroup {
             switch (switchPosition) {
                 case 'L':
                     addSequential(new SwitchPosition());
-                    addSequential(new WallToStraightSwitch());
+                    addSequential(new Drive(Robot.position.wallToStraightSwitch,Robot.position.autonomousSpeed));
                     break;
                 case 'R':
                     addSequential(new SwitchPosition());
-                    addSequential(new WallToStraightSwitch());
+                    addSequential(new Drive(Robot.position.wallToStraightSwitch,Robot.position.autonomousSpeed));
                     addSequential(new ReleaseCube());
                     break;
             }
+        } else if (autoLocation == 6) {
+            addSequential(new Turn(-90));
         }
     }
 }
